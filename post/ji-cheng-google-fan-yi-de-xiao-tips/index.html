@@ -1,0 +1,349 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>集成google翻译的小tips | CoderWGB&#39;s Blog</title>
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560697917148">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="http://wangguibin.github.io">
+  <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560697917148" alt="">
+  </a>
+  <h1 class="site-title">
+    CoderWGB&#39;s Blog
+  </h1>
+  <p class="site-description">
+    业精于勤荒于嬉
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              集成google翻译的小tips
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2018-08-04 ·
+              </time>
+              
+                <a href="http://wangguibin.github.io/tag/XXba-wIhP" class="post-tag">
+                  # 效率
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/uojQ_lMmq" class="post-tag">
+                  # Objective-C
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/5E2uUQVL2" class="post-tag">
+                  # 学习总结
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/k2TvoAzJc" class="post-tag">
+                  # iOS
+                </a>
+              
+            </div>
+            
+              <div class="post-feature-image" style="background-image: url('http://wangguibin.github.io/post-images/ji-cheng-google-fan-yi-de-xiao-tips.png')">
+              </div>
+            
+            <div class="post-content">
+              <p>google翻译的强大,就像我们公司的slogan : &quot;让语言无国界,让世人心相通&quot;</p>
+<!-- more -->
+<p><img src="http://wangguibin.github.io/post-images/1560697872361.png" alt=""></p>
+<h5 id="友情提示-google相关的服务都是需要翻墙的不然在大陆无法访问"><em>友情提示: google相关的服务都是需要翻墙的,不然在大陆无法访问</em></h5>
+<p>写这篇文章的目的就是为了整合一下这方面的资料, 大概是因为被墙,网上关于这方面的资料很少,有些是过于老旧,甚至是不适用的,所以就不得不做个笔记就当作是探探路。</p>
+<h1 id="google语音识别">google语音识别</h1>
+<ol>
+<li>到<code>google</code>注册相关的<code>API_KEY</code>, 地址: <code>https://cloud.google.com/speech-to-text/docs/samples</code></li>
+<li>下载demo  <code>https://github.com/GoogleCloudPlatform/ios-docs-samples/tree/master/speech/Objective-C/Speech-REST-Nonstreaming</code></li>
+<li>录制语音文件存于沙盒, 上传语音文件到 <code>https://speech.googleapis.com/v1/speech:recognize?key=xxxxx</code></li>
+</ol>
+<h3 id="核心代码">核心代码:</h3>
+<pre><code class="language-objectivec">  NSString *service = @&quot;https://speech.googleapis.com/v1/speech:recognize&quot;;
+  service = [service stringByAppendingString:@&quot;?key=&quot;];
+  service = [service stringByAppendingString:API_KEY];
+
+  NSData *audioData = [NSData dataWithContentsOfFile:[self soundFilePath]];//沙盒里的录音文件 具体看google提供的demo
+  NSDictionary *configRequest = @{@&quot;encoding&quot;:@&quot;LINEAR16&quot;,
+                                  @&quot;sampleRateHertz&quot;:@(SAMPLE_RATE),
+                                  @&quot;languageCode&quot;:@&quot;zh-cn&quot;,
+                                  @&quot;maxAlternatives&quot;:@30};
+  NSDictionary *audioRequest = @{@&quot;content&quot;:[audioData base64EncodedStringWithOptions:0]};
+  NSDictionary *requestDictionary = @{@&quot;config&quot;:configRequest,
+                                      @&quot;audio&quot;:audioRequest};
+  NSError *error;
+  NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDictionary
+                                                        options:0
+                                                          error:&amp;error];
+
+  NSString *path = service;
+  NSURL *URL = [NSURL URLWithString:path];
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
+  // if your API key has a bundle ID restriction, specify the bundle ID like this:
+  [request addValue:[[NSBundle mainBundle] bundleIdentifier] forHTTPHeaderField:@&quot;X-Ios-Bundle-Identifier&quot;];
+  NSString *contentType = @&quot;application/json&quot;;
+  [request addValue:contentType forHTTPHeaderField:@&quot;Content-Type&quot;];
+  [request setHTTPBody:requestData];
+  [request setHTTPMethod:@&quot;POST&quot;];
+
+  NSURLSessionTask *task =
+  [[NSURLSession sharedSession]
+   dataTaskWithRequest:request
+   completionHandler:
+   ^(NSData *data, NSURLResponse *response, NSError *error) {
+     dispatch_async(dispatch_get_main_queue(),
+                    ^{
+                      NSString *stringResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                      _textView.text = stringResult;
+                      NSLog(@&quot;RESULT: %@ &quot;, stringResult);
+                    });
+   }];
+  [task resume];
+
+</code></pre>
+<h1 id="google-文本翻译">google 文本翻译</h1>
+<p>文本翻译和语音识别类似,都需要<code>API_KEY</code>,同样是POST请求</p>
+<pre><code class="language-objectivec">/**
+ MARK:- 文本互转
+
+ @param text 文本
+ @param targetCode 翻译的对应语言代码
+ @param callBack 回调结果json字符串
+ */
+- (void)translateOriginText:(NSString *)text
+								 targetCode:(NSString *)targetCode
+									 callBack:(void(^)(NSString *objStr))callBack{
+	NSString *urlStr = [NSString stringWithFormat:@&quot;https://translation.googleapis.com/language/translate/v2?key=%@&quot;,API_KEY];
+	NSURL *URL = [NSURL URLWithString: urlStr];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
+	[request addValue:[[NSBundle mainBundle] bundleIdentifier] forHTTPHeaderField:@&quot;X-Ios-Bundle-Identifier&quot;];
+	NSString *contentType = @&quot;application/json&quot;;
+	[request addValue:contentType forHTTPHeaderField:@&quot;Content-Type&quot;];
+// q: 原文本  tagret: 目标语言的代码 zh-cn,en-us...等
+	NSDictionary *requestDictionary = @{  @&quot;q&quot; : text, @&quot;target&quot; : targetCode };
+	NSError *error;
+	NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDictionary options:0 error:&amp;error];
+	[request setHTTPBody:requestData];
+	[request setHTTPMethod:@&quot;POST&quot;];
+	NSURLSessionTask *task =
+	[[NSURLSession sharedSession]
+	 dataTaskWithRequest:request
+	 completionHandler:
+	 ^(NSData *data, NSURLResponse *response, NSError *error) {
+		 dispatch_async(dispatch_get_main_queue(),
+										^{
+											NSString *stringResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+											NSLog(@&quot;RESULT: %@ &quot;, stringResult);
+											!callBack? : callBack(stringResult);
+										});
+	 }];
+	[task resume];
+}
+
+</code></pre>
+<h1 id="google-语音合成">google 语音合成</h1>
+<ul>
+<li>合成是免费的 , 然后是这个接口  <code>http://translate.google.com/translate_tts?ie=UTF-8&amp;client=tw-ob&amp;ttsspeed=1</code></li>
+<li>参数组成</li>
+</ul>
+<pre><code>//基地址
+BASE_URL = @&quot;http://translate.google.com/translate_tts?ie=UTF-8&amp;client=tw-ob&amp;ttsspeed=1&quot;
+
+//拼接规则和get请求类似
+total   //标准为100个字符为一组 然后total是总共多少组 
+idx    //下标,第几组
+textlen  //所有文字的计数,就是这个字符串的长度
+q     //合成的文字内容,中文的话需要转编码utf-8最为合适
+tl  //语言，跟识别的语言一致
+</code></pre>
+<p>主要参数介绍:
+<code>ie</code>: 输入参数编码 <code>input-encode</code> 一般为<code>utf-8</code>
+<code>oe</code>: 输入参数编码 <code>output-encode</code> 一般为<code>utf-8</code>
+<code>ttsspeed</code>: 合成的语速
+<code>tl</code>: 目标语言代码 <code>target language</code>
+<code>hl</code>: 当地语言代码 <code>home language</code></p>
+<p>url编码前:
+<code>http://translate.google.com/translate_tts?ie=UTF-8&amp;client=tw-ob&amp;ttsspeed=1&amp;total=1&amp;idx=1&amp;textlen=6&amp;q=某某某是傻逼&amp;tl=zh-cn</code>
+url编码后:
+<code>http://translate.google.com/translate_tts?ie=UTF-8&amp;client=tw-ob&amp;ttsspeed=1&amp;total=1&amp;idx=1&amp;textlen=6&amp;q=%E9%99%88%E8%89%AF%E8%89%AF%E6%98%AF%E5%82%BB%E9%80%BC&amp;tl=zh-cn</code></p>
+<h3 id="核心代码-2">核心代码</h3>
+<pre><code>///MARK:- 文本 转 语音在线合成
+- (void)synthesisAudioWithTranslateWithText:(NSString *)text{
+    NSString *baseUrl = @&quot;http://translate.google.com/translate_tts?ie=UTF-8&amp;client=tw-ob&amp;ttsspeed=1&quot;;
+ //url编码
+    NSCharacterSet *encodeUrlSet = [NSCharacterSet URLQueryAllowedCharacterSet];
+    NSString *encodeContent = [text stringByAddingPercentEncodingWithAllowedCharacters:encodeUrlSet];
+    NSString *urlStr = [NSString stringWithFormat:@&quot;%@&amp;total=1&amp;idx=1&amp;textlen=%ld&amp;q=%@&amp;tl=%@&quot;,baseUrl,text.length,encodeContent,self.targetCode];
+    NSURL *url = [NSURL URLWithString: urlStr];
+      //播放拼接的链接 
+	UIWebView *web = [[UIWebView alloc] init];
+	web.hidden = YES;
+	[self.view addSubview: web];
+	NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
+	[web loadRequest: req];
+}
+</code></pre>
+<h3 id="主流的几种语言的代码对照表">主流的几种语言的代码对照表:</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">国家</th>
+<th style="text-align:center">languageCode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🇨🇳中文(简体)</td>
+<td style="text-align:center"><code>zh-cn</code></td>
+</tr>
+<tr>
+<td style="text-align:center">🇨🇳中文(繁体)</td>
+<td style="text-align:center"><code>zh-tw</code></td>
+</tr>
+<tr>
+<td style="text-align:center">🇺🇸英文(美式)</td>
+<td style="text-align:center"><code>en-us</code></td>
+</tr>
+<tr>
+<td style="text-align:center">🇬🇧英文(英式)</td>
+<td style="text-align:center"><code>en-gb</code></td>
+</tr>
+<tr>
+<td style="text-align:center">🇯🇵日语</td>
+<td style="text-align:center"><code>ja</code></td>
+</tr>
+<tr>
+<td style="text-align:center">🇰🇷韩语</td>
+<td style="text-align:center"><code>ko</code></td>
+</tr>
+<tr>
+<td style="text-align:center">🇷🇺俄语</td>
+<td style="text-align:center"><code>ru</code></td>
+</tr>
+<tr>
+<td style="text-align:center">🇪🇸西班牙语</td>
+<td style="text-align:center"><code>es</code></td>
+</tr>
+<tr>
+<td style="text-align:center">🇫🇷法语</td>
+<td style="text-align:center"><code>fr</code></td>
+</tr>
+<tr>
+<td style="text-align:center">🇩🇪德语</td>
+<td style="text-align:center"><code>de</code></td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="http://wangguibin.github.io/post/xcode-fu-zhu-gong-ju-zhi-re-chong-zai-cha-jian-li-qi">
+              <h3 class="post-title">
+                Xcode辅助工具之热重载插件利器
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'a8ee2e4211f0c00c07c5',
+    clientSecret: '99fd04bd90aa55b1b44067c721b41b0f0d899e3f',
+    repo: 'Wangguibin.github.io',
+    owner: 'WangGuibin',
+    admin: ['WangGuibin'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
