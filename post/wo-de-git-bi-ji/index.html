@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的git笔记 | CoderWGB&#39;s Blog</title>
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560698978420">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560699120585">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="http://wangguibin.github.io">
-  <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560698978420" alt="">
+  <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560699120585" alt="">
   </a>
   <h1 class="site-title">
     CoderWGB&#39;s Blog
@@ -101,7 +101,7 @@
             
             <div class="post-content">
               <h5 id="1-创建版本库">1. 创建版本库</h5>
-<pre><code class="language-swift">mkdir gitDemo //创建一个文件夹
+<pre><code class="language-ruby">mkdir gitDemo //创建一个文件夹
 
 pwd //查看当前路径 /Users/wangguibin/Desktop/gitDemo
 
@@ -117,7 +117,7 @@ vi readme.txt //修改文本内容
 </code></pre>
 <!-- more -->
 <h5 id="2-修改的文件或者创建的新文件提交到版本仓库">2. 修改的文件或者创建的新文件提交到版本仓库</h5>
-<pre><code class="language-swift">git add  readme.txt //添加到版本库
+<pre><code class="language-ruby">git add  readme.txt //添加到版本库
 //一般添加成功不会有任何提示
 git commit -m &quot;first update readme file git is 666&quot; // -m 后面的字符串是log日志信息,提交了啥改了啥说明一下,便于管理
 
@@ -143,7 +143,7 @@ git commit -a -m &quot;提交readme.txt的最近更新&quot;
  
 </code></pre>
 <h5 id="3-查看是否有更改未提交的情况git-status">3. 查看是否有更改未提交的情况<code>git status</code></h5>
-<pre><code class="language-objectivec">git diff readme.txt///查看文件被修改部分内容
+<pre><code class="language-c">git diff readme.txt///查看文件被修改部分内容
 
 ///没有更改,没有需要添加提交的地方
 git status
@@ -170,7 +170,7 @@ git commit -m &quot;修改了666.txt&quot;
 git log //查看提交的日志
 </code></pre>
 <h5 id="4-版本回退">4. 版本回退</h5>
-<pre><code class="language-swift">//跳到哪一个版本,秒秒钟的事,切一下头指针就ok,类似于链表的操作
+<pre><code class="language-objc">//跳到哪一个版本,秒秒钟的事,切一下头指针就ok,类似于链表的操作
 git log --pretty=oneline //查看节点id和提交信息
 ec855f8114fced47737b61e8abfaa9fb5949a1ac (HEAD -&gt; master) 提交readme.txt的最近更新
 1a46406038a5f50bd48a19daa38c599a6ff92fb6 修改了666.txt
@@ -194,7 +194,7 @@ ec855f8 (HEAD -&gt; master) HEAD@{0}: commit: 提交readme.txt的最近更新
 <p><img src="http://wangguibin.github.io/post-images/1560698439826.png" alt="">
 <strong>git是如何操作的? 如图,先把修改的文件add到暂存区,然后再执行 git commit,比如有几个文件做了修改,你这个时候可以修改一个就执行add和commit操作,也可以先全部add完再执行一次commit, 建议是开发一个小模块,创建或者修改完就add进去,快下班的时候或者休息的时候翻篇的时候,就执行一次commit操作,不然这个容易忘记,还有模块与模块之间,开发周期与开发周期时间和时机的不同, 尽可能开发一部分就提交一部分,免得积攒大量的任务.. 节点多意味着更加灵活,后续想滚到哪里就滚到哪里...</strong></p>
 <h5 id="6-撤销修改">6. 撤销修改</h5>
-<pre><code class="language-swift">场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+<pre><code class="language-objc">场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
 
 场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
 
@@ -202,7 +202,7 @@ ec855f8 (HEAD -&gt; master) HEAD@{0}: commit: 提交readme.txt的最近更新
 </code></pre>
 <h5 id="7-生成ssh-key">7.  生成ssh key</h5>
 <p><a href="http://blog.csdn.net/makenothing/article/details/8450417">参考博客</a></p>
-<pre><code class="language-swift">//1. 检查是否有ssh key
+<pre><code class="language-c">//1. 检查是否有ssh key
  cd ~/.ssh 查看这个目录下的文件
  ///2. 生成key
  ssh-keygen -t rsa -C &quot;you email@email.com&quot; 或者去掉 －t rsa
@@ -214,7 +214,7 @@ pbcopy &lt; ~/.ssh/id_rsa.pub
 ssh -T git@github.com
 </code></pre>
 <h5 id="8-拉取远程库">8.  拉取远程库</h5>
-<pre><code class="language-swift">///刻隆下来
+<pre><code class="language-c">///刻隆下来
 ///1.cd 到要存储的目录下
 ///2. 执行 git clone + 链接 
 git clone https://github.com/WangGuibin/WGBTagViewDemo.git
@@ -232,11 +232,11 @@ git pull：相当于是从远程获取最新版本并merge到本地
 git pull origin master
 </code></pre>
 <h5 id="9-推送到远程库">9.  推送到远程库</h5>
-<pre><code class="language-swift">git push origin master 
+<pre><code class="language-ruby">git push origin master 
 </code></pre>
 <p><a href="http://www.cnblogs.com/springbarley/archive/2012/11/03/2752984.html">git删除,分支,打tag,拉取和推送远程库参考命令</a></p>
 <h4 id="分支">分支</h4>
-<pre><code>Git鼓励大量使用分支：
+<pre><code class="language-ruby">Git鼓励大量使用分支：
 
 查看分支：git branch
 
@@ -252,7 +252,7 @@ git pull origin master
 
 </code></pre>
 <h3 id="打tag">打tag</h3>
-<pre><code>命令git tag &lt;name&gt;用于新建一个标签，默认为HEAD，也可以指定一个commit id；
+<pre><code class="language-ruby">命令git tag &lt;name&gt;用于新建一个标签，默认为HEAD，也可以指定一个commit id；
 
 git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;可以指定标签信息；
 
@@ -272,7 +272,7 @@ git tag -s &lt;tagname&gt; -m &quot;blablabla...&quot;可以用PGP签名标签�
 
 </code></pre>
 <h3 id="记录一次实战操作步骤">记录一次实战操作步骤</h3>
-<pre><code class="language-apache">// cd Desktop 进入桌面创建一个文件夹
+<pre><code class="language-ruby">// cd Desktop 进入桌面创建一个文件夹
  mkdir WGBGitTest
  cd  WGBGitTest // 进入文件夹
  git init //实例化git
@@ -317,7 +317,7 @@ git push origin --tags // 全部未提交的一起上去
  
 </code></pre>
 <h3 id="常用操作">常用操作</h3>
-<pre><code>/// 生动形象查看git log
+<pre><code class="language-ruby">/// 生动形象查看git log
 git log --graph 或者
 git log --graph --pretty=oneline --abbrev-commit
 
@@ -342,7 +342,7 @@ git tag -d tagName
 git push origin :refs/tags/tagName
 </code></pre>
 <h3 id="放弃当前本地修改强制拉取远程库最新的更新">放弃当前本地修改,强制拉取远程库最新的更新</h3>
-<pre><code class="language-swift">git fetch --all
+<pre><code class="language-ruby">git fetch --all
 git reset --hard origin/master
 git pull //可以省略
 </code></pre>
@@ -368,7 +368,7 @@ git pull //可以省略
 git config --global user.email &quot;wangguibin@jjys168.com&quot;
 </code></pre>
 <h5 id="2-如果你在主分支master上做了修改子分支dev想要同步主分支的修改那么有以下两种操作">2. 如果你在主分支(master)上做了修改,子分支(dev)想要同步主分支的修改,那么有以下两种操作:</h5>
-<pre><code># 方式一: git merge 合并分支
+<pre><code class="language-ruby"># 方式一: git merge 合并分支
 git checkout dev #切换到子分支 
 git merge master #合并主分支 即让主分支覆盖子分支 拥有主分支的当前所有更新
 
@@ -378,7 +378,7 @@ git rebase master // 将 master 上的修改合并到 dev 分支（当前分支�
 </code></pre>
 <p><strong><code>rebase</code> 会将 <code>dev</code>上的历史 <code>commit</code> 全部修改，并且用新的提交覆盖之。 看起来就是你的 <code>dev</code>分支从一个开始就是在最新的 <code>master</code> 上开发的( 新的<code>master</code>跑到了你分支的最开始处 )</strong></p>
 <p>/// 如果提交信息写错了而提交了可以修改,命令如下(进入vim编辑):</p>
-<pre><code>git commit --amend 
+<pre><code class="language-ruby">git commit --amend 
 </code></pre>
 <p><a href="https://segmentfault.com/q/1010000003875183">1. 合并父子分支更新的参考实例</a></p>
 <p><a href="https://www.cnblogs.com/marblemm/p/7161614.html">2. merge与rebase的区分和使用</a></p>
