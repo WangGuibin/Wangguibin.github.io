@@ -1,0 +1,439 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CSS学习笔记 | CoderWGB&#39;s Blog</title>
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560695964310">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="http://wangguibin.github.io">
+  <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560695964310" alt="">
+  </a>
+  <h1 class="site-title">
+    CoderWGB&#39;s Blog
+  </h1>
+  <p class="site-description">
+    业精于勤荒于嬉
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              CSS学习笔记
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2017-09-26 ·
+              </time>
+              
+                <a href="http://wangguibin.github.io/tag/elpJdwJmL" class="post-tag">
+                  # HTML
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/fKn99EFUO" class="post-tag">
+                  # JavaScript
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/k_kIMp_af" class="post-tag">
+                  # CSS
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/A8y7QHlLW" class="post-tag">
+                  # 前端
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/5E2uUQVL2" class="post-tag">
+                  # 学习总结
+                </a>
+              
+            </div>
+            
+              <div class="post-feature-image" style="background-image: url('http://wangguibin.github.io/post-images/css-xue-xi-bi-ji.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <p>最近学习CSS的一些知识点的总结</p>
+<!-- more -->
+<h1 id="选择器的使用">选择器的使用</h1>
+<ul>
+<li>类选择器和id选择器用法类似,类选择器可以选择多个标签,标签也可以拥有多个类选择器,类还可以继承,以及伪类等使用,而id不同,id是标签唯一的标识,id选择器可以指向多个标签,但是一个标签只能对应一个id。</li>
+<li>css样式的优先级, 外部 <code>&lt;</code> 内嵌 <code>&lt;</code> 内联, 也就是谁离控制的标签距离越近(按文档流的方向)就听谁的,谁的样式就好使,不然都得被后来者居上,覆盖之。</li>
+<li><code>*{ … }</code>  通用选择器</li>
+<li><code>food &gt;li</code>子类选择器</li>
+<li>伪类选择符 鼠标滑过 显示的效果样式..</li>
+</ul>
+<pre><code> a:hover{color:red;}
+</code></pre>
+<!-- more -->
+<ul>
+<li>段落缩进</li>
+</ul>
+<pre><code> p{text-indent:2em;}
+</code></pre>
+<ul>
+<li>行高(行间距)  : 设置垂直居中一般就用到这个货~</li>
+</ul>
+<pre><code>p{line-height:1.5em;}
+</code></pre>
+<ul>
+<li>文字间隔</li>
+</ul>
+<pre><code>h1{
+    letter-spacing:50px;
+}
+</code></pre>
+<ul>
+<li>布局属性text-align (left,center,right) 与iOS差不多</li>
+<li>常用的块状元素有：</li>
+</ul>
+<pre><code class="language-javascript">&lt;div&gt;、&lt;p&gt;、&lt;h1&gt;...&lt;h6&gt;、&lt;ol&gt;、&lt;ul&gt;、&lt;dl&gt;、&lt;table&gt;、&lt;address&gt;、&lt;blockquote&gt; 、&lt;form&gt;
+</code></pre>
+<ul>
+<li>常用的内联元素有：</li>
+</ul>
+<pre><code>&lt;a&gt;、&lt;span&gt;、&lt;br&gt;、&lt;i&gt;、&lt;em&gt;、&lt;strong&gt;、&lt;label&gt;、&lt;q&gt;、&lt;var&gt;、&lt;cite&gt;、&lt;code&gt;
+</code></pre>
+<ul>
+<li>常用的内联块状元素有：</li>
+</ul>
+<pre><code>&lt;img&gt;、&lt;input&gt;
+</code></pre>
+<ul>
+<li>将div等块元素转换成内联元素</li>
+</ul>
+<pre><code> div{display:inline;}
+&lt;div style=&quot;color:red&quot;&gt;我是谁&lt;/div&gt;&lt;br&gt;
+</code></pre>
+<ul>
+<li>盒子模型
+填充也可分为上、右、下、左(顺时针)。如下代码：</li>
+</ul>
+<pre><code>div{padding:20px 10px 15px 30px;}
+</code></pre>
+<p>顺序一定不要搞混。可以分开写上面代码：</p>
+<pre><code>div{
+   padding-top:20px;
+   padding-right:10px;
+   padding-bottom:15px;
+   padding-left:30px;
+}
+</code></pre>
+<p>这上右下左也是醉了 和苹果的(上左下右)刚好相反      一个顺时针  一个逆时针
+如果上、右、下、左的填充都为<code>10px</code>;可以这么写</p>
+<pre><code>div{padding:10px;}
+</code></pre>
+<p>如果上下填充一样为<code>10px</code>，左右一样为<code>20px</code>，可以这么写：</p>
+<pre><code>div{padding:10px 20px;}
+</code></pre>
+<ul>
+<li>想要让多个块级元素单行显示咋办</li>
+</ul>
+<pre><code>display:  inline--block;
+</code></pre>
+<ul>
+<li>水平居中的方法</li>
+</ul>
+<pre><code>标准流,文本居中即可
+定位流中设置  position: relative;     left: (100% -- 元素宽度)/2 ;
+浮动流中设置  margin:  0  auto;  
+</code></pre>
+<ul>
+<li>盒子模型定位技巧</li>
+</ul>
+<pre><code>display: block;
+包括内边距(padding)和外边距(margin)以及边框(boder)
+ display: flex; 支持flex-box布局属性灵活弹性布局
+
+1. flex-direction： 主轴的方向（即项目的排列方向）。 【box-orient】
+2. flex-wrap： 如果一条轴线排不下，如何换行。 【box-lines】
+3. flex-flow： flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap
+4. justify-content： 项目在主轴上的对齐方式。【box-pack】
+5. align-items： 项目在交叉轴上如何对齐。【box-align】
+6. align-content： 定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
+</code></pre>
+<ul>
+<li>定位
+<code>absolute</code>:表里如一，移动了就是移动了。
+<code>relative</code>:只是表面显示移动了，但实际还在文档流中原有位置，别的元素无法占据。
+<code>fixed</code>:传说中的右下角悬浮小广告。
+<code>Relative</code>与<code>Absolute</code>组合使用：子元素定位时，它的前辈元素必须设置有<code>position</code>属性，从而子元素使用<code>absolute</code>进行定位
+结合 <code>left</code> <code>top</code> <code>right</code> <code>bottom</code>可以灵活各种布局的定位</li>
+</ul>
+<h1 id="清除浮动的小技巧">清除浮动的小技巧</h1>
+<h3 id="1-父级div定义-height">1. 父级div定义 height</h3>
+<pre><code class="language-html">&lt;style type=&quot;text/css&quot;&gt; 
+.div1{background:#000080;border:1px solid red;/*解决代码*/height:200px;} 
+.div2{background:#800080;border:1px solid red;height:100px;margin-top:10px} 
+.left{float:left;width:20%;height:200px;background:#DDD} 
+.right{float:right;width:30%;height:80px;background:#DDD} 
+&lt;/style&gt; 
+&lt;div class=&quot;div1&quot;&gt; 
+&lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt; 
+&lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;div2&quot;&gt; 
+div2 
+&lt;/div&gt; 
+</code></pre>
+<ul>
+<li><strong>原理：</strong><code>父级div手动定义height，就解决了父级div无法自动获取到高度的问题。</code></li>
+<li><strong>优点：</strong>`简单、代码少、容易掌握 ``</li>
+<li><strong>缺点：</strong><code>只适合高度固定的布局，要给出精确的高度，如果高度和父级div不一样时，会产生问题</code></li>
+<li><strong>建议：</strong><code>不推荐使用，只建议高度固定的布局时使用</code></li>
+</ul>
+<h3 id="2-结尾处加空div标签-clearboth">2. 结尾处加空div标签 clear:both</h3>
+<pre><code class="language-css">&lt;style type=&quot;text/css&quot;&gt; 
+.div1{background:#000080;border:1px solid red} 
+.div2{background:#800080;border:1px solid red;height:100px;margin-top:10px} 
+.left{float:left;width:20%;height:200px;background:#DDD} 
+.right{float:right;width:30%;height:80px;background:#DDD} 
+/*清除浮动代码*/ 
+.clearfloat{clear:both} 
+&lt;/style&gt; 
+&lt;div class=&quot;div1&quot;&gt; 
+&lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt; 
+&lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt; 
+&lt;div class=&quot;clearfloat&quot;&gt;&lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;div2&quot;&gt; 
+div2 
+&lt;/div&gt; 
+</code></pre>
+<ul>
+<li><strong>原理：</strong><code>添加一个空div，利用css提高的clear:both清除浮动，让父级div能自动获取到高度</code></li>
+<li><strong>优点：</strong><code>简单、代码少、浏览器支持好、不容易出现怪问题</code></li>
+<li><strong>缺点：</strong><code>不少初学者不理解原理；如果页面浮动布局多，就要增加很多空div，让人感觉很不好</code></li>
+<li><strong>建议：</strong><code>不推荐使用，但此方法是以前主要使用的一种清除浮动方法</code></li>
+</ul>
+<h3 id="3-父级div定义-伪类after-和-zoom">3. 父级div定义 伪类:after 和 zoom</h3>
+<pre><code class="language-css">&lt;style type=&quot;text/css&quot;&gt; 
+.div1{background:#000080;border:1px solid red;} 
+.div2{background:#800080;border:1px solid red;height:100px;margin-top:10px} 
+.left{float:left;width:20%;height:200px;background:#DDD} 
+.right{float:right;width:30%;height:80px;background:#DDD} 
+/*清除浮动代码*/ 
+.clearfloat:after{display:block;clear:both;content:&quot;&quot;;visibility:hidden;height:0} 
+.clearfloat{zoom:1} 
+&lt;/style&gt; 
+&lt;div class=&quot;div1 clearfloat&quot;&gt; 
+&lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt; 
+&lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;div2&quot;&gt; 
+div2 
+&lt;/div&gt; 
+</code></pre>
+<ul>
+<li><strong>原理：</strong><code>IE8以上和非IE浏览器才支持:after，原理和方法2有点类似，zoom(IE转有属性)可解决ie6,ie7浮动问题</code></li>
+<li><strong>优点：</strong><code>浏览器支持好、不容易出现怪问题（目前：大型网站都有使用，如：腾迅，网易，新浪等等</code></li>
+<li><strong>缺点：</strong><code>代码多、不少初学者不理解原理，要两句代码结合使用才能让主流浏览器都支持。</code></li>
+<li><strong>建议：</strong><code>推荐使用，建议定义公共类，以减少CSS代码。</code></li>
+</ul>
+<h3 id="4-父级div定义-overflowhidden">4. 父级div定义 overflow:hidden</h3>
+<pre><code class="language-css">&lt;style type=&quot;text/css&quot;&gt; 
+.div1{background:#000080;border:1px solid red;/*解决代码*/width:98%;overflow:hidden} 
+.div2{background:#800080;border:1px solid red;height:100px;margin-top:10px;width:98%} 
+.left{float:left;width:20%;height:200px;background:#DDD} 
+.right{float:right;width:30%;height:80px;background:#DDD} 
+&lt;/style&gt; 
+&lt;div class=&quot;div1&quot;&gt; 
+&lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt; 
+&lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;div2&quot;&gt; 
+div2 
+&lt;/div&gt; 
+</code></pre>
+<ul>
+<li><strong>原理：</strong><code>必须定义width或zoom:1，同时不能定义height，使用overflow:hidden时，浏览器会自动检查浮动区域的高度</code></li>
+<li><strong>优点：</strong><code>简单、代码少、浏览器支持好</code></li>
+<li><strong>缺点：</strong><code>不能和position配合使用，因为超出的尺寸的会被隐藏。</code></li>
+<li><strong>建议：</strong><code>只推荐没有使用position或对overflow:hidden理解比较深的朋友使用。</code></li>
+</ul>
+<h3 id="5-父级div定义-overflowauto">5. 父级div定义 overflow:auto</h3>
+<pre><code class="language-css">&lt;style type=&quot;text/css&quot;&gt; 
+.div1{background:#000080;border:1px solid red;/*解决代码*/width:98%;overflow:auto} 
+.div2{background:#800080;border:1px solid red;height:100px;margin-top:10px;width:98%} 
+.left{float:left;width:20%;height:200px;background:#DDD} 
+.right{float:right;width:30%;height:80px;background:#DDD} 
+&lt;/style&gt; 
+&lt;div class=&quot;div1&quot;&gt; 
+&lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt; 
+&lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;div2&quot;&gt; 
+div2 
+&lt;/div&gt; 
+</code></pre>
+<ul>
+<li><strong>原理：</strong><code>必须定义width或zoom:1，同时不能定义height，使用overflow:auto时，浏览器会自动检查浮动区域的高度</code></li>
+<li><strong>优点：</strong><code>简单、代码少、浏览器支持好</code></li>
+<li><strong>缺点：</strong><code>内部宽高超过父级div时，会出现滚动条。</code></li>
+<li><strong>建议：</strong><code>不推荐使用，如果你需要出现滚动条或者确保你的代码不会出现滚动条就使用吧。</code></li>
+</ul>
+<h3 id="6-父级div-也一起浮动">6. 父级div 也一起浮动</h3>
+<pre><code class="language-css">&lt;style type=&quot;text/css&quot;&gt; 
+.div1{background:#000080;border:1px solid red;/*解决代码*/width:98%;margin-bottom:10px;float:left} 
+.div2{background:#800080;border:1px solid red;height:100px;width:98%;/*解决代码*/clear:both} 
+.left{float:left;width:20%;height:200px;background:#DDD} 
+.right{float:right;width:30%;height:80px;background:#DDD} 
+&lt;/style&gt; 
+&lt;div class=&quot;div1&quot;&gt; 
+&lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt; 
+&lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;div2&quot;&gt; 
+div2 
+&lt;/div&gt; 
+</code></pre>
+<ul>
+<li><strong>原理：</strong>`所有代码一起浮动，就变成了一个整体 ``</li>
+<li><strong>优点：</strong><code>没有优点</code></li>
+<li><strong>缺点：</strong><code>会产生新的浮动问题。</code></li>
+<li><strong>建议：</strong><code>不推荐使用，只作了解。</code></li>
+</ul>
+<h3 id="7-父级div定义-displaytable">7. 父级div定义 display:table</h3>
+<pre><code class="language-css">&lt;style type=&quot;text/css&quot;&gt; 
+.div1{background:#000080;border:1px solid red;/*解决代码*/width:98%;display:table;margin-bottom:10px;} 
+.div2{background:#800080;border:1px solid red;height:100px;width:98%;} 
+.left{float:left;width:20%;height:200px;background:#DDD} 
+.right{float:right;width:30%;height:80px;background:#DDD} 
+&lt;/style&gt; 
+&lt;div class=&quot;div1&quot;&gt; 
+&lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt; 
+&lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;div2&quot;&gt; 
+div2 
+&lt;/div&gt; 
+</code></pre>
+<ul>
+<li><strong>原理：</strong><code>将div属性变成表格</code></li>
+<li><strong>优点：</strong><code>没有优点</code></li>
+<li><strong>缺点：</strong><code>会产生新的未知问题。</code></li>
+<li><strong>建议：</strong><code>不推荐使用，只作了解。</code></li>
+</ul>
+<h3 id="8-结尾处加-br标签-clearboth">8. 结尾处加 br标签 clear:both</h3>
+<pre><code class="language-css">&lt;style type=&quot;text/css&quot;&gt; 
+.div1{background:#000080;border:1px solid red;margin-bottom:10px;zoom:1} 
+.div2{background:#800080;border:1px solid red;height:100px} 
+.left{float:left;width:20%;height:200px;background:#DDD} 
+.right{float:right;width:30%;height:80px;background:#DDD} 
+.clearfloat{clear:both} 
+&lt;/style&gt; 
+&lt;div class=&quot;div1&quot;&gt; 
+&lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt; 
+&lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt; 
+&lt;br class=&quot;clearfloat&quot; /&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;div2&quot;&gt; 
+div2 
+&lt;/div&gt; 
+</code></pre>
+<ul>
+<li><strong>原理：</strong><code>父级div定义zoom:1来解决IE浮动问题，结尾处加 br标签 clear:both</code></li>
+<li><strong>建议：</strong><code>不推荐使用，只作了解。</code></li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'a8ee2e4211f0c00c07c5',
+    clientSecret: '99fd04bd90aa55b1b44067c721b41b0f0d899e3f',
+    repo: 'Wangguibin.github.io',
+    owner: 'WangGuibin',
+    admin: ['WangGuibin'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
