@@ -1,0 +1,262 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>iOS pod私有库组件化初尝试 | CoderWGB&#39;s Blog</title>
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560698493378">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="http://wangguibin.github.io">
+  <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560698493378" alt="">
+  </a>
+  <h1 class="site-title">
+    CoderWGB&#39;s Blog
+  </h1>
+  <p class="site-description">
+    业精于勤荒于嬉
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              iOS pod私有库组件化初尝试
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-03-26 ·
+              </time>
+              
+                <a href="http://wangguibin.github.io/tag/AElCV4ij2" class="post-tag">
+                  # cocopods
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/h16y_hBV0" class="post-tag">
+                  # 组件化
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/HqfiE4MwV" class="post-tag">
+                  # git
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/suiSKHo_a" class="post-tag">
+                  # 设计模式
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/5E2uUQVL2" class="post-tag">
+                  # 学习总结
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/k2TvoAzJc" class="post-tag">
+                  # iOS
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>​	很早以前就听说过组件化,但那个时候只是浅显的以为只有web前端才有的东西,现如今早已是大前端时代,组件化自然也是在业界普及,没有真正自己去实操这个东西,就犹如附骨之疽,很难受~
+什么叫组件化呢? 带着这个问题去寻找答案。</p>
+<!-- more -->
+<blockquote>
+<p>百度百科</p>
+<blockquote>
+<p>组件化是指解耦复杂系统时将多个功能模块拆分、重组的过程，有多种属性、状态反映其内部特性。</p>
+</blockquote>
+</blockquote>
+<p>看字面意思,也大概能获取一些信息,比如<code>解耦</code>,<code>模块拆分</code>,<code>重组</code>等, 其实就把软件工程形容成一家大工厂, 写代码就是生产各种零配件, 生产到组装的一系列的过程活动就是组件化。</p>
+<p>举两个耳熟能详的例子吧:</p>
+<ul>
+<li>A女士在微信上收到朋友的一条淘宝吱口令链接,她根据信息提示复制之后打开淘宝App, 淘宝一启动弹出提示框,询问是否跳转该商品了解详情, 点击是直接跳到一个路径比较深的页面(平时正常访问都是要列表或者某个具体的商品点击之后才能呈现的页面)</li>
+<li>B先生在某浏览器上查找一个问题,刷到一个知乎的回答,但是只显示了一半,需要打开App才能阅读全文以及回复评论等操作,点击那个引导按钮,浏览器唤起知乎App,知乎跳转了该问题的回答列表</li>
+</ul>
+<p>以上均是日常可见的组件化场景,这种国民级的应用无需我来打广告了吧(避嫌)</p>
+<p>其实组件化的方案有很多种,什么url-block,protocol-class, target-action等, 它们共同的特点就是独立出一个中间层/中间件, 用于处理调度业务的一个逻辑层, 使其业务模块解耦。</p>
+<p>业界流行代表作:</p>
+<p><a href="https://github.com/meili/MGJRouter">MGJRouter</a></p>
+<p><a href="https://github.com/casatwy/CTMediator">CTMediator</a></p>
+<p><a href="https://github.com/alibaba/BeeHive/blob/master/README-CN.md">BeeHive</a></p>
+<p>我参考的是<code>casa</code>大佬的<a href="https://github.com/casatwy/CTMediator">CTMediator</a>,因为它短小精悍, 容易理解和实践。</p>
+<p>就仅仅两个接口</p>
+<pre><code class="language-objective-c">// 远程App调用入口
+- (id)performActionWithUrl:(NSURL *)url completion:(void(^)(NSDictionary *info))completion;
+// 本地组件调用入口
+- (id)performTarget:(NSString *)targetName action:(NSString *)actionName params:(NSDictionary *)params shouldCacheTarget:(BOOL)shouldCacheTarget;
+</code></pre>
+<p>实践步骤:</p>
+<h2 id="1-利用category独立业务模块利用runtime运行时调用action的方法获取业务对象供外部使用">1. 利用category独立业务模块,利用runtime运行时调用action的方法,获取业务对象供外部使用</h2>
+<pre><code class="language-objective-c">@interface CTMediator (CTMediatorModuleAActions)
+
+- (UIViewController *)CTMediator_viewControllerForDetail;
+
+@end
+  
+NSString * const kCTMediatorTargetA = @&quot;A&quot;; //模块A
+NSString * const kCTMediatorActionNativFetchDetailViewController = @&quot;nativeFetchDetailViewController&quot;//方法名
+  
+@implementation CTMediator (CTMediatorModuleAActions)
+
+- (UIViewController *)CTMediator_viewControllerForDetail{
+    UIViewController *viewController = [self performTarget: kCTMediatorTargetA
+                              action: kCTMediatorActionNativFetchDetailViewController
+                              params: @{@&quot;key&quot;:@&quot;value&quot;} //参数
+                   shouldCacheTarget:NO  //是否缓存
+                                   ];
+    if ([viewController isKindOfClass:[UIViewController class]]) {
+        // view controller 交付出去之后，可以由外界选择是push还是present
+        return viewController;
+    } else {
+        // 这里处理异常场景，具体如何处理取决于产品
+        return [[UIViewController alloc] init];
+    }
+}
+@end
+
+  
+</code></pre>
+<h2 id="2-建立target_actions实现返回对应的业务对象">2. 建立Target_Actions,实现返回对应的业务对象</h2>
+<pre><code class="language-objective-c">@interface Target_A : NSObject
+//CTMediator里的规则是 `Action_`+ `actionName` + `:`匹配
+- (UIViewController *)Action_nativeFetchDetailViewController:(NSDictionary *)params;
+
+@end
+
+@implementation Target_A
+
+- (UIViewController *)Action_nativeFetchDetailViewController:(NSDictionary *)params{
+    // 因为action是从属于ModuleA的，所以action直接可以使用ModuleA里的所有声明
+    DemoModuleADetailViewController *viewController = [[DemoModuleADetailViewController alloc] init];
+    viewController.valueLabel.text = params[@&quot;key&quot;];
+    return viewController;
+}
+@end
+</code></pre>
+<h2 id="3-使用者调用组件获取业务对象处理业务实现组件化">3. 使用者调用组件,获取业务对象处理业务,实现组件化</h2>
+<pre><code class="language-objective-c">    if (indexPath.row == 0) {
+        UIViewController *viewController = [[CTMediator sharedInstance] CTMediator_viewControllerForDetail];
+        
+        // 获得view controller之后，在这种场景下，到底push还是present，其实是要由使用者决定的，mediator只要给出view controller的实例就好了
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
+    
+    if (indexPath.row == 1) {
+        UIViewController *viewController = [[CTMediator sharedInstance] CTMediator_viewControllerForDetail];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+
+</code></pre>
+<p>很久没写文章了,那就水这么一篇吧</p>
+<p>​																	于 2019年03月26日 深圳宝安</p>
+<p>参考博文</p>
+<p><a href="https://www.jianshu.com/p/59c2d2c4b737">iOS 从零到一搭建组件化项目框架</a></p>
+<p><a href="https://www.cnblogs.com/fishbay/p/7216084.html">iOS组件化的几种实现</a></p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="http://wangguibin.github.io/post/2018-nian-du-ge-ren-zong-jie">
+              <h3 class="post-title">
+                2018年度个人总结
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'a8ee2e4211f0c00c07c5',
+    clientSecret: '99fd04bd90aa55b1b44067c721b41b0f0d899e3f',
+    repo: 'Wangguibin.github.io',
+    owner: 'WangGuibin',
+    admin: ['WangGuibin'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

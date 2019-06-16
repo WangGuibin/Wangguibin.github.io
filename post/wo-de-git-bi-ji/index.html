@@ -1,0 +1,445 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>我的git笔记 | CoderWGB&#39;s Blog</title>
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560698493378">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="http://wangguibin.github.io">
+  <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560698493378" alt="">
+  </a>
+  <h1 class="site-title">
+    CoderWGB&#39;s Blog
+  </h1>
+  <p class="site-description">
+    业精于勤荒于嬉
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              我的git笔记
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2017-09-26 ·
+              </time>
+              
+                <a href="http://wangguibin.github.io/tag/HqfiE4MwV" class="post-tag">
+                  # git
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/XXba-wIhP" class="post-tag">
+                  # 效率
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/LdAlaA2ZS" class="post-tag">
+                  # 工具
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/5E2uUQVL2" class="post-tag">
+                  # 学习总结
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <h5 id="1-创建版本库">1. 创建版本库</h5>
+<pre><code class="language-swift">mkdir gitDemo //创建一个文件夹
+
+pwd //查看当前路径 /Users/wangguibin/Desktop/gitDemo
+
+git init //创建一个版本库
+//Initialized empty Git repository in /Users/wangguibin/Desktop/gitDemo/.git/
+
+ls -ah //查看当前目录中的隐藏文件 .git
+//.	..	.git
+
+touch readme.txt //创建一个文本
+vi readme.txt //修改文本内容
+
+</code></pre>
+<!-- more -->
+<h5 id="2-修改的文件或者创建的新文件提交到版本仓库">2. 修改的文件或者创建的新文件提交到版本仓库</h5>
+<pre><code class="language-swift">git add  readme.txt //添加到版本库
+//一般添加成功不会有任何提示
+git commit -m &quot;first update readme file git is 666&quot; // -m 后面的字符串是log日志信息,提交了啥改了啥说明一下,便于管理
+
+提交成功有以下提示信息: 
+[master (root-commit) 4acf248] first update readme file git is 666
+ 1 file changed, 5 insertions(+)
+ create mode 100644 readme.txt
+
+(PS.可以一次添加多个文件,一次性提交)
+****************************************
+$ git add file1.txt
+$ git add file2.txt file3.txt
+$ git commit -m &quot;add 3 files.&quot;
+**********************************************
+ 错误❌示范
+ git commit -a &quot;提交readme.txt的最近更新&quot;
+fatal: Paths with -a does not make sense.
+
+正确✅姿势
+git commit -a -m &quot;提交readme.txt的最近更新&quot;
+[master ec855f8] 提交readme.txt的最近更新
+ 1 file changed, 5 insertions(+)
+ 
+</code></pre>
+<h5 id="3-查看是否有更改未提交的情况git-status">3. 查看是否有更改未提交的情况<code>git status</code></h5>
+<pre><code class="language-objectivec">git diff readme.txt///查看文件被修改部分内容
+
+///没有更改,没有需要添加提交的地方
+git status
+On branch master
+nothing to commit, working tree clean
+
+///需要添加和提交, 666.txt这个文件被修改了 ,没有提交
+git status
+On branch master
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+	modified:   666.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+
+///直接提交就好啦,不过这个 &quot;git commit -a&quot;操作也是可以的提交所有 , -m 是message的缩写,后面接一段说明文字
+git add 666.txt
+git commit -m &quot;修改了666.txt&quot;
+[master 1a46406] 修改了666.txt
+ 1 file changed, 1 insertion(+)
+ 
+git log //查看提交的日志
+</code></pre>
+<h5 id="4-版本回退">4. 版本回退</h5>
+<pre><code class="language-swift">//跳到哪一个版本,秒秒钟的事,切一下头指针就ok,类似于链表的操作
+git log --pretty=oneline //查看节点id和提交信息
+ec855f8114fced47737b61e8abfaa9fb5949a1ac (HEAD -&gt; master) 提交readme.txt的最近更新
+1a46406038a5f50bd48a19daa38c599a6ff92fb6 修改了666.txt
+6b064208d5b992866cc1cc21cfd1b416e6b22258 commit 666.txt
+4acf24867379120ae1fdfcc9521b0996ad863ae2 first update readme file git is 666
+
+目前HEAD-&gt;master指向了&quot;提交最近更新&quot;,就是我刚刚提交的
+下面那几个越往下,提交的时间越早...
+ git reset --hard HEAD^ //回滚上一个版本,回滚到上上个则 HEAD^^,以此类推往回回滚100次则很难数得清楚^的个数可以写成 HEAD~100 这样
+git reset --hard commit_id ///提交id不用填写完整,前面几位就可以
+
+git reflog ///查看commit_id和提交历史记录
+git reflog
+ec855f8 (HEAD -&gt; master) HEAD@{0}: commit: 提交readme.txt的最近更新
+1a46406 HEAD@{1}: commit: 修改了666.txt
+6b06420 HEAD@{2}: commit: commit 666.txt
+4acf248 HEAD@{3}: commit (initial): first update readme file git is 666
+
+</code></pre>
+<h5 id="5-工作区和暂存区跟踪修改">5. 工作区和暂存区,跟踪修改</h5>
+<p><img src="http://wangguibin.github.io/post-images/1560698439826.png" alt="">
+<strong>git是如何操作的? 如图,先把修改的文件add到暂存区,然后再执行 git commit,比如有几个文件做了修改,你这个时候可以修改一个就执行add和commit操作,也可以先全部add完再执行一次commit, 建议是开发一个小模块,创建或者修改完就add进去,快下班的时候或者休息的时候翻篇的时候,就执行一次commit操作,不然这个容易忘记,还有模块与模块之间,开发周期与开发周期时间和时机的不同, 尽可能开发一部分就提交一部分,免得积攒大量的任务.. 节点多意味着更加灵活,后续想滚到哪里就滚到哪里...</strong></p>
+<h5 id="6-撤销修改">6. 撤销修改</h5>
+<pre><code class="language-swift">场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库
+</code></pre>
+<h5 id="7-生成ssh-key">7.  生成ssh key</h5>
+<p><a href="http://blog.csdn.net/makenothing/article/details/8450417">参考博客</a></p>
+<pre><code class="language-swift">//1. 检查是否有ssh key
+ cd ~/.ssh 查看这个目录下的文件
+ ///2. 生成key
+ ssh-keygen -t rsa -C &quot;you email@email.com&quot; 或者去掉 －t rsa
+ ///3. 拷贝公钥,设置好对应的key github或者使用的站点
+ cat ~/.ssh/id_rsa.pub  查看并拷贝到到git添加设置key
+///或者用命令添加到剪贴板
+pbcopy &lt; ~/.ssh/id_rsa.pub
+///4. 测试一下这个ssh能不能使用
+ssh -T git@github.com
+</code></pre>
+<h5 id="8-拉取远程库">8.  拉取远程库</h5>
+<pre><code class="language-swift">///刻隆下来
+///1.cd 到要存储的目录下
+///2. 执行 git clone + 链接 
+git clone https://github.com/WangGuibin/WGBTagViewDemo.git
+////git fetch
+git fetch：相当于是从远程获取最新版本到本地，不会自动merge
+git fetch origin master
+git log -p master..origin/master
+git merge origin/master
+
+git fetch origin master:tmp
+git diff tmp 
+git merge tmp
+////git pull
+git pull：相当于是从远程获取最新版本并merge到本地
+git pull origin master
+</code></pre>
+<h5 id="9-推送到远程库">9.  推送到远程库</h5>
+<pre><code class="language-swift">git push origin master 
+</code></pre>
+<p><a href="http://www.cnblogs.com/springbarley/archive/2012/11/03/2752984.html">git删除,分支,打tag,拉取和推送远程库参考命令</a></p>
+<h4 id="分支">分支</h4>
+<pre><code>Git鼓励大量使用分支：
+
+查看分支：git branch
+
+创建分支：git branch &lt;name&gt;
+
+切换分支：git checkout &lt;name&gt;
+
+创建+切换分支：git checkout -b &lt;name&gt;
+
+合并某分支到当前分支：git merge &lt;name&gt;
+
+删除分支：git branch -d &lt;name&gt;
+
+</code></pre>
+<h3 id="打tag">打tag</h3>
+<pre><code>命令git tag &lt;name&gt;用于新建一个标签，默认为HEAD，也可以指定一个commit id；
+
+git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;可以指定标签信息；
+
+git tag -s &lt;tagname&gt; -m &quot;blablabla...&quot;可以用PGP签名标签；
+
+命令git tag可以查看所有标签。
+
+
+命令git push origin &lt;tagname&gt;可以推送一个本地标签；
+
+命令git push origin --tags可以推送全部未推送过的本地标签；
+
+命令git tag -d &lt;tagname&gt;可以删除一个本地标签；
+
+命令git push origin :refs/tags/&lt;tagname&gt;可以删除一个远程标签。
+
+
+</code></pre>
+<h3 id="记录一次实战操作步骤">记录一次实战操作步骤</h3>
+<pre><code class="language-apache">// cd Desktop 进入桌面创建一个文件夹
+ mkdir WGBGitTest
+ cd  WGBGitTest // 进入文件夹
+ git init //实例化git
+ touch wgb.txt //创建文件,编辑文件,查看文件....
+ //添加到暂存区
+ git add . 或者 git add wgb.txt
+ //提交给git
+ git commit -m&quot;logMsg&quot;
+ //打上tag
+ git tag tagName
+ //推送远端
+ git push origin tagName
+ 
+ // 开分支 从旧的分支分一个旁路分支进行操作 并切换到子分支进行开发
+ git checkout -b  newBranchName
+ 
+ // 切换到子分支进行开发
+ git checkout  branchName
+ 
+ // 此时子分支拥有当前master的一切的基础上进行修改,肆意妄为,改动一大波之后,按部就班提交代码到git
+ git add XXX  / git commit -m&quot;XXX&quot; 
+ 
+// 希望得到master的认可,master看了代码之后觉得ok,同意接受子分支的代码,于是切换回master分支进行分支合并
+git checkout master //回到主分支
+git merge --no-ff  branchName //合并子分支 加--no-ff 参数显示提交细节,不加的话相当于跳过子分支的提交细节
+
+// 也可删除子分支
+git branch -d branchName
+
+//一波操作
+git add XXX /git commit -m&quot;XXXX&quot;
+// 打上tag
+git tag tagName001
+//查看tag
+git tag
+// 删除tag 
+git tag -d tagName commitID
+// 查看log信息
+git reflog 
+// 推送远端
+git push origin --tags // 全部未提交的一起上去
+ 
+</code></pre>
+<h3 id="常用操作">常用操作</h3>
+<pre><code>/// 生动形象查看git log
+git log --graph 或者
+git log --graph --pretty=oneline --abbrev-commit
+
+git add . 或者 git add &lt;filename&gt;
+
+git commit –m &quot;项目描述&quot;
+
+要关联一个远程库，使用命令
+git remote add origin git@server-name:path/repo-name.git；
+
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+
+// 本地分支推送到服务端,并远程建立一个新分支
+  git push origin  branchName :branchName
+//删除分支
+git branch -D branchName (本地)
+git push origin  :branchName
+// 删除标签
+git tag -d tagName
+git push origin :refs/tags/tagName
+</code></pre>
+<h3 id="放弃当前本地修改强制拉取远程库最新的更新">放弃当前本地修改,强制拉取远程库最新的更新</h3>
+<pre><code class="language-swift">git fetch --all
+git reset --hard origin/master
+git pull //可以省略
+</code></pre>
+<h3 id="alias-grep-git-调用zsh的插件-git-缩写"><code>alias | grep git</code> 调用zsh的插件 git 缩写</h3>
+<p><code>ga</code> =<code>git add</code>
+<code>gaa</code>=<code>git add --all</code>
+<code>gb</code>= <code>git branch</code>
+<code>gcam</code>=<code>git commit -a -m</code>
+<code>gcb</code>= <code>git checkout -b</code>
+<code>gco</code>=<code>git checkout</code>
+<code>gm --no-ff</code>=<code>git merge --no-ff</code>
+<code>gcmsg</code>=<code>git commit -m</code>
+<code>gpoat</code>=<code>git push origin --all &amp;&amp; git push origin --tags</code></p>
+<p><code>gfa</code> = <code>git fetch --all --prune</code>
+<code>grhh</code>= <code>git reset HEAD --hard</code></p>
+<p><a href="http://blog.jobbole.com/109466/">深入理解分支的重要性</a>
+<a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html">git命令清单</a></p>
+<h1 id="debug-遇到的一些各种各样的问题">Debug 遇到的一些各种各样的问题</h1>
+<h5 id="1-clone代码的时候遇到如下报错">1.  clone代码的时候遇到如下报错</h5>
+<p><code>fatal: Authentication failed for 'https://gitee.com/iOSCoder-JJMY/JJYSClient.git/'</code>
+<em>重新设置用户名和邮箱即可</em></p>
+<pre><code>git config --global user.name &quot;wangguibin&quot;
+git config --global user.email &quot;wangguibin@jjys168.com&quot;
+</code></pre>
+<h5 id="2-如果你在主分支master上做了修改子分支dev想要同步主分支的修改那么有以下两种操作">2. 如果你在主分支(master)上做了修改,子分支(dev)想要同步主分支的修改,那么有以下两种操作:</h5>
+<pre><code># 方式一: git merge 合并分支
+git checkout dev #切换到子分支 
+git merge master #合并主分支 即让主分支覆盖子分支 拥有主分支的当前所有更新
+
+# 方式二: git rebase 好像也叫合并分支
+git checkout  dev
+git rebase master // 将 master 上的修改合并到 dev 分支（当前分支）。
+</code></pre>
+<p><strong><code>rebase</code> 会将 <code>dev</code>上的历史 <code>commit</code> 全部修改，并且用新的提交覆盖之。 看起来就是你的 <code>dev</code>分支从一个开始就是在最新的 <code>master</code> 上开发的( 新的<code>master</code>跑到了你分支的最开始处 )</strong></p>
+<p>/// 如果提交信息写错了而提交了可以修改,命令如下(进入vim编辑):</p>
+<pre><code>git commit --amend 
+</code></pre>
+<p><a href="https://segmentfault.com/q/1010000003875183">1. 合并父子分支更新的参考实例</a></p>
+<p><a href="https://www.cnblogs.com/marblemm/p/7161614.html">2. merge与rebase的区分和使用</a></p>
+<p><a href="https://backlog.com/git-tutorial/cn/stepup/stepup2_8.html">3 .猴子🐒都能懂的Git入门教程之使用用rebase</a></p>
+<p><a href="https://www.zhihu.com/question/36509119/answer/131495331">4. 在开发过程中使用git rebase还是git merge，优缺点分别是什么?</a></p>
+<p><a href="http://blog.csdn.net/gw569453350game/article/details/52536928">5. git rebase &amp; merge 将其他分支的修改合并到当前分支</a></p>
+<p><a href="https://note.leodev.me/2016/01/08/git-commonly-used-commands/">6. git常用命令</a></p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="http://wangguibin.github.io/post/css-xue-xi-bi-ji">
+              <h3 class="post-title">
+                CSS学习笔记
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'a8ee2e4211f0c00c07c5',
+    clientSecret: '99fd04bd90aa55b1b44067c721b41b0f0d899e3f',
+    repo: 'Wangguibin.github.io',
+    owner: 'WangGuibin',
+    admin: ['WangGuibin'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

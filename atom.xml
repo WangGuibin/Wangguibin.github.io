@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://wangguibin.github.io</id>
     <title>CoderWGB&apos;s Blog</title>
-    <updated>2019-06-16T15:12:01.697Z</updated>
+    <updated>2019-06-16T15:22:08.188Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://wangguibin.github.io"/>
     <link rel="self" href="http://wangguibin.github.io/atom.xml"/>
@@ -19,6 +19,19 @@
         <summary type="html"><![CDATA[<p><strong>最近比较忙,一直陷入业务的泥沼不可自拔,很少有时间独立思考作作总结,因为平时上班遇到问题就是打开浏览器各种搜寻轮子,百分之八九十的问题也能解决,但是对于个人成长还是感觉有所缓慢,最近开始总结项目的点点滴滴,需要开始写写博客了,那就从基础的笔记写起吧,熟能生巧,由浅入深,这是一个良性的开端。</strong></p>
 ]]></summary>
         <content type="html"><![CDATA[<p><strong>最近比较忙,一直陷入业务的泥沼不可自拔,很少有时间独立思考作作总结,因为平时上班遇到问题就是打开浏览器各种搜寻轮子,百分之八九十的问题也能解决,但是对于个人成长还是感觉有所缓慢,最近开始总结项目的点点滴滴,需要开始写写博客了,那就从基础的笔记写起吧,熟能生巧,由浅入深,这是一个良性的开端。</strong></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[iOS pod私有库组件化初尝试]]></title>
+        <id>http://wangguibin.github.io/post/ios-pod-si-you-ku-zu-jian-hua-chu-chang-shi</id>
+        <link href="http://wangguibin.github.io/post/ios-pod-si-you-ku-zu-jian-hua-chu-chang-shi">
+        </link>
+        <updated>2019-03-26T12:22:12.000Z</updated>
+        <summary type="html"><![CDATA[<p>​	很早以前就听说过组件化,但那个时候只是浅显的以为只有web前端才有的东西,现如今早已是大前端时代,组件化自然也是在业界普及,没有真正自己去实操这个东西,就犹如附骨之疽,很难受~
+什么叫组件化呢? 带着这个问题去寻找答案。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>​	很早以前就听说过组件化,但那个时候只是浅显的以为只有web前端才有的东西,现如今早已是大前端时代,组件化自然也是在业界普及,没有真正自己去实操这个东西,就犹如附骨之疽,很难受~
+什么叫组件化呢? 带着这个问题去寻找答案。</p>
 ]]></content>
     </entry>
     <entry>
@@ -63,14 +76,14 @@
 <li>
 <p>学习python到了现在是个分水岭,几乎各方面的知识都有所涉及,到底是往哪个方向发展呢?</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-667843"><label class="task-list-item-label" for="task-item-667843"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4304417"><label class="task-list-item-label" for="task-item-4304417"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1325327"><label class="task-list-item-label" for="task-item-1325327"> web前端 (Django ...)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7170395"><label class="task-list-item-label" for="task-item-7170395"> 后端 (数据库+服务器)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8720476"><label class="task-list-item-label" for="task-item-8720476"> 机器学习 (尚未涉及)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2125210"><label class="task-list-item-label" for="task-item-2125210"> 用来写工具/脚本 (用过别人写好的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-325575"><label class="task-list-item-label" for="task-item-325575"> 做游戏 (听说吃鸡就是python在做的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3846196"><label class="task-list-item-label" for="task-item-3846196"> ...</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3200743"><label class="task-list-item-label" for="task-item-3200743"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3060350"><label class="task-list-item-label" for="task-item-3060350"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1236774"><label class="task-list-item-label" for="task-item-1236774"> web前端 (Django ...)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4961114"><label class="task-list-item-label" for="task-item-4961114"> 后端 (数据库+服务器)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7178200"><label class="task-list-item-label" for="task-item-7178200"> 机器学习 (尚未涉及)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8788651"><label class="task-list-item-label" for="task-item-8788651"> 用来写工具/脚本 (用过别人写好的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7373665"><label class="task-list-item-label" for="task-item-7373665"> 做游戏 (听说吃鸡就是python在做的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2753346"><label class="task-list-item-label" for="task-item-2753346"> ...</label></li>
 </ul>
 </li>
 <li>
@@ -88,14 +101,14 @@
 <li>
 <p>学习python到了现在是个分水岭,几乎各方面的知识都有所涉及,到底是往哪个方向发展呢?</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-667843"><label class="task-list-item-label" for="task-item-667843"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4304417"><label class="task-list-item-label" for="task-item-4304417"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1325327"><label class="task-list-item-label" for="task-item-1325327"> web前端 (Django ...)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7170395"><label class="task-list-item-label" for="task-item-7170395"> 后端 (数据库+服务器)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8720476"><label class="task-list-item-label" for="task-item-8720476"> 机器学习 (尚未涉及)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2125210"><label class="task-list-item-label" for="task-item-2125210"> 用来写工具/脚本 (用过别人写好的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-325575"><label class="task-list-item-label" for="task-item-325575"> 做游戏 (听说吃鸡就是python在做的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3846196"><label class="task-list-item-label" for="task-item-3846196"> ...</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3200743"><label class="task-list-item-label" for="task-item-3200743"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3060350"><label class="task-list-item-label" for="task-item-3060350"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1236774"><label class="task-list-item-label" for="task-item-1236774"> web前端 (Django ...)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4961114"><label class="task-list-item-label" for="task-item-4961114"> 后端 (数据库+服务器)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7178200"><label class="task-list-item-label" for="task-item-7178200"> 机器学习 (尚未涉及)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8788651"><label class="task-list-item-label" for="task-item-8788651"> 用来写工具/脚本 (用过别人写好的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7373665"><label class="task-list-item-label" for="task-item-7373665"> 做游戏 (听说吃鸡就是python在做的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2753346"><label class="task-list-item-label" for="task-item-2753346"> ...</label></li>
 </ul>
 </li>
 <li>
@@ -230,6 +243,45 @@ print (u'''静夜思
 疑是地上霜。
 举头望明月，
 低头思故乡。
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[我的git笔记]]></title>
+        <id>http://wangguibin.github.io/post/wo-de-git-bi-ji</id>
+        <link href="http://wangguibin.github.io/post/wo-de-git-bi-ji">
+        </link>
+        <updated>2017-09-26T14:36:40.000Z</updated>
+        <summary type="html"><![CDATA[<h5 id="1-创建版本库">1. 创建版本库</h5>
+<pre><code class="language-swift">mkdir gitDemo //创建一个文件夹
+
+pwd //查看当前路径 /Users/wangguibin/Desktop/gitDemo
+
+git init //创建一个版本库
+//Initialized empty Git repository in /Users/wangguibin/Desktop/gitDemo/.git/
+
+ls -ah //查看当前目录中的隐藏文件 .git
+//.	..	.git
+
+touch readme.txt //创建一个文本
+vi readme.txt //修改文本内容
+
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<h5 id="1-创建版本库">1. 创建版本库</h5>
+<pre><code class="language-swift">mkdir gitDemo //创建一个文件夹
+
+pwd //查看当前路径 /Users/wangguibin/Desktop/gitDemo
+
+git init //创建一个版本库
+//Initialized empty Git repository in /Users/wangguibin/Desktop/gitDemo/.git/
+
+ls -ah //查看当前目录中的隐藏文件 .git
+//.	..	.git
+
+touch readme.txt //创建一个文本
+vi readme.txt //修改文本内容
+
 </code></pre>
 ]]></content>
     </entry>
