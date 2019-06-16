@@ -1,0 +1,629 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>python学习笔记 | CoderWGB&#39;s Blog</title>
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560696653262">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="http://wangguibin.github.io">
+  <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560696653262" alt="">
+  </a>
+  <h1 class="site-title">
+    CoderWGB&#39;s Blog
+  </h1>
+  <p class="site-description">
+    业精于勤荒于嬉
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              python学习笔记
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2017-10-11 ·
+              </time>
+              
+                <a href="http://wangguibin.github.io/tag/QxYn4hl3L" class="post-tag">
+                  # python
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/5E2uUQVL2" class="post-tag">
+                  # 学习总结
+                </a>
+              
+            </div>
+            
+              <div class="post-feature-image" style="background-image: url('http://wangguibin.github.io/post-images/python-xue-xi-bi-ji.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <h3 id="字符串">字符串</h3>
+<p><code>有些情况下是有很多转义字符的,可以这样写,好处是可以省去写繁琐的反斜杠...</code></p>
+<pre><code class="language-python">print r''' &quot;哈哈哈哈哈😄&quot;,\\\\ 6666%%%% &quot;U&quot; &quot;u&quot; '''
+</code></pre>
+<p>打印中文, u'''.... '''<a href="link"></a></p>
+<pre><code class="language-python">print(u'我就能打中文,怎么了');//单行
+//我就能打中文,怎么了 
+#-*- coding: utf-8 -*-
+print (u'''静夜思
+床前明月光，
+疑是地上霜。
+举头望明月，
+低头思故乡。''')///多行
+
+静夜思
+床前明月光，
+疑是地上霜。
+举头望明月，
+低头思故乡。
+</code></pre>
+<!-- more -->
+<h3 id="一些基本数据类型的互相转换">一些基本数据类型的互相转换</h3>
+<pre><code class="language-python">	
+int(x [,base ])         将x转换为一个整数    
+long(x [,base ])        将x转换为一个长整数    
+float(x )               将x转换到一个浮点数    
+complex(real [,imag ])  创建一个复数    
+str(x )                 将对象 x 转换为字符串    
+repr(x )                将对象 x 转换为表达式字符串    
+eval(str )              用来计算在字符串中的有效Python表达式,并返回一个对象    
+tuple(s )               将序列 s 转换为一个元组    
+list(s )                将序列 s 转换为一个列表    
+chr(x )                 将一个整数转换为一个字符    
+unichr(x )              将一个整数转换为Unicode字符    
+ord(x )                 将一个字符转换为它的整数值    
+hex(x )                 将一个整数转换为一个十六进制字符串    
+oct(x )                 将一个整数转换为一个八进制字符串   
+ 
+ 
+chr(65)='A'
+ord('A')=65
+ 
+int('2')=2;
+str(2)='2'
+
+
+</code></pre>
+<h3 id="if-else">if-else</h3>
+<ul>
+<li>
+<p>缩进请严格按照Python的习惯写法：<code>4个空格</code>，不要使用Tab，更不要混合Tab和空格，否则很容易造成因为缩进引起的语法错误。<code>如果你在Python交互环境下敲代码，还要特别留意缩进，并且退出缩进需要多敲一行回车</code></p>
+</li>
+<li>
+<p>if - else</p>
+</li>
+</ul>
+<pre><code class="language-python">score = 55
+if score &gt;= 60:
+    print 'passed'
+else:
+    print 'failed'
+</code></pre>
+<ul>
+<li>if - elif - else 多分支判断</li>
+</ul>
+<pre><code class="language-python">score = 85
+
+if score &gt;= 90:
+    print 'excellent'
+elif score &gt;= 80:
+    print 'good'
+elif score &gt;= 60:
+    print 'passed'
+else:
+    print 'failed'
+</code></pre>
+<h3 id="循环语句相关">循环语句相关</h3>
+<p>for循环遍历</p>
+<pre><code class="language-python">L = [75, 92, 59, 68]
+sum = 0.0
+for num in L:
+    sum += num    
+print sum / 4
+</code></pre>
+<p>while循环</p>
+<pre><code class="language-python">//求100以内的奇数和
+sum = 0
+x = 1
+while x &lt; 100:
+    if x % 2: 
+        sum += x
+    x += 1
+print sum
+</code></pre>
+<pre><code class="language-python">/**利用 &quot;while True&quot; 无限循环配合 &quot;break&quot; 语句，计算 1 + 2 + 4 + 8 + 16 + ... 的前20项的和。*/
+sum = 0
+x = 1
+n = 1
+while True:
+  if n &gt; 20:
+      break
+  sum += x
+  x *= 2
+  n += 1
+print sum
+</code></pre>
+<p>///break 和continue</p>
+<pre><code class="language-python">sum = 0
+x = 0
+while True:
+    x = x + 1
+    if x &gt; 100:
+        break
+    if x % 2 == 0 :
+        continue
+    sum += x
+print sum
+</code></pre>
+<p>//对100以内的两位数，请使用一个两重循环打印出所有十位数数字比个位数数字小的数，例如，23（2 &lt; 3）。</p>
+<pre><code class="language-python">for x in [ 1,2,3,4,5,6,7,8,9 ]:
+    for y in [ 0,1,2,3,4,5,6,7,8,9 ]:
+         if x &lt; y :
+             print x*10 + y
+</code></pre>
+<h3 id="python的-list-操作">python的 list 操作</h3>
+<p>创建和访问都很简单,其中有一个特殊一点就是-1下标代表最后一个元素,以此类推..</p>
+<p>插入操作: append(item)和 insert (index,item)</p>
+<pre><code class="language-python">L = ['Adam', 'Lisa', 'Bart']
+L.insert(0,'WGB')
+print L
+
+L.append('666')
+print L
+
+L.insert(-1,&quot;888888888&quot;)
+print L
+</code></pre>
+<p>删除操作:</p>
+<pre><code class="language-python">L = ['Adam', 'Lisa', 'Paul','P','PAPP','PAD','Pel','PB','PLL','PCCl','Jaul','OOl','Qaul', 'Bart']
+L.pop() //默认是移除最后一个
+print L
+L.pop(0) //第1项
+print L
+L.pop(1)//第2项
+print L
+L.pop(2)//第3项
+print L
+L.pop(3)//第4项
+print L
+</code></pre>
+<p>替换操作:</p>
+<ol>
+<li>把之前的元素删掉,再添加新元素取代它</li>
+<li>直接访问下标,修改它的值</li>
+</ol>
+<pre><code class="language-python">L = ['Adam', 'Lisa', 'Bart']
+L.pop(1)
+L.insert(1,'Job')
+print L
+L[1] = &quot;iOS&quot;
+print L
+//['Adam', 'Job', 'Bart']
+//['Adam', 'iOS', 'Bart']
+</code></pre>
+<h3 id="dict-和-set的操作">dict 和 set的操作</h3>
+<p>和其他他语言一样,key是唯一的且不能为空,查找速度快,键值访问</p>
+<pre><code>dict的第一个特点是查找速度快，无论dict有10个元素还是10万个元素，查找速度都一样。而list的查找速度随着元素增加而逐渐下降。
+不过dict的查找速度快不是没有代价的，dict的缺点是占用内存大，还会浪费很多内容，list正好相反，占用内存小，但是查找速度慢。
+由于dict是按 key 查找，所以，在一个dict中，key不能重复。
+</code></pre>
+<ul>
+<li>通过键值访问修改value或者添加元素</li>
+</ul>
+<p>set([1,2,3,4]) 就是set( )里面包装一个list,但是元素不能重复,和其他语言类似,用来排重还是阔以的
+set 用 in操作符来判断是不是自己元素</p>
+<pre><code>s = set(['adam','bart'])
+print 'adam' in s //True
+print 'bart' in s //True
+print 'Bart' in s //False
+</code></pre>
+<p>判断月份是不是对的,如果使用if-else将会很繁琐</p>
+<pre><code>months = set(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
+x1 = 'Feb'
+x2 = 'Sun'
+
+if x1 in months:
+    print 'x1: ok'
+else:
+    print 'x1: error'
+
+if x2 in months:
+    print 'x2: ok'
+else:
+    print 'x2: error'
+</code></pre>
+<p>遍历set</p>
+<pre><code>///请用 for 循环遍历如下的set，打印出 name: score 来。
+s = set([('Adam', 95), ('Lisa', 85), ('Bart', 59)])
+for t in s:
+    print t[0],&quot;:&quot;,t[1]
+    
+/** log: */
+
+Lisa : 85
+Adam : 95
+Bart : 59
+
+</code></pre>
+<p>set也有add和remove操作</p>
+<pre><code>///不能添加重复的元素,否则为无效操作
+&gt;&gt;&gt; s = set([1, 2, 3])
+&gt;&gt;&gt; s.add(4)
+&gt;&gt;&gt; print s
+set([1, 2, 3, 4])
+</code></pre>
+<pre><code>///移除操作针对已有的元素进行删除,移除不存在的元素时会报错
+&gt;&gt;&gt; s = set([1, 2, 3, 4])
+&gt;&gt;&gt; s.remove(4)
+&gt;&gt;&gt; print s
+set([1, 2, 3])
+</code></pre>
+<h3 id="python-网络请求相关">python 网络请求相关</h3>
+<pre><code>urlopen一般可以接受三个参数：
+urlopen(url, data, timeout)
+
+第一个参数url即为URL
+第二个参数data是访问URL时要传送的数据，默认为None
+第三个timeout是设置超时时间，默认为 socket._GLOBAL_DEFAULT_TIMEOUT
+</code></pre>
+<p>修改请求头: 找到Google Chrome打开开发者工具,找到network , 然后刷新网页,查看请求头,把请求头copy出来进行调试  或者直接 浏览器打开
+<code>http://httpbin.org/headers</code> 测试header的一个工具站点.
+将headers组装进Request对象中</p>
+<pre><code class="language-python">import urllib.request
+from  urllib.request import  Request
+
+headers = {
+    &quot;Accept&quot;: &quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&quot;,
+    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,
+    &quot;Accept-Language&quot;: &quot;zh-CN,zh;q=0.8,en;q=0.6&quot;,
+    &quot;Connection&quot;: &quot;close&quot;,
+    &quot;Host&quot;: &quot;httpbin.org&quot;,
+    &quot;Upgrade-Insecure-Requests&quot;: &quot;1&quot;,
+    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36&quot;
+  }
+
+
+req = Request('http://httpbin.org/headers',headers=headers)
+resp=urllib.request.urlopen(req)
+print (resp.read().decode('utf-8'))
+</code></pre>
+<h4 id="使用get方法访问">使用Get方法访问</h4>
+<p>携带一些信息访问一些网页</p>
+<pre><code class="language-python">import  urllib.request
+import  urllib.parse
+
+query = {
+
+    'q' : &quot;火影忍者&quot;
+}
+
+base_url=&quot;https://www.bing.com/search?&quot;
+
+url = base_url + urllib.parse.urlencode(query=query)
+
+html = urllib.request.urlopen(url).read().decode('utf-8')
+
+print(html)
+
+</code></pre>
+<h4 id="post访问">POST访问</h4>
+<pre><code class="language-python">import urllib.request
+import urllib.parse
+from urllib.request import  Request
+
+data = urllib.parse.urlencode({
+    &quot;q&quot;:&quot;python&quot;,
+    &quot;name&quot;:&quot;wgb&quot;,
+    &quot;action&quot;: &quot;two click 666&quot;
+})
+
+base_url = &quot;http://httpbin.org/post&quot;
+req = Request(base_url,data=bytes(data,&quot;utf-8&quot;))
+html = urllib.request.urlopen(req).read().decode('utf-8')
+print(html)
+
+</code></pre>
+<p><a href="http://www.xicidaili.com">用于测试: 国内免费代理IP</a></p>
+<h3 id="设置代理">设置代理</h3>
+<pre><code class="language-python">from urllib.request import ProxyHandler, build_opener
+
+proxy_handler = ProxyHandler({
+    'http': 'http://122.72.32.74:80',
+})
+opener = build_opener(proxy_handler)
+response = opener.open('http://www.baidu.com')
+print(response.read())
+
+</code></pre>
+<h4 id="cookies">cookies</h4>
+<pre><code>import http.cookiejar, urllib.request
+
+cookies = http.cookiejar.CookieJar()
+handler = urllib.request.HTTPCookieProcessor(cookies)
+opener = urllib.request.build_opener(handler)
+response = opener.open('http://www.baidu.com')
+for cookie in cookie:
+    print(cookie.name + &quot;=&quot;+ cookie.value)
+</code></pre>
+<h3 id="异常处理">异常处理</h3>
+<ul>
+<li>URLError</li>
+</ul>
+<pre><code>import urllib.request
+import urllib.error
+
+try:
+    response = urllib.request.urlopen('http://nd.com') # 不存在
+except urllib.error.URLError as e:
+    print(e.reason)
+else:
+    html = response.read().decode('utf-8')
+    print(html)
+</code></pre>
+<ul>
+<li>HTTPError</li>
+</ul>
+<pre><code>import urllib.request
+import urllib.error
+
+try:
+    response = urllib.request.urlopen('http://nd.com') # 不存在
+except urllib.error.HttpError as e:
+    print(e.reason)
+else:
+    html = response.read().decode('utf-8')
+    print(html)
+</code></pre>
+<h3 id="正则的使用import-re">正则的使用<code>import re</code></h3>
+<pre><code class="language-python">import  re
+ print(re.match(&quot;123&quot;,&quot;123wqwfsdoonsnssms&quot;).group())#从起始位置开始匹配,没有在起始位置则none
+print(re.search(&quot;123&quot;,&quot;23sdd123kkkddl&quot;).span())# 返回第一个匹配结果的范围
+
+</code></pre>
+<h4 id="recompile函数">re.compile函数</h4>
+<p>有时候，我们可能会在代码中大量重复使用相同的模式，这时我们可以将正则字符串编译成正则对象，以便于复用该匹配模式。</p>
+<pre><code>string  = &quot;fjfjkks12345skisnn56777kkjsns #$%fi~~````&quot;
+pattern = re.compile('(\d+)')
+# result = re.search(pattern,string)
+# print(result.group())
+
+result = re.findall(pattern,string)
+print(result)
+
+
+</code></pre>
+<h4 id="爬取糗事百科的段子~">爬取糗事百科的段子~</h4>
+<pre><code class="language-python">import re
+import  urllib.request
+import random
+from  urllib.request import  Request
+
+user_agent = ['Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Mobile Safari/537.36',
+              'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+              ]
+headers = { &quot;User-Agent&quot; : random.choice(user_agent)}
+
+urlString = &quot;https://www.qiushibaike.com/&quot;
+request = Request(urlString,headers=headers)
+htmlString = urllib.request.urlopen(request).read().decode('utf-8')
+# print(htmlString)
+pattern = re.compile('&lt;div\s*?class=&quot;content&quot;.*?&lt;span&gt;(.*?)&lt;/span&gt;',re.S)
+result = re.findall(pattern,htmlString)
+for res in result:
+    res = re.sub('&lt;br/&gt;','',res)
+    res = res.strip()
+    print(res+'\n')
+</code></pre>
+<h4 id="百思不得姐的段子">百思不得姐的段子</h4>
+<pre><code class="language-python">import re
+import  urllib.request
+import random
+from  urllib.request import  Request
+
+user_agent = ['Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Mobile Safari/537.36',
+              'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+              ]
+headers = { &quot;User-Agent&quot; : random.choice(user_agent)}
+
+urlString = &quot;http://www.budejie.com/text/&quot;
+request = Request(urlString,headers=headers)
+htmlString = urllib.request.urlopen(request).read().decode('utf-8')
+# print(htmlString)
+pattern = re.compile('&lt;a href=&quot;/detail-\d+.html&quot;&gt;(.*?)&lt;/a&gt;',re.S)
+result = re.findall(pattern,htmlString)
+for res in result:
+    res = re.sub('&lt;br/&gt;','',res)
+    res = res.strip()
+    print(res+'\n')
+
+</code></pre>
+<h6 id="正则技巧是需要取得的内容使用-正则匹配-d代表一串数字若干-代表除了换行符外的其他任意字符">正则技巧是需要取得的内容使用 <code>(.*?)</code>正则匹配, <code>\d+</code>代表一串数字若干, <code>.*?</code>代表除了换行符外的其他任意字符...</h6>
+<p><code>玩这个东西,对于正则一定要烂熟于心啊</code></p>
+<h4 id="时需要数据组装或者数据改造">时需要数据组装或者数据改造</h4>
+<pre><code class="language-python">
+#coding:utf-8
+import re
+import  urllib.request
+import random
+from  urllib.request import  Request
+
+user_agent = ['Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Mobile Safari/537.36',
+              'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+              ]
+headers = { &quot;User-Agent&quot; : random.choice(user_agent)}
+
+urlString = &quot;http://www.budejie.com/text/&quot;
+request = Request(urlString,headers=headers)
+htmlString = urllib.request.urlopen(request).read().decode('utf-8')
+# print(htmlString)
+pattern1 = re.compile('&lt;a href=&quot;/detail-\d+.html&quot;&gt;(.*?)&lt;/a&gt;',re.S) # 获取内容
+pattern2 = re.compile('&lt;a href=&quot;/user/others-\d+.html&quot; class=&quot;u-user-name&quot; target=&quot;_blank&quot;&gt;(.*?)&lt;/a&gt;')#获取用户名
+
+result1 = re.findall(pattern1,htmlString)
+result2 = re.findall(pattern2,htmlString)
+
+# index,value in enumerate(l)
+
+# result1 len = 44
+# result2 len = 20
+# 越界操作了咋办----&gt;反过来写呗 没有名字的不显示不可以嘛
+
+for index,nickName in enumerate(result2):
+    # print(index,value)
+    value = result1[index]
+    value = re.sub('&lt;br/&gt;','',value)
+    value = value.strip()
+    print('作者: ' + nickName + &quot;\n&quot; + &quot;段子: &quot; + value + '\n')
+
+</code></pre>
+<h2 id="几行代码简单生成词云-实践">几行代码简单生成词云 (实践)</h2>
+<h4 id="1-准备文本文件也就是文章或者大量的词语用于分词系统切割然后进行分析词频高的会展示出来字体高亮且加粗加大">1. 准备文本文件,也就是文章或者大量的词语,用于分词系统切割,然后进行分析,词频高的会展示出来字体高亮且加粗加大</h4>
+<h4 id="2-pycharm里使用pip包管理工具类似于ios中的cocoapods般的存在-先安装几个库matplotlibwordcloudjieba">2. pycharm里使用pip包管理工具,类似于iOS中的cocoapods般的存在, 先安装几个库<code>matplotlib</code>,<code>wordcloud</code>,<code>jieba</code></h4>
+<pre><code class="language-python">sudo brew install pip ///安装pip
+sudo easy_install pip ///以上两种方式均可
+
+</code></pre>
+<h4 id="3-开始写代码">3. 开始写代码</h4>
+<ul>
+<li>把第三方库引入</li>
+<li>读取文本</li>
+<li>切割文本即分词</li>
+<li>设置词云属性</li>
+<li>渲染文本为词云</li>
+<li>展示即完成</li>
+</ul>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+import jieba
+
+text_from_file_with_apath = open('/Users/wangguibin/Desktop/ciyun.txt').read()
+
+wordlist_after_jieba = jieba.cut(text_from_file_with_apath, cut_all=True)
+wl_space_split = &quot; &quot;.join(wordlist_after_jieba)
+
+my_wordcloud = WordCloud(background_color = 'white',    # 设置背景颜色
+                font_path = '/Library/Fonts/Songti.ttc',# 设置字体格式，如不设置显示不了中文
+                max_font_size = 50,            # 设置字体最大值
+                random_state = 10,            # 设置有多少种随机生成状态，即有多少种配色方案
+                ).generate(wl_space_split)
+
+plt.imshow(my_wordcloud)
+plt.axis(&quot;off&quot;)
+plt.show()
+</code></pre>
+<p><strong>先写这么多,后续有时间继续探索,人生苦短,我用python</strong></p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="http://wangguibin.github.io/post/css-xue-xi-bi-ji">
+              <h3 class="post-title">
+                CSS学习笔记
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'a8ee2e4211f0c00c07c5',
+    clientSecret: '99fd04bd90aa55b1b44067c721b41b0f0d899e3f',
+    repo: 'Wangguibin.github.io',
+    owner: 'WangGuibin',
+    admin: ['WangGuibin'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

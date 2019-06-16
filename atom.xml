@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://wangguibin.github.io</id>
     <title>CoderWGB&apos;s Blog</title>
-    <updated>2019-06-16T14:48:49.456Z</updated>
+    <updated>2019-06-16T14:51:14.664Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://wangguibin.github.io"/>
     <link rel="self" href="http://wangguibin.github.io/atom.xml"/>
@@ -95,6 +95,55 @@
 <li>确保是同一局域网,同一个路由器下的WiFi或者其他内部网络</li>
 <li>安装google二维码插件 (草料二维码)</li>
 </ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[python学习笔记]]></title>
+        <id>http://wangguibin.github.io/post/python-xue-xi-bi-ji</id>
+        <link href="http://wangguibin.github.io/post/python-xue-xi-bi-ji">
+        </link>
+        <updated>2017-10-11T12:54:36.000Z</updated>
+        <summary type="html"><![CDATA[<h3 id="字符串">字符串</h3>
+<p><code>有些情况下是有很多转义字符的,可以这样写,好处是可以省去写繁琐的反斜杠...</code></p>
+<pre><code class="language-python">print r''' &quot;哈哈哈哈哈😄&quot;,\\\\ 6666%%%% &quot;U&quot; &quot;u&quot; '''
+</code></pre>
+<p>打印中文, u'''.... '''<a href="link"></a></p>
+<pre><code class="language-python">print(u'我就能打中文,怎么了');//单行
+//我就能打中文,怎么了 
+#-*- coding: utf-8 -*-
+print (u'''静夜思
+床前明月光，
+疑是地上霜。
+举头望明月，
+低头思故乡。''')///多行
+
+静夜思
+床前明月光，
+疑是地上霜。
+举头望明月，
+低头思故乡。
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<h3 id="字符串">字符串</h3>
+<p><code>有些情况下是有很多转义字符的,可以这样写,好处是可以省去写繁琐的反斜杠...</code></p>
+<pre><code class="language-python">print r''' &quot;哈哈哈哈哈😄&quot;,\\\\ 6666%%%% &quot;U&quot; &quot;u&quot; '''
+</code></pre>
+<p>打印中文, u'''.... '''<a href="link"></a></p>
+<pre><code class="language-python">print(u'我就能打中文,怎么了');//单行
+//我就能打中文,怎么了 
+#-*- coding: utf-8 -*-
+print (u'''静夜思
+床前明月光，
+疑是地上霜。
+举头望明月，
+低头思故乡。''')///多行
+
+静夜思
+床前明月光，
+疑是地上霜。
+举头望明月，
+低头思故乡。
+</code></pre>
 ]]></content>
     </entry>
     <entry>
