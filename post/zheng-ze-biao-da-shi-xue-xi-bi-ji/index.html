@@ -1,0 +1,226 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>正则表达式学习笔记 | CoderWGB&#39;s Blog</title>
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560696351314">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="http://wangguibin.github.io">
+  <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560696351314" alt="">
+  </a>
+  <h1 class="site-title">
+    CoderWGB&#39;s Blog
+  </h1>
+  <p class="site-description">
+    业精于勤荒于嬉
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              正则表达式学习笔记
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2018-06-09 ·
+              </time>
+              
+                <a href="http://wangguibin.github.io/tag/GfFqsbH1s" class="post-tag">
+                  # 正则表达式
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/XXba-wIhP" class="post-tag">
+                  # 效率
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/LdAlaA2ZS" class="post-tag">
+                  # 工具
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/5E2uUQVL2" class="post-tag">
+                  # 学习总结
+                </a>
+              
+            </div>
+            
+              <div class="post-feature-image" style="background-image: url('http://wangguibin.github.io/post-images/zheng-ze-biao-da-shi-xue-xi-bi-ji.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <h3 id="正则字符匹配规则">正则字符匹配规则</h3>
+<ol>
+<li><code>^</code> 行首的意思</li>
+<li><code>$</code>结尾处</li>
+<li><code>*</code> 通配符</li>
+<li><code>\b</code>匹配一个单词边界,单词与空格之间的位置,<code>\w+\b</code>切开成每个单词</li>
+<li><code>\d</code>表示数字, <code>\d{5}</code>五位数字, <code>[0-9]</code>数字0~9</li>
+<li><code>\w</code> 字母,数字,下划线</li>
+<li><code>-</code>匹配短破折号</li>
+<li><code>\r</code>或者<code>\n</code>换行符</li>
+<li><code>\t</code>制表符</li>
+</ol>
+<!-- more -->
+<ol start="10">
+<li><code>\\</code> \本身</li>
+<li><code>\s</code> 空格,制表符,换页符等空白字符中的任意一个</li>
+<li><code>.</code>匹配除了换行符以外的任意字符</li>
+<li><code>[ab5@]</code> 匹配<code>a</code> 或<code>b</code>或<code>5</code>或<code>@</code></li>
+<li><code>[^abc]</code> 匹配除了<code>a</code> <code>b</code> <code>c</code> 以外的任意一个字符</li>
+<li><code>[f-k]</code>匹配<code>f</code>到<code>k</code>之间的任意一个字母(包含<code>f</code> <code>k</code>)</li>
+<li><code>[^A-F0-3]</code> 匹配 <code>A</code>~<code>F</code>和<code>0</code>~<code>3</code>以外的任意一个字符</li>
+<li><code>{n}</code> 表达式重复<code>n</code>次,比如 <code>\w{2}</code> ==<code>\w\w</code> 或者 <code>a{4}</code> == <code>aaaa</code></li>
+<li><code>{m,n}</code>表达式重复最少<code>m</code>次 最多重复<code>n</code>次,  比如 <code>ha{2,3}</code>=&gt;可匹配到 <code>haa</code> <code>haaa</code></li>
+<li><code>{m,}</code>贪婪模式,表达式至少重复m次,比如<code>\w\d{3,}</code>=&gt;可匹配 <code>g123</code> <code>b456789</code>… 数字可以重复3个以上</li>
+<li><code>?</code>匹配0次或者1次, 比如 <code>qw?</code> —&gt;   <code>qqqw</code>=&gt; qq,qq,qw =&gt;q?,q?,qw 匹配结果就是 q, q, qw</li>
+<li><code>+</code>至少匹配一次以上, <code>a+b</code> =&gt; 匹配到 <code>ab</code> <code>aab</code> <code>aaab</code></li>
+<li><code>|</code>修饰表达式或语句,不是匹配左边就是右边,两个条件均可</li>
+<li><code>()</code>修饰一个整体,括号内的表达式可以单独获取</li>
+<li><code>\x</code> 表示编号在0~255范围内的字符,空格可以表示成 <code>\x20</code></li>
+<li><code>\u</code> <code>\uxxxx</code>表示16进制的数,比如: <code>\x4E2D</code></li>
+<li><code>\S</code>匹配一个非空白字符 , <code>\s</code>匹配一个空白字符</li>
+<li><code>\D</code>匹配非数字字符</li>
+<li><code>\W</code>匹配所有字母,数字,下划线以外的字符</li>
+<li><code>\B</code>匹配非单词边界</li>
+<li><code>?:</code> 可以理解为函数封装的形式, 比如 <code>(?:(\w)\1)+</code> 这个规则去匹配 <code>e233t66i34p</code>=&gt;结果是<code>33</code> <code>66</code>  , <code>?:</code>是封装了一个 <code>(\w)</code>这样不会调用,而使用<code>\1</code>就是调用这句表达式</li>
+</ol>
+<h3 id="需要加反斜杠转义的字符">需要加反斜杠转义的字符</h3>
+<p><code>^</code>  <code>$</code> <code>()</code> <code>{}</code> <code>[]</code> <code>.</code> <code>?</code> <code>+</code> <code>*</code> <code>|</code></p>
+<h3 id="常用正则">常用正则</h3>
+<ol>
+<li>
+<p><code>[\u4e00-\u9fa5]</code>匹配中文字符</p>
+</li>
+<li>
+<p><code>[^\x00-\xff]</code>匹配双字节字符(包括汉子在内)</p>
+</li>
+<li>
+<p><code>\n\s*\r</code>匹配空白行</p>
+</li>
+<li>
+<p>[\w!#<span class="katex"><span class="katex-mathml"><math><semantics><mrow></mrow><annotation encoding="application/x-tex">%&amp;&#x27;*+/=?^_`{|}~-]+(?:\.[\w!#</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"></span></span>%&amp;'<em>+/=?^_`{|}~-]+)</em>@(?:<a href="?:%5B%5Cw-%5D*%5B%5Cw%5D">\w</a>?.)+<a href="?:%5B%5Cw-%5D*%5B%5Cw%5D">\w</a>? 匹配邮箱</p>
+</li>
+<li>
+<p><code>[a-zA-z]+://[^\s]*</code>匹配网址</p>
+</li>
+<li>
+<p><code>\d{3}-\d{8}|\d{4}-\{7,8}</code>匹配电话号码 (PS. 新出的手机号已经不适用了)</p>
+</li>
+<li>
+<p><code>^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$</code>匹配身份证号</p>
+</li>
+</ol>
+<h3 id="参考手册">参考手册</h3>
+<p><a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html">正则手册</a></p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="http://wangguibin.github.io/post/qian-duan-kai-fa-webstorm-shou-ji-zhen-ji-diao-shi">
+              <h3 class="post-title">
+                前端开发: webStorm手机真机调试
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'a8ee2e4211f0c00c07c5',
+    clientSecret: '99fd04bd90aa55b1b44067c721b41b0f0d899e3f',
+    repo: 'Wangguibin.github.io',
+    owner: 'WangGuibin',
+    admin: ['WangGuibin'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
