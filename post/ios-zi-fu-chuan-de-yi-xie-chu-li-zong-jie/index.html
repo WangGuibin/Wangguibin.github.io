@@ -1,0 +1,331 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>iOS字符串的一些处理总结 | CoderWGB&#39;s Blog</title>
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560692298469">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="http://wangguibin.github.io">
+  <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560692298469" alt="">
+  </a>
+  <h1 class="site-title">
+    CoderWGB&#39;s Blog
+  </h1>
+  <p class="site-description">
+    业精于勤荒于嬉
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              iOS字符串的一些处理总结
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-04-18 ·
+              </time>
+              
+                <a href="http://wangguibin.github.io/tag/uojQ_lMmq" class="post-tag">
+                  # Objective-C
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/5E2uUQVL2" class="post-tag">
+                  # 学习总结
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/k2TvoAzJc" class="post-tag">
+                  # iOS
+                </a>
+              
+                <a href="http://wangguibin.github.io/tag/WHqMC_sVG" class="post-tag">
+                  # swift
+                </a>
+              
+            </div>
+            
+              <div class="post-feature-image" style="background-image: url('http://wangguibin.github.io/post-images/ios-zi-fu-chuan-de-yi-xie-chu-li-zong-jie.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <p><strong>最近比较忙,一直陷入业务的泥沼不可自拔,很少有时间独立思考作作总结,因为平时上班遇到问题就是打开浏览器各种搜寻轮子,百分之八九十的问题也能解决,但是对于个人成长还是感觉有所缓慢,最近开始总结项目的点点滴滴,需要开始写写博客了,那就从基础的笔记写起吧,熟能生巧,由浅入深,这是一个良性的开端。</strong></p>
+<!-- more -->
+<h4 id="1-汉字转拼音用的系统的api-cfstringtransform">1. 汉字转拼音,用的系统的API <code>CFStringTransform</code></h4>
+<pre><code class="language-objc">///MARK:- 汉字转拼音 是否需要声调
++ (NSString *)hanziTransformPinyin:(NSString *)chinese
+                     needVoiceTone:(BOOL)needTone{
+    //将NSString装换成NSMutableString
+    NSMutableString *pinyin = [chinese mutableCopy];
+    //将汉字转换为拼音(带音标)
+    if (needTone) {
+        CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformMandarinLatin, NO);
+    }else{
+        //去掉拼音的音标
+        CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformMandarinLatin, NO);
+        CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformStripCombiningMarks, NO);
+    }
+    NSString *pinYinStr = pinyin;
+    //去除掉首尾的空白字符和换行字符
+    pinYinStr = [pinYinStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    //去除掉其它位置的空白字符和换行字符
+    pinYinStr = [pinYinStr stringByReplacingOccurrencesOfString:@&quot;\r&quot; withString:@&quot;&quot;];
+    pinYinStr = [pinYinStr stringByReplacingOccurrencesOfString:@&quot;\n&quot; withString:@&quot;&quot;];
+    pinYinStr = [pinYinStr stringByReplacingOccurrencesOfString:@&quot; &quot; withString:@&quot;&quot;];
+//    NSLog(@&quot;去掉空白字符和换行字符的pinyin: %@&quot;, pinYinStr);
+//    [pinYinStr capitalizedString];//首字母大写
+    return pinYinStr;
+    
+}
+
+</code></pre>
+<h4 id="2-纯英文输入记得之前记录过设置安全键盘可以实现限制输入中文和emoji表情的另类实现即设置输入框的属性securetextentry-根据键盘的弹出和隐藏动态切换但是有一点小小的瑕疵在支持touchid的手机键盘上方会出现一个小圆圈就是类似钥匙串的玩意儿点击之后验证touchid然后会看到自己以往在icloud记录的账户密码-安全以及ui方面不是很符合要求在这里介绍另一种实现方式">2. 纯英文输入,记得之前记录过设置安全键盘可以实现<a href="https://www.jianshu.com/p/82c5a1ea8763">限制输入中文和emoji表情的另类实现</a>,即设置输入框的属性<code>secureTextEntry</code> ,根据键盘的弹出和隐藏动态切换,但是有一点小小的瑕疵(<code>在支持touchID的手机,键盘上方会出现一个小圆圈,就是类似钥匙串的玩意儿,点击之后,验证touchID,然后会看到自己以往在iCloud记录的账户密码.... 安全以及UI方面不是很符合要求</code>),在这里介绍另一种实现方式</h4>
+<pre><code class="language-objc">- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+//指定输入的字符内容
+NSString * kLetterVerifyInput = @&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&quot;;
+        NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:kLetterVerifyInput] invertedSet];//与英文取反的集合
+        NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@&quot;&quot;];//过滤并拼接起来
+        return [string isEqualToString:filtered]; //如果匹配了这个非英文集合 则不会出现在输入框里
+}
+</code></pre>
+<h4 id="3-利用正则过滤字符">3. 利用正则过滤字符</h4>
+<pre><code class="language-objc">//根据正则，过滤特殊字符
+- (NSString *)filterCharactor:(NSString *)string withRegex:(NSString *)regexStr{
+    NSString *searchText = string;
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexStr options:NSRegularExpressionCaseInsensitive error:&amp;error];
+    NSString *result = [regex stringByReplacingMatchesInString:searchText options:NSMatchingReportCompletion range:NSMakeRange(0, searchText.length) withTemplate:@&quot;&quot;];
+    return result;
+}
+</code></pre>
+<h4 id="4-只能输入中文和只输入英文的处理标点符号之类的需要自己额外处理一下">4. 只能输入中文和只输入英文的处理(<code>标点符号之类的需要自己额外处理一下</code>)</h4>
+<pre><code class="language-objc">  // 监听处理输入的字符串 把不符合要求的字符串替换掉
+   @weakify(self);
+    [self.nameTextfield.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
+        @strongify(self);
+        if(!x.length){
+            return ;
+        }
+        if (self.selectedBtn.tag == 1) {
+            //中文
+            if (![NSString isChineseCharacter:x]) {
+                //过滤非中文字符
+                self.nameTextfield.text = [self filterCharactor:x withRegex:@&quot;[^\u4e00-\u9fa5]&quot;];
+                return ;
+            }
+        }else{
+            //英文
+            NSString *lastStr = [x substringWithRange:NSMakeRange(x.length-1, 1)];
+            if (![kLetterVerifyInput containsString:lastStr]) {
+                self.nameTextfield.text = [x substringToIndex: x.length - 1];
+                return ;
+            }
+        }
+        self.nameTextfield.text = [self.nameTextfield.text removeWhiteSpacesFromString];//移除空格
+        if (self.nameTextfield.text.length &gt; 10) {//限制输入的长度
+            self.nameTextfield.text = [self.nameTextfield.text substringToIndex:10];
+        }
+    }];
+</code></pre>
+<h4 id="5-一些判断纯中文纯英文纯数字的正则的方法">5. 一些判断纯中文,纯英文,纯数字的正则的方法</h4>
+<pre><code class="language-objc">//限制中文输入 判断是否中文
++ (BOOL)isChineseCharacter:(NSString*)source {
+    //参考了 https://www.jianshu.com/p/b40b3c618fec
+    NSString *regex = @&quot;^[\\u4E00-\\u9FEA]+$&quot;;
+    return ([source rangeOfString:regex options:NSRegularExpressionSearch].length&gt;0);
+}
+//严格限制英文输入
++ (BOOL)isEnglishCharacter:(NSString*)source {
+    NSString *upperRegex = @&quot;^[\\u0041-\\u005A]+$&quot;;
+    NSString *lowerRegex = @&quot;^[\\u0061-\\u007A]+$&quot;;
+    BOOL isEnglish = (([source rangeOfString:upperRegex options:NSRegularExpressionSearch].length&gt;0) || ([source rangeOfString:lowerRegex options:NSRegularExpressionSearch].length&gt;0));
+    return isEnglish;
+}
+//判断数字
++ (BOOL)isNumber:(NSString*)source {
+    NSString *regex = @&quot;^[\\u0030-\\u0039]+$&quot;;
+    return ([source rangeOfString:regex options:NSRegularExpressionSearch].length&gt;0);
+}
+</code></pre>
+<h4 id="6-url含有中文或者百分号有时候需要根据业务需求编码或者解码如下">6. URL含有中文或者百分号<code>%</code>,有时候需要根据业务需求编码或者解码,如下:</h4>
+<pre><code class="language-objc">//以下是添加的NSString的category方法
+///MARK:- URL包含中文转码 编码/Encode
+- (NSString *)urlEncodeUTF8String{
+    if (@available(iOS 9.0, *)) {
+        NSString  *newUrlString = [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        return newUrlString;
+    }else{
+        NSString  *newUrlString = [self stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        return newUrlString;
+    }
+}
+///MARK:- URL包含中文百分号的形式 需要转成中文 解码/Decode
+- (NSString *)urlDecodeUTF8String{
+    if (@available(iOS 9.0, *)) {
+        NSString  *newUrlString = [self stringByRemovingPercentEncoding];
+        return newUrlString;
+    }else{
+        NSString *newUrlString = [self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        return newUrlString;
+    }
+}
+</code></pre>
+<h4 id="7-解析url的参数-即问好后面的参数键值对入参是-url-query-值得注意的是如果urlstring含有中文的话调用url-query是读不出数据null-我认为采用字符串截取比较安全的做法不用转来转去我也是这样做的">7.   解析URL的参数 即问好后面的参数键值对,入参是 <code>[url query]</code> 值得注意的是如果urlString含有中文的话,调用<code>[url query]</code>是读不出数据<code>(null)</code>, 我认为采用字符串截取比较安全的做法,不用转来转去,我也是这样做的</h4>
+<pre><code class="language-objc">    // 扫二维码或者什么操作获取一段URLString 即
+    if (![URLString containsString:@&quot;?&quot;]) {
+          // 没问号 做其他处理
+         return ;
+      }
+      // 有问号去解析参数
+      NSInteger location = [URLString rangeOfString:@&quot;?&quot;].location + 1;
+     NSString *query = [URLString substringFromIndex: location];
+    获取到query 自然就可以获取到参数字典
+
++ (NSDictionary*)dictionaryFromQuery:(NSString*)query{
+    NSCharacterSet* delimiterSet = [NSCharacterSet characterSetWithCharactersInString:@&quot;&amp;&quot;];//分割键值对
+    NSMutableDictionary* pairs = [NSMutableDictionary dictionary];
+    NSScanner* scanner = [[NSScanner alloc] initWithString:query];
+    while (![scanner isAtEnd]) {
+        NSString* pairString = nil;
+        [scanner scanUpToCharactersFromSet:delimiterSet intoString:&amp;pairString];
+        [scanner scanCharactersFromSet:delimiterSet intoString:NULL];
+        NSArray* kvPair = [pairString componentsSeparatedByString:@&quot;=&quot;]; //提取键值
+        if (kvPair.count == 2) {//字典一个键 一个值
+            NSString* key = [[kvPair objectAtIndex:0] stringByRemovingPercentEncoding];
+            NSString* value = [[kvPair objectAtIndex:1] stringByRemovingPercentEncoding];
+            [pairs setObject:value forKey:key];
+        }
+    }
+    return [NSDictionary dictionaryWithDictionary:pairs];
+}
+</code></pre>
+<h4 id="8-提取字符串中的数字部分-局限是会把所有数字都提取出来-可以自己使用逗号分隔数组切割区分因为我当时的需求是一串字符串中有且只有一串连续的数字-所有全部提取出来就是了">8. 提取字符串中的数字部分 (<code>局限是会把所有数字都提取出来 可以自己使用逗号分隔,数组切割区分,因为我当时的需求是一串字符串中有且只有一串连续的数字 所有全部提取出来就是了</code>)</h4>
+<pre><code class="language-objc">- (NSString *)getNumberFromString{
+    NSCharacterSet *nonDigitCharacterSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    return[[self componentsSeparatedByCharactersInSet:nonDigitCharacterSet] componentsJoinedByString:@&quot;&quot;];
+}
+</code></pre>
+<h4 id="9-全角标点符号转半角符号">9.  全角标点符号转半角符号</h4>
+<pre><code class="language-objc">- (NSString *)full2HalfWithNSString:(NSString *)string {
+    if (nil == string || [@&quot;&quot; isEqual:string]) {
+        return @&quot;&quot;;
+    }
+    NSMutableString *convertedString = [string mutableCopy];
+    CFStringTransform((CFMutableStringRef)convertedString, NULL, kCFStringTransformFullwidthHalfwidth, false);
+    NSString *newString = [NSString stringWithString:convertedString];
+    newString = [newString stringByReplacingOccurrencesOfString:@&quot;　&quot; withString:@&quot; &quot;];
+    newString = [newString stringByReplacingOccurrencesOfString:@&quot;‘&quot; withString:@&quot;'&quot;];
+    newString = [newString stringByReplacingOccurrencesOfString:@&quot;’&quot; withString:@&quot;'&quot;];
+    newString = [newString stringByReplacingOccurrencesOfString:@&quot;`&quot; withString:@&quot;'&quot;];
+    newString = [newString stringByReplacingOccurrencesOfString:@&quot;‚&quot; withString:@&quot;,&quot;];
+    newString = [newString stringByReplacingOccurrencesOfString:@&quot;，&quot; withString:@&quot;,&quot;];
+    newString = [newString stringByReplacingOccurrencesOfString:@&quot;；&quot; withString:@&quot;;&quot;];
+    newString = [newString stringByReplacingOccurrencesOfString:@&quot;｡&quot; withString:@&quot;.&quot;];
+    newString = [newString stringByReplacingOccurrencesOfString:@&quot;？&quot; withString:@&quot;?&quot;];
+    newString = [newString stringByReplacingOccurrencesOfString:@&quot;！&quot; withString:@&quot;!&quot;];
+    newString = [newString stringByReplacingOccurrencesOfString:@&quot;--&quot; withString:@&quot;—&quot;];
+    return newString;
+}
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'a8ee2e4211f0c00c07c5',
+    clientSecret: '99fd04bd90aa55b1b44067c721b41b0f0d899e3f',
+    repo: 'Wangguibin.github.io',
+    owner: 'WangGuibin',
+    admin: ['WangGuibin'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://wangguibin.github.io</id>
     <title>CoderWGB&apos;s Blog</title>
-    <updated>2019-06-16T13:19:38.568Z</updated>
+    <updated>2019-06-16T13:39:10.350Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://wangguibin.github.io"/>
     <link rel="self" href="http://wangguibin.github.io/atom.xml"/>
@@ -11,16 +11,14 @@
     <icon>http://wangguibin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, CoderWGB&apos;s Blog</rights>
     <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>http://wangguibin.github.io/post/hello-gridea</id>
-        <link href="http://wangguibin.github.io/post/hello-gridea">
+        <title type="html"><![CDATA[iOS字符串的一些处理总结]]></title>
+        <id>http://wangguibin.github.io/post/ios-zi-fu-chuan-de-yi-xie-chu-li-zong-jie</id>
+        <link href="http://wangguibin.github.io/post/ios-zi-fu-chuan-de-yi-xie-chu-li-zong-jie">
         </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+        <updated>2019-04-18T12:02:56.000Z</updated>
+        <summary type="html"><![CDATA[<p><strong>最近比较忙,一直陷入业务的泥沼不可自拔,很少有时间独立思考作作总结,因为平时上班遇到问题就是打开浏览器各种搜寻轮子,百分之八九十的问题也能解决,但是对于个人成长还是感觉有所缓慢,最近开始总结项目的点点滴滴,需要开始写写博客了,那就从基础的笔记写起吧,熟能生巧,由浅入深,这是一个良性的开端。</strong></p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+        <content type="html"><![CDATA[<p><strong>最近比较忙,一直陷入业务的泥沼不可自拔,很少有时间独立思考作作总结,因为平时上班遇到问题就是打开浏览器各种搜寻轮子,百分之八九十的问题也能解决,但是对于个人成长还是感觉有所缓慢,最近开始总结项目的点点滴滴,需要开始写写博客了,那就从基础的笔记写起吧,熟能生巧,由浅入深,这是一个良性的开端。</strong></p>
 ]]></content>
     </entry>
 </feed>
