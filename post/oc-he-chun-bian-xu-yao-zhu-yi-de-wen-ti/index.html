@@ -1,60 +1,167 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>OC和C++混编需要注意的问题 | CoderWGB&#39;s Blog</title>
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560755718884">
+<meta name="description" content="业精于勤荒于嬉">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560867932392">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="http://wangguibin.github.io">
-  <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560755718884" alt="">
-  </a>
-  <h1 class="site-title">
-    CoderWGB&#39;s Blog
-  </h1>
-  <p class="site-description">
-    业精于勤荒于嬉
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="http://wangguibin.github.io">
+        <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560867932392" alt="" width="32px" height="32px">
+      </a>
+      <a href="http://wangguibin.github.io">
+        <h1 class="site-title">CoderWGB&#39;s Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/oc-he-chun-bian-xu-yao-zhu-yi-de-wen-ti.png')">
+            </div>
+          
+          <h2 class="post-title">OC和C++混编需要注意的问题</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2018-12-17</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="http://wangguibin.github.io/tag/ltxrtETzQ">
+                    Xcode
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/uojQ_lMmq">
+                    Objective-C
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/5E2uUQVL2">
+                    学习总结
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/k2TvoAzJc">
+                    iOS
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <h1 id="方案一">方案一</h1>
+<h4 id="1-c文件的identify-and-type右边栏修改为objective-c-source">1. <code>.c</code>文件的<code>identify and type</code>右边栏修改为<code>Objective-C source</code></h4>
+<h4 id="2-built-setting-apple-clang-language-compile-source-as设置为according-to-file-type即根据文件源类型来编译">2. <code>Built setting -&gt; Apple Clang Language -&gt; Compile Source AS</code>设置为<code>According to File type</code>,即根据文件源类型来编译</h4>
+<h1 id="方案二">方案二</h1>
+<h4 id="1-项目中使用到c或者c的代码部分的m文件改为mm">1. 项目中使用到C或者C++的代码部分的<code>.m</code>文件,改为<code>.mm</code></h4>
+<h4 id="2built-setting-apple-clang-language-compile-source-as设置为objective-c即指定为c的编译机制">2.<code>Built setting -&gt; Apple Clang Language -&gt; Compile Source AS</code>设置为<code>Objective-C++</code>,即指定为C++的编译机制</h4>
+<h1 id="注意">注意</h1>
+<p><code>如果项目中有些头文件导入方式是用modules的@import xxxx 类似的, 那么就不能用第二种方案,因为.mm和这个会冲突,导致整个项目编译不过, 一般报错像这样 &quot;Use of '@import' when C++ modules are disabled, consider using -fmodules and -fcxx-modules&quot;</code></p>
+<h4 id="最近几个月处于尴尬的处境又是资本寒冬一年之内换了三次工作两次住处果然应了戴总那句2018注定是不平凡的一年">最近几个月处于尴尬的处境,又是资本寒冬,一年之内换了三次工作两次住处,果然应了戴总那句2018注定是不平凡的一年</h4>
+<h4 id="我想做个2019年的大计划打算定一下目标来做几件像样的事情-12月了没几天了先酝酿着">我想做个2019年的大计划,打算定一下目标,来做几件像样的事情... 12月了没几天了,先酝酿着。</h4>
+<pre><code>											 `于2018年12月17日 深圳宝安`</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi">
+              <h3 class="post-title">
+                下一篇：重新入门python爬虫到放弃
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">业精于勤荒于嬉</div>
   <div class="social-container">
     
       
@@ -68,106 +175,49 @@
       
     
   </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
 </div>
 
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              OC和C++混编需要注意的问题
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2018-12-17 ·
-              </time>
-              
-                <a href="http://wangguibin.github.io/tag/ltxrtETzQ" class="post-tag">
-                  # Xcode
-                </a>
-              
-                <a href="http://wangguibin.github.io/tag/uojQ_lMmq" class="post-tag">
-                  # Objective-C
-                </a>
-              
-                <a href="http://wangguibin.github.io/tag/5E2uUQVL2" class="post-tag">
-                  # 学习总结
-                </a>
-              
-                <a href="http://wangguibin.github.io/tag/k2TvoAzJc" class="post-tag">
-                  # iOS
-                </a>
-              
-            </div>
-            
-              <div class="post-feature-image" style="background-image: url('http://wangguibin.github.io/post-images/oc-he-chun-bian-xu-yao-zhu-yi-de-wen-ti.png')">
-              </div>
-            
-            <div class="post-content">
-              <h1 id="方案一">方案一</h1>
-<h4 id="1-c文件的identify-and-type右边栏修改为objective-c-source">1. <code>.c</code>文件的<code>identify and type</code>右边栏修改为<code>Objective-C source</code></h4>
-<h4 id="2-built-setting-apple-clang-language-compile-source-as设置为according-to-file-type即根据文件源类型来编译">2. <code>Built setting -&gt; Apple Clang Language -&gt; Compile Source AS</code>设置为<code>According to File type</code>,即根据文件源类型来编译</h4>
-<h1 id="方案二">方案二</h1>
-<h4 id="1-项目中使用到c或者c的代码部分的m文件改为mm">1. 项目中使用到C或者C++的代码部分的<code>.m</code>文件,改为<code>.mm</code></h4>
-<h4 id="2built-setting-apple-clang-language-compile-source-as设置为objective-c即指定为c的编译机制">2.<code>Built setting -&gt; Apple Clang Language -&gt; Compile Source AS</code>设置为<code>Objective-C++</code>,即指定为C++的编译机制</h4>
-<h1 id="注意">注意</h1>
-<p><code>如果项目中有些头文件导入方式是用modules的@import xxxx 类似的, 那么就不能用第二种方案,因为.mm和这个会冲突,导致整个项目编译不过, 一般报错像这样 &quot;Use of '@import' when C++ modules are disabled, consider using -fmodules and -fcxx-modules&quot;</code></p>
-<h4 id="最近几个月处于尴尬的处境又是资本寒冬一年之内换了三次工作两次住处果然应了戴总那句2018注定是不平凡的一年">最近几个月处于尴尬的处境,又是资本寒冬,一年之内换了三次工作两次住处,果然应了戴总那句2018注定是不平凡的一年</h4>
-<h4 id="我想做个2019年的大计划打算定一下目标来做几件像样的事情-12月了没几天了先酝酿着">我想做个2019年的大计划,打算定一下目标,来做几件像样的事情... 12月了没几天了,先酝酿着。</h4>
-<pre><code>											 `于2018年12月17日 深圳宝安`</code></pre>
-
-            </div>
-          </article>
-        </div>
-
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi">
-              <h3 class="post-title">
-                重新入门python爬虫到放弃
-              </h3>
-            </a>
-          </div>
-        
-
-        
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: 'a8ee2e4211f0c00c07c5',
-    clientSecret: '99fd04bd90aa55b1b44067c721b41b0f0d899e3f',
-    repo: 'Wangguibin.github.io',
-    owner: 'WangGuibin',
-    admin: ['WangGuibin'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
-  <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
-</div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
-      </div>
     </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a8ee2e4211f0c00c07c5',
+        clientSecret: '99fd04bd90aa55b1b44067c721b41b0f0d899e3f',
+        repo: 'Wangguibin.github.io',
+        owner: 'WangGuibin',
+        admin: ['WangGuibin'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
   </body>
 </html>

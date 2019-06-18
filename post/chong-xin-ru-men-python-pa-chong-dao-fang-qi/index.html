@@ -1,109 +1,132 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>重新入门python爬虫到放弃 | CoderWGB&#39;s Blog</title>
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560755718884">
+<meta name="description" content="业精于勤荒于嬉">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560867932392">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="http://wangguibin.github.io">
-  <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560755718884" alt="">
-  </a>
-  <h1 class="site-title">
-    CoderWGB&#39;s Blog
-  </h1>
-  <p class="site-description">
-    业精于勤荒于嬉
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="http://wangguibin.github.io">
+        <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560867932392" alt="" width="32px" height="32px">
+      </a>
+      <a href="http://wangguibin.github.io">
+        <h1 class="site-title">CoderWGB&#39;s Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
 
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              重新入门python爬虫到放弃
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2018-09-12 ·
-              </time>
-              
-                <a href="http://wangguibin.github.io/tag/QxYn4hl3L" class="post-tag">
-                  # python
-                </a>
-              
-                <a href="http://wangguibin.github.io/tag/XXba-wIhP" class="post-tag">
-                  # 效率
-                </a>
-              
-                <a href="http://wangguibin.github.io/tag/LdAlaA2ZS" class="post-tag">
-                  # 工具
-                </a>
-              
-                <a href="http://wangguibin.github.io/tag/5E2uUQVL2" class="post-tag">
-                  # 学习总结
-                </a>
-              
+          
+            <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/chong-xin-ru-men-python-pa-chong-dao-fang-qi.jpg')">
             </div>
+          
+          <h2 class="post-title">重新入门python爬虫到放弃</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2018-09-12</span>
             
-              <div class="post-feature-image" style="background-image: url('http://wangguibin.github.io/post-images/chong-xin-ru-men-python-pa-chong-dao-fang-qi.jpg')">
-              </div>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="http://wangguibin.github.io/tag/QxYn4hl3L">
+                    python
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/XXba-wIhP">
+                    效率
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/LdAlaA2ZS">
+                    工具
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/5E2uUQVL2">
+                    学习总结
+                    
+                  </a>
+                
+              </span>
             
-            <div class="post-content">
-              <blockquote>
+          </div>
+          <div class="post-content">
+            <blockquote>
 <p>最近项目不忙,乘此机会重新学习了一下python爬虫, 引发了一些思考,以下几点:</p>
 </blockquote>
 <ol>
@@ -113,14 +136,14 @@
 <li>
 <p>学习python到了现在是个分水岭,几乎各方面的知识都有所涉及,到底是往哪个方向发展呢?</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6187469"><label class="task-list-item-label" for="task-item-6187469"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2824577"><label class="task-list-item-label" for="task-item-2824577"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4253319"><label class="task-list-item-label" for="task-item-4253319"> web前端 (Django ...)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9699650"><label class="task-list-item-label" for="task-item-9699650"> 后端 (数据库+服务器)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6668405"><label class="task-list-item-label" for="task-item-6668405"> 机器学习 (尚未涉及)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8822121"><label class="task-list-item-label" for="task-item-8822121"> 用来写工具/脚本 (用过别人写好的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5955467"><label class="task-list-item-label" for="task-item-5955467"> 做游戏 (听说吃鸡就是python在做的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2419747"><label class="task-list-item-label" for="task-item-2419747"> ...</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5741275"><label class="task-list-item-label" for="task-item-5741275"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5250873"><label class="task-list-item-label" for="task-item-5250873"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8405590"><label class="task-list-item-label" for="task-item-8405590"> web前端 (Django ...)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3781067"><label class="task-list-item-label" for="task-item-3781067"> 后端 (数据库+服务器)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-536097"><label class="task-list-item-label" for="task-item-536097"> 机器学习 (尚未涉及)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6395224"><label class="task-list-item-label" for="task-item-6395224"> 用来写工具/脚本 (用过别人写好的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2715957"><label class="task-list-item-label" for="task-item-2715957"> 做游戏 (听说吃鸡就是python在做的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6157784"><label class="task-list-item-label" for="task-item-6157784"> ...</label></li>
 </ul>
 </li>
 <li>
@@ -339,59 +362,86 @@ browser.execute_script('alert(&quot;To Bottom&quot;)')
 </ul>
 <p><a href="https://github.com/WangGuibin/PythonLife">平时操练的代码已经托管在github上了</a></p>
 
-            </div>
-          </article>
+          </div>
         </div>
 
         
           <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="http://wangguibin.github.io/post/ji-cheng-google-fan-yi-de-xiao-tips">
+            <a class="purple-link" href="http://wangguibin.github.io/post/ji-cheng-google-fan-yi-de-xiao-tips">
               <h3 class="post-title">
-                集成google翻译的小tips
+                下一篇：集成google翻译的小tips
               </h3>
             </a>
           </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
         
 
         
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      
 
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: 'a8ee2e4211f0c00c07c5',
-    clientSecret: '99fd04bd90aa55b1b44067c721b41b0f0d899e3f',
-    repo: 'Wangguibin.github.io',
-    owner: 'WangGuibin',
-    admin: ['WangGuibin'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
-  <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+      <div class="site-footer">
+  <div class="slogan">业精于勤荒于嬉</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-      </div>
-    </div>
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a8ee2e4211f0c00c07c5',
+        clientSecret: '99fd04bd90aa55b1b44067c721b41b0f0d899e3f',
+        repo: 'Wangguibin.github.io',
+        owner: 'WangGuibin',
+        admin: ['WangGuibin'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
   </body>
 </html>

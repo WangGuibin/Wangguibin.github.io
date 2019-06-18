@@ -1,60 +1,155 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-  <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>swift | CoderWGB&#39;s Blog</title>
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560755718884">
+<meta name="description" content="业精于勤荒于嬉">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560867932392">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="http://wangguibin.github.io">
-  <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560755718884" alt="">
-  </a>
-  <h1 class="site-title">
-    CoderWGB&#39;s Blog
-  </h1>
-  <p class="site-description">
-    业精于勤荒于嬉
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="http://wangguibin.github.io">
+        <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560867932392" alt="" width="32px" height="32px">
+      </a>
+      <a href="http://wangguibin.github.io">
+        <h1 class="site-title">CoderWGB&#39;s Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+
+        <div class="current-tag-container">
+          <h2 class="title">
+            <i class="icon icon-pricetags-outline"></i> swift
+          </h2> 
+        </div>
+
+        
+<section class="post-item">
+    <div class="content">
+      <a href="http://wangguibin.github.io/post/ios-zi-fu-chuan-de-yi-xie-chu-li-zong-jie">
+        <h2 class="post-title">iOS字符串的一些处理总结</h2>
+      </a>
+      <div class="post-abstract">
+        <p><strong>最近比较忙,一直陷入业务的泥沼不可自拔,很少有时间独立思考作作总结,因为平时上班遇到问题就是打开浏览器各种搜寻轮子,百分之八九十的问题也能解决,但是对于个人成长还是感觉有所缓慢,最近开始总结项目的点点滴滴,需要开始写写博客了,那就从基础的笔记写起吧,熟能生巧,由浅入深,这是一个良性的开端。</strong></p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-04-18</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="http://wangguibin.github.io/tag/uojQ_lMmq">
+                Objective-C
+                
+                  ，
+                
+              </a>
+            
+              <a href="http://wangguibin.github.io/tag/5E2uUQVL2">
+                学习总结
+                
+                  ，
+                
+              </a>
+            
+              <a href="http://wangguibin.github.io/tag/k2TvoAzJc">
+                iOS
+                
+                  ，
+                
+              </a>
+            
+              <a href="http://wangguibin.github.io/tag/WHqMC_sVG">
+                swift
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="http://wangguibin.github.io/post/ios-zi-fu-chuan-de-yi-xie-chu-li-zong-jie">
+        <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/ios-zi-fu-chuan-de-yi-xie-chu-li-zong-jie.jpg')">
+        </div>
+      </a>
+    
+  </section>
+
+
+<div class="pagination-container">
+  
+  
+</div>
+
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">业精于勤荒于嬉</div>
   <div class="social-container">
     
       
@@ -68,68 +163,26 @@
       
     
   </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
 </div>
 
-        <div class="current-tag-container">
-            <h2 class="title">
-                标签：#swift
-            </h2> 
-        </div>
-        <div class="post-container">
-  
-    <article class="post">
-      <a href="http://wangguibin.github.io/post/ios-zi-fu-chuan-de-yi-xie-chu-li-zong-jie">
-        <h2 class="post-title">iOS字符串的一些处理总结</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-04-18 ·
-        </time>
-        
-          <a href="http://wangguibin.github.io/tag/uojQ_lMmq" class="post-tag">
-            # Objective-C
-          </a>
-        
-          <a href="http://wangguibin.github.io/tag/5E2uUQVL2" class="post-tag">
-            # 学习总结
-          </a>
-        
-          <a href="http://wangguibin.github.io/tag/k2TvoAzJc" class="post-tag">
-            # iOS
-          </a>
-        
-          <a href="http://wangguibin.github.io/tag/WHqMC_sVG" class="post-tag">
-            # swift
-          </a>
-        
-      </div>
-      
-        <a href="http://wangguibin.github.io/post/ios-zi-fu-chuan-de-yi-xie-chu-li-zong-jie" class="post-feature-image" style="background-image: url('http://wangguibin.github.io/post-images/ios-zi-fu-chuan-de-yi-xie-chu-li-zong-jie.jpg')">
-        </a>
-      
-      <div class="post-abstract">
-        <p><strong>最近比较忙,一直陷入业务的泥沼不可自拔,很少有时间独立思考作作总结,因为平时上班遇到问题就是打开浏览器各种搜寻轮子,百分之八九十的问题也能解决,但是对于个人成长还是感觉有所缓慢,最近开始总结项目的点点滴滴,需要开始写写博客了,那就从基础的笔记写起吧,熟能生巧,由浅入深,这是一个良性的开端。</strong></p>
 
-      </di>
-    </article>
-  
-</div>
+    </div>
+    <script type="application/javascript">
 
-        <div class="pagination-container">
-  
-  
-</div>
+hljs.initHighlightingOnLoad()
 
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
-  <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
-</div>
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-<script>
-  hljs.initHighlightingOnLoad()
 </script>
 
-      </div>
-    </div>
+
+
+
   </body>
 </html>
