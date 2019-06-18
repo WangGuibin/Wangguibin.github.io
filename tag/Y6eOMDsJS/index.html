@@ -1,18 +1,15 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>计划想法 | CoderWGB&#39;s Blog</title>
 <meta name="description" content="业精于勤荒于嬉">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560867932392">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560868059342">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
@@ -21,211 +18,142 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 
 
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="http://wangguibin.github.io">
-        <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560867932392" alt="" width="32px" height="32px">
-      </a>
-      <a href="http://wangguibin.github.io">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="http://wangguibin.github.io">
+        <img src="http://wangguibin.github.io/images/avatar.png?v=1560868059342" class="site-logo">
         <h1 class="site-title">CoderWGB&#39;s Blog</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
         
-          <a href="/post/about" class="menu purple-link">
+          <a href="/post/about" class="site-nav">
             关于
           </a>
         
       
     </div>
   </div>
-</transition>
-
-
-      <div class="content-container">
-
-        <div class="current-tag-container">
-          <h2 class="title">
-            <i class="icon icon-pricetags-outline"></i> 计划想法
-          </h2> 
-        </div>
-
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
         
-<section class="post-item">
-    <div class="content">
-      <a href="http://wangguibin.github.io/post/2019-nian-coderwgb-you-ji">
-        <h2 class="post-title">2019年CoderWGB游记</h2>
-      </a>
-      <div class="post-abstract">
-        <p><strong>人们常说:&quot;理想很丰满,现实很骨感&quot;。</strong></p>
-
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2019-05-25</span>
+      
         
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://wangguibin.github.io/tag/8JkvH4Ijo">
-                游记
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/6mAyYkTIu">
-                水文
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/Dl4Qq36lV">
-                感悟
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/Y6eOMDsJS">
-                计划想法
-                
-              </a>
-            
-          </span>
+      
         
-      </div>
+      
+        
+      
+        
+      
     </div>
-    
-      <a href="http://wangguibin.github.io/post/2019-nian-coderwgb-you-ji">
-        <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/2019-nian-coderwgb-you-ji.JPG')">
-        </div>
-      </a>
-    
-  </section>
+    <div class="site-description">
+      业精于勤荒于嬉
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
-<section class="post-item">
-    <div class="content">
-      <a href="http://wangguibin.github.io/post/2018-nian-du-ge-ren-zong-jie">
-        <h2 class="post-title">2018年度个人总结</h2>
-      </a>
-      <div class="post-abstract">
-        <h3 id="个人博客-ahttpwangguibingithubio-a">个人博客 <a>http://wangguibin.github.io </a></h3>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: 计划想法</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://wangguibin.github.io/post/2019-nian-coderwgb-you-ji">
+                  <h2 class="post-title">2019年CoderWGB游记</h2>
+                </a>
+                <div class="post-date">
+                  2019-05-25
+                </div>
+                <div class="post-abstract">
+                  <p><strong>人们常说:&quot;理想很丰满,现实很骨感&quot;。</strong></p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="http://wangguibin.github.io/post/2019-nian-coderwgb-you-ji">
+                  <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/2019-nian-coderwgb-you-ji.JPG')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://wangguibin.github.io/post/2018-nian-du-ge-ren-zong-jie">
+                  <h2 class="post-title">2018年度个人总结</h2>
+                </a>
+                <div class="post-date">
+                  2018-12-31
+                </div>
+                <div class="post-abstract">
+                  <h3 id="个人博客-ahttpwangguibingithubio-a">个人博客 <a>http://wangguibin.github.io </a></h3>
 <h2 id="前言">前言</h2>
 <p>​	去年这个时候就有作一些类似的计划,明年全年应该如何如何,立了不少flag,很多事情都啪啪打脸,对于计划赶不上变化的事情,也就看淡很多。比如打算一个月看一本书,写一篇博客,去户外野一次...类似这种小目标看似简单容易实现,往往被现实琐碎的事情所打乱。今年依旧如此,为明年的这个时候埋下伏笔,但愿能打得轻些。一般来说,年初作出的计划,许下的承诺,写的越具体,生动,形象,年底清算复盘的时候越是最痛!</p>
 <p><img src="http://wangguibin.github.io/post-images/1560697383306.png" alt="">
 值得庆幸的是,今年博客几乎每个月都有更新。</p>
 
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2018-12-31</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://wangguibin.github.io/tag/8JkvH4Ijo">
-                游记
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/6mAyYkTIu">
-                水文
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/Dl4Qq36lV">
-                感悟
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/Y6eOMDsJS">
-                计划想法
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="http://wangguibin.github.io/post/2018-nian-du-ge-ren-zong-jie">
-        <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/2018-nian-du-ge-ren-zong-jie.jpg')">
+                </div>
+              </div>
+              
+                <a class="right" href="http://wangguibin.github.io/post/2018-nian-du-ge-ren-zong-jie">
+                  <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/2018-nian-du-ge-ren-zong-jie.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+  
+</div>
+
         </div>
-      </a>
-    
-  </section>
-
-
-<div class="pagination-container">
-  
-  
-</div>
-
-
       </div>
-
-      <div class="site-footer">
-  <div class="slogan">业精于勤荒于嬉</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
-</div>
-
-
     </div>
-    <script type="application/javascript">
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
 
 hljs.initHighlightingOnLoad()
 

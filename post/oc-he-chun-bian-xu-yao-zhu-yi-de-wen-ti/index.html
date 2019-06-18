@@ -1,18 +1,15 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>OC和C++混编需要注意的问题 | CoderWGB&#39;s Blog</title>
 <meta name="description" content="业精于勤荒于嬉">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560867932392">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560868059342">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
@@ -27,106 +24,88 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 
 
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="http://wangguibin.github.io">
-        <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560867932392" alt="" width="32px" height="32px">
-      </a>
-      <a href="http://wangguibin.github.io">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="http://wangguibin.github.io">
+        <img src="http://wangguibin.github.io/images/avatar.png?v=1560868059342" class="site-logo">
         <h1 class="site-title">CoderWGB&#39;s Blog</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
         
-          <a href="/post/about" class="menu purple-link">
+          <a href="/post/about" class="site-nav">
             关于
           </a>
         
       
     </div>
   </div>
-</transition>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      业精于勤荒于嬉
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
 
-      <div class="content-container">
-        <div class="post-detail">
-          
-            <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/oc-he-chun-bian-xu-yao-zhu-yi-de-wen-ti.png')">
-            </div>
-          
-          <h2 class="post-title">OC和C++混编需要注意的问题</h2>
-          <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2018-12-17</span>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">OC和C++混编需要注意的问题</h2>
+            <div class="post-date">2018-12-17</div>
             
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="http://wangguibin.github.io/tag/ltxrtETzQ">
-                    Xcode
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="http://wangguibin.github.io/tag/uojQ_lMmq">
-                    Objective-C
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="http://wangguibin.github.io/tag/5E2uUQVL2">
-                    学习总结
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="http://wangguibin.github.io/tag/k2TvoAzJc">
-                    iOS
-                    
-                  </a>
-                
-              </span>
+              <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/oc-he-chun-bian-xu-yao-zhu-yi-de-wen-ti.png')">
+              </div>
             
-          </div>
-          <div class="post-content">
-            <h1 id="方案一">方案一</h1>
+            <div class="post-content">
+              <h1 id="方案一">方案一</h1>
 <h4 id="1-c文件的identify-and-type右边栏修改为objective-c-source">1. <code>.c</code>文件的<code>identify and type</code>右边栏修改为<code>Objective-C source</code></h4>
 <h4 id="2-built-setting-apple-clang-language-compile-source-as设置为according-to-file-type即根据文件源类型来编译">2. <code>Built setting -&gt; Apple Clang Language -&gt; Compile Source AS</code>设置为<code>According to File type</code>,即根据文件源类型来编译</h4>
 <h1 id="方案二">方案二</h1>
@@ -138,49 +117,58 @@
 <h4 id="我想做个2019年的大计划打算定一下目标来做几件像样的事情-12月了没几天了先酝酿着">我想做个2019年的大计划,打算定一下目标,来做几件像样的事情... 12月了没几天了,先酝酿着。</h4>
 <pre><code>											 `于2018年12月17日 深圳宝安`</code></pre>
 
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="http://wangguibin.github.io/tag/ltxrtETzQ" class="tag">
+                    Xcode
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/uojQ_lMmq" class="tag">
+                    Objective-C
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/5E2uUQVL2" class="tag">
+                    学习总结
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/k2TvoAzJc" class="tag">
+                    iOS
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi">
+                  <h3 class="post-title">
+                    重新入门python爬虫到放弃
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
           </div>
+
         </div>
-
-        
-          <div class="next-post">
-            <a class="purple-link" href="http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi">
-              <h3 class="post-title">
-                下一篇：重新入门python爬虫到放弃
-              </h3>
-            </a>
-          </div>
-          
       </div>
-
-      
-        
-          <div id="gitalk-container"></div>
-        
-
-        
-      
-
-      <div class="site-footer">
-  <div class="slogan">业精于勤荒于嬉</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
-</div>
-
-
     </div>
-    <script type="application/javascript">
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
 
 hljs.initHighlightingOnLoad()
 

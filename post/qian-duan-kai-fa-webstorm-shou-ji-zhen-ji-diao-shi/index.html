@@ -1,18 +1,15 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>前端开发: webStorm手机真机调试 | CoderWGB&#39;s Blog</title>
 <meta name="description" content="业精于勤荒于嬉">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560867932392">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560868059342">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
@@ -27,96 +24,85 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 
 
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="http://wangguibin.github.io">
-        <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560867932392" alt="" width="32px" height="32px">
-      </a>
-      <a href="http://wangguibin.github.io">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="http://wangguibin.github.io">
+        <img src="http://wangguibin.github.io/images/avatar.png?v=1560868059342" class="site-logo">
         <h1 class="site-title">CoderWGB&#39;s Blog</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
         
-          <a href="/post/about" class="menu purple-link">
+          <a href="/post/about" class="site-nav">
             关于
           </a>
         
       
     </div>
   </div>
-</transition>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      业精于勤荒于嬉
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
 
-      <div class="content-container">
-        <div class="post-detail">
-          
-          <h2 class="post-title">前端开发: webStorm手机真机调试</h2>
-          <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2018-05-21</span>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">前端开发: webStorm手机真机调试</h2>
+            <div class="post-date">2018-05-21</div>
             
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="http://wangguibin.github.io/tag/A8y7QHlLW">
-                    前端
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="http://wangguibin.github.io/tag/XXba-wIhP">
-                    效率
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="http://wangguibin.github.io/tag/LdAlaA2ZS">
-                    工具
-                    
-                  </a>
-                
-              </span>
-            
-          </div>
-          <div class="post-content">
-            <h2 id="1-做好准备工作">1. 做好准备工作</h2>
+            <div class="post-content">
+              <h2 id="1-做好准备工作">1. 做好准备工作</h2>
 <ul>
 <li>安装webstorm以及新建一个项目写个demo</li>
 <li>确保是同一局域网,同一个路由器下的WiFi或者其他内部网络</li>
@@ -158,49 +144,54 @@
 <li>能够正常打开,点击地址栏旁边草料二维码插件,手机扫码就可以轻轻松松调试了</li>
 </ul>
 
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="http://wangguibin.github.io/tag/A8y7QHlLW" class="tag">
+                    前端
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/XXba-wIhP" class="tag">
+                    效率
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/LdAlaA2ZS" class="tag">
+                    工具
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="http://wangguibin.github.io/post/python-xue-xi-bi-ji">
+                  <h3 class="post-title">
+                    python学习笔记
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
           </div>
+
         </div>
-
-        
-          <div class="next-post">
-            <a class="purple-link" href="http://wangguibin.github.io/post/python-xue-xi-bi-ji">
-              <h3 class="post-title">
-                下一篇：python学习笔记
-              </h3>
-            </a>
-          </div>
-          
       </div>
-
-      
-        
-          <div id="gitalk-container"></div>
-        
-
-        
-      
-
-      <div class="site-footer">
-  <div class="slogan">业精于勤荒于嬉</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
-</div>
-
-
     </div>
-    <script type="application/javascript">
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
 
 hljs.initHighlightingOnLoad()
 

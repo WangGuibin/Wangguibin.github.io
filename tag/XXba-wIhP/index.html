@@ -1,18 +1,15 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>效率 | CoderWGB&#39;s Blog</title>
 <meta name="description" content="业精于勤荒于嬉">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560867932392">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560868059342">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
@@ -21,78 +18,91 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 
 
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="http://wangguibin.github.io">
-        <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560867932392" alt="" width="32px" height="32px">
-      </a>
-      <a href="http://wangguibin.github.io">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="http://wangguibin.github.io">
+        <img src="http://wangguibin.github.io/images/avatar.png?v=1560868059342" class="site-logo">
         <h1 class="site-title">CoderWGB&#39;s Blog</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
         
-          <a href="/post/about" class="menu purple-link">
+          <a href="/post/about" class="site-nav">
             关于
           </a>
         
       
     </div>
   </div>
-</transition>
-
-
-      <div class="content-container">
-
-        <div class="current-tag-container">
-          <h2 class="title">
-            <i class="icon icon-pricetags-outline"></i> 效率
-          </h2> 
-        </div>
-
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
         
-<section class="post-item">
-    <div class="content">
-      <a href="http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi">
-        <h2 class="post-title">重新入门python爬虫到放弃</h2>
-      </a>
-      <div class="post-abstract">
-        <blockquote>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      业精于勤荒于嬉
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: 效率</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi">
+                  <h2 class="post-title">重新入门python爬虫到放弃</h2>
+                </a>
+                <div class="post-date">
+                  2018-09-12
+                </div>
+                <div class="post-abstract">
+                  <blockquote>
 <p>最近项目不忙,乘此机会重新学习了一下python爬虫, 引发了一些思考,以下几点:</p>
 </blockquote>
 <ol>
@@ -102,14 +112,14 @@
 <li>
 <p>学习python到了现在是个分水岭,几乎各方面的知识都有所涉及,到底是往哪个方向发展呢?</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2098852"><label class="task-list-item-label" for="task-item-2098852"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2883903"><label class="task-list-item-label" for="task-item-2883903"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1670337"><label class="task-list-item-label" for="task-item-1670337"> web前端 (Django ...)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9312984"><label class="task-list-item-label" for="task-item-9312984"> 后端 (数据库+服务器)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4197765"><label class="task-list-item-label" for="task-item-4197765"> 机器学习 (尚未涉及)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3136199"><label class="task-list-item-label" for="task-item-3136199"> 用来写工具/脚本 (用过别人写好的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5122453"><label class="task-list-item-label" for="task-item-5122453"> 做游戏 (听说吃鸡就是python在做的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7689028"><label class="task-list-item-label" for="task-item-7689028"> ...</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5569759"><label class="task-list-item-label" for="task-item-5569759"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3003190"><label class="task-list-item-label" for="task-item-3003190"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2670022"><label class="task-list-item-label" for="task-item-2670022"> web前端 (Django ...)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5698044"><label class="task-list-item-label" for="task-item-5698044"> 后端 (数据库+服务器)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4949076"><label class="task-list-item-label" for="task-item-4949076"> 机器学习 (尚未涉及)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9665960"><label class="task-list-item-label" for="task-item-9665960"> 用来写工具/脚本 (用过别人写好的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7865543"><label class="task-list-item-label" for="task-item-7865543"> 做游戏 (听说吃鸡就是python在做的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4178468"><label class="task-list-item-label" for="task-item-4178468"> ...</label></li>
 </ul>
 </li>
 <li>
@@ -117,161 +127,65 @@
 </li>
 </ol>
 
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2018-09-12</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://wangguibin.github.io/tag/QxYn4hl3L">
-                python
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/XXba-wIhP">
-                效率
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/LdAlaA2ZS">
-                工具
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/5E2uUQVL2">
-                学习总结
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi">
-        <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/chong-xin-ru-men-python-pa-chong-dao-fang-qi.jpg')">
-        </div>
-      </a>
-    
-  </section>
+                </div>
+              </div>
+              
+                <a class="right" href="http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi">
+                  <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/chong-xin-ru-men-python-pa-chong-dao-fang-qi.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://wangguibin.github.io/post/ji-cheng-google-fan-yi-de-xiao-tips">
+                  <h2 class="post-title">集成google翻译的小tips</h2>
+                </a>
+                <div class="post-date">
+                  2018-08-04
+                </div>
+                <div class="post-abstract">
+                  <p>google翻译的强大,就像我们公司的slogan : &quot;让语言无国界,让世人心相通&quot;</p>
 
-<section class="post-item">
-    <div class="content">
-      <a href="http://wangguibin.github.io/post/ji-cheng-google-fan-yi-de-xiao-tips">
-        <h2 class="post-title">集成google翻译的小tips</h2>
-      </a>
-      <div class="post-abstract">
-        <p>google翻译的强大,就像我们公司的slogan : &quot;让语言无国界,让世人心相通&quot;</p>
-
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2018-08-04</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://wangguibin.github.io/tag/XXba-wIhP">
-                效率
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/uojQ_lMmq">
-                Objective-C
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/5E2uUQVL2">
-                学习总结
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/k2TvoAzJc">
-                iOS
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="http://wangguibin.github.io/post/ji-cheng-google-fan-yi-de-xiao-tips">
-        <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/ji-cheng-google-fan-yi-de-xiao-tips.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="http://wangguibin.github.io/post/xcode-fu-zhu-gong-ju-zhi-re-chong-zai-cha-jian-li-qi">
-        <h2 class="post-title">Xcode辅助工具之热重载插件利器</h2>
-      </a>
-      <div class="post-abstract">
-        <p>文章最新修改于: 2019-03-31 13:47:20</p>
+                </div>
+              </div>
+              
+                <a class="right" href="http://wangguibin.github.io/post/ji-cheng-google-fan-yi-de-xiao-tips">
+                  <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/ji-cheng-google-fan-yi-de-xiao-tips.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://wangguibin.github.io/post/xcode-fu-zhu-gong-ju-zhi-re-chong-zai-cha-jian-li-qi">
+                  <h2 class="post-title">Xcode辅助工具之热重载插件利器</h2>
+                </a>
+                <div class="post-date">
+                  2018-06-13
+                </div>
+                <div class="post-abstract">
+                  <p>文章最新修改于: 2019-03-31 13:47:20</p>
 <p>昨天刚刚看完iOSTips微信公众号推送的文章, <a href="https://mp.weixin.qq.com/s?__biz=MjM5NTQ2NzE0NQ==&amp;mid=2247483999&amp;idx=1&amp;sn=bc88d37b6f819bd6bd7d8b76e9787620&amp;chksm=a6f958b9918ed1af9a084ce2c2732aaee715193e37fdb830dc31d8f0174c0314b22dc5c0dd1e&amp;mpshare=1&amp;scene=23&amp;srcid=06126xSxEfUaISIzvyp4L4kn#rd">Injection：iOS热重载背后的黑魔法</a> , 效果明显,惊为天人!,
 底层原理啥的受限目前水平,咱先不研究,使用方法还是得总结一波的,于是开始琢磨了一下。</p>
 
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2018-06-13</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://wangguibin.github.io/tag/ltxrtETzQ">
-                Xcode
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/XXba-wIhP">
-                效率
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/LdAlaA2ZS">
-                工具
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/cQ3FDp_LV">
-                热重载
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="http://wangguibin.github.io/post/zheng-ze-biao-da-shi-xue-xi-bi-ji">
-        <h2 class="post-title">正则表达式学习笔记</h2>
-      </a>
-      <div class="post-abstract">
-        <h3 id="正则字符匹配规则">正则字符匹配规则</h3>
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://wangguibin.github.io/post/zheng-ze-biao-da-shi-xue-xi-bi-ji">
+                  <h2 class="post-title">正则表达式学习笔记</h2>
+                </a>
+                <div class="post-date">
+                  2018-06-09
+                </div>
+                <div class="post-abstract">
+                  <h3 id="正则字符匹配规则">正则字符匹配规则</h3>
 <ol>
 <li><code>^</code> 行首的意思</li>
 <li><code>$</code>结尾处</li>
@@ -284,104 +198,47 @@
 <li><code>\t</code>制表符</li>
 </ol>
 
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2018-06-09</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://wangguibin.github.io/tag/GfFqsbH1s">
-                正则表达式
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/XXba-wIhP">
-                效率
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/LdAlaA2ZS">
-                工具
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/5E2uUQVL2">
-                学习总结
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="http://wangguibin.github.io/post/zheng-ze-biao-da-shi-xue-xi-bi-ji">
-        <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/zheng-ze-biao-da-shi-xue-xi-bi-ji.jpg')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="http://wangguibin.github.io/post/qian-duan-kai-fa-webstorm-shou-ji-zhen-ji-diao-shi">
-        <h2 class="post-title">前端开发: webStorm手机真机调试</h2>
-      </a>
-      <div class="post-abstract">
-        <h2 id="1-做好准备工作">1. 做好准备工作</h2>
+                </div>
+              </div>
+              
+                <a class="right" href="http://wangguibin.github.io/post/zheng-ze-biao-da-shi-xue-xi-bi-ji">
+                  <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/zheng-ze-biao-da-shi-xue-xi-bi-ji.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://wangguibin.github.io/post/qian-duan-kai-fa-webstorm-shou-ji-zhen-ji-diao-shi">
+                  <h2 class="post-title">前端开发: webStorm手机真机调试</h2>
+                </a>
+                <div class="post-date">
+                  2018-05-21
+                </div>
+                <div class="post-abstract">
+                  <h2 id="1-做好准备工作">1. 做好准备工作</h2>
 <ul>
 <li>安装webstorm以及新建一个项目写个demo</li>
 <li>确保是同一局域网,同一个路由器下的WiFi或者其他内部网络</li>
 <li>安装google二维码插件 (草料二维码)</li>
 </ul>
 
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2018-05-21</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://wangguibin.github.io/tag/A8y7QHlLW">
-                前端
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/XXba-wIhP">
-                效率
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/LdAlaA2ZS">
-                工具
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="http://wangguibin.github.io/post/wo-de-git-bi-ji">
-        <h2 class="post-title">我的git笔记</h2>
-      </a>
-      <div class="post-abstract">
-        <h5 id="1-创建版本库">1. 创建版本库</h5>
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://wangguibin.github.io/post/wo-de-git-bi-ji">
+                  <h2 class="post-title">我的git笔记</h2>
+                </a>
+                <div class="post-date">
+                  2017-09-26
+                </div>
+                <div class="post-abstract">
+                  <h5 id="1-创建版本库">1. 创建版本库</h5>
 <pre><code class="language-ruby">mkdir gitDemo //创建一个文件夹
 
 pwd //查看当前路径 /Users/wangguibin/Desktop/gitDemo
@@ -397,76 +254,26 @@ vi readme.txt //修改文本内容
 
 </code></pre>
 
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2017-09-26</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://wangguibin.github.io/tag/HqfiE4MwV">
-                git
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/XXba-wIhP">
-                效率
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/LdAlaA2ZS">
-                工具
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://wangguibin.github.io/tag/5E2uUQVL2">
-                学习总结
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-  </section>
+                </div>
+              </div>
+              
+            </article>
+          
 
-
-<div class="pagination-container">
+          <div class="pagination-container">
   
   
 </div>
 
-
+        </div>
       </div>
-
-      <div class="site-footer">
-  <div class="slogan">业精于勤荒于嬉</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
-</div>
-
-
     </div>
-    <script type="application/javascript">
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
 
 hljs.initHighlightingOnLoad()
 

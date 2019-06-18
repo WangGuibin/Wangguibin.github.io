@@ -1,18 +1,15 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>python学习笔记 | CoderWGB&#39;s Blog</title>
 <meta name="description" content="业精于勤荒于嬉">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560867932392">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560868059342">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
@@ -27,92 +24,88 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 
 
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="http://wangguibin.github.io">
-        <img class="avatar" src="http://wangguibin.github.io/images/avatar.png?v=1560867932392" alt="" width="32px" height="32px">
-      </a>
-      <a href="http://wangguibin.github.io">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="http://wangguibin.github.io">
+        <img src="http://wangguibin.github.io/images/avatar.png?v=1560868059342" class="site-logo">
         <h1 class="site-title">CoderWGB&#39;s Blog</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
         
-          <a href="/post/about" class="menu purple-link">
+          <a href="/post/about" class="site-nav">
             关于
           </a>
         
       
     </div>
   </div>
-</transition>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      业精于勤荒于嬉
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
 
-      <div class="content-container">
-        <div class="post-detail">
-          
-            <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/python-xue-xi-bi-ji.jpg')">
-            </div>
-          
-          <h2 class="post-title">python学习笔记</h2>
-          <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2017-10-11</span>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">python学习笔记</h2>
+            <div class="post-date">2017-10-11</div>
             
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="http://wangguibin.github.io/tag/QxYn4hl3L">
-                    python
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="http://wangguibin.github.io/tag/5E2uUQVL2">
-                    学习总结
-                    
-                  </a>
-                
-              </span>
+              <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/python-xue-xi-bi-ji.jpg')">
+              </div>
             
-          </div>
-          <div class="post-content">
-            <h3 id="字符串">字符串</h3>
+            <div class="post-content">
+              <h3 id="字符串">字符串</h3>
 <p><code>有些情况下是有很多转义字符的,可以这样写,好处是可以省去写繁琐的反斜杠...</code></p>
 <pre><code class="language-python">print r''' &quot;哈哈哈哈哈😄&quot;,\\\\ 6666%%%% &quot;U&quot; &quot;u&quot; '''
 </code></pre>
@@ -588,49 +581,50 @@ plt.show()
 </code></pre>
 <p><strong>先写这么多,后续有时间继续探索,人生苦短,我用python</strong></p>
 
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="http://wangguibin.github.io/tag/QxYn4hl3L" class="tag">
+                    python
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/5E2uUQVL2" class="tag">
+                    学习总结
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="http://wangguibin.github.io/post/wo-de-git-bi-ji">
+                  <h3 class="post-title">
+                    我的git笔记
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
           </div>
+
         </div>
-
-        
-          <div class="next-post">
-            <a class="purple-link" href="http://wangguibin.github.io/post/wo-de-git-bi-ji">
-              <h3 class="post-title">
-                下一篇：我的git笔记
-              </h3>
-            </a>
-          </div>
-          
       </div>
-
-      
-        
-          <div id="gitalk-container"></div>
-        
-
-        
-      
-
-      <div class="site-footer">
-  <div class="slogan">业精于勤荒于嬉</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
-</div>
-
-
     </div>
-    <script type="application/javascript">
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
 
 hljs.initHighlightingOnLoad()
 
