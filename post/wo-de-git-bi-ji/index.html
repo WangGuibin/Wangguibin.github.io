@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1560868067013">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1579856019534">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="http://wangguibin.github.io">
-        <img src="http://wangguibin.github.io/images/avatar.png?v=1560868067013" class="site-logo">
+        <img src="http://wangguibin.github.io/images/avatar.png?v=1579856019534" class="site-logo">
         <h1 class="site-title">CoderWGB&#39;s Blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -232,6 +232,17 @@ git merge tmp
 ////git pull
 git pull：相当于是从远程获取最新版本并merge到本地
 git pull origin master
+
+`git pull origin master`
+上述命令其实相当于git fetch 和 git merge
+在实际使用中，git fetch更安全一些
+因为在merge前，我们可以查看更新情况，然后再决定是否合并
+
+gfo master ：temp
+gd temp 比較 
+gm temp 合并遠程分支
+gbd “temp” 刪掉臨時分支
+
 </code></pre>
 <h5 id="9-推送到远程库">9.  推送到远程库</h5>
 <pre><code class="language-ruby">git push origin master 
@@ -242,15 +253,26 @@ git pull origin master
 
 查看分支：git branch
 
-创建分支：git branch &lt;name&gt;
+创建分支：git branch &lt;name&gt; 或者 git switch branchName
 
-切换分支：git checkout &lt;name&gt;
+切换分支：git checkout &lt;name&gt; 或者 git switch branchName
 
-创建+切换分支：git checkout -b &lt;name&gt;
+创建+切换分支：git checkout -b &lt;name&gt; 或者 git switch -c branchName
 
-合并某分支到当前分支：git merge &lt;name&gt;
+合并某分支到当前分支：git merge &lt;name&gt; 
+(使用 git merge branchName -m &quot;xxx&quot; --no-ff 其中--no-ff 
+Git默认会用Fast forward模式，但这种模式下，删除分支后，
+会丢掉分支信息,强制禁用Fast forward模式，
+加上--no-ff就可以查看完整的分支历史信息，不受分支删除影响。)
 
 删除分支：git branch -d &lt;name&gt;
+
+删除远程分支: 
+git push origin --delete branchName 或者
+git branch -r -d origin/dev &amp;&amp; git push origin :dev 或者
+git push origin -d &lt;branch name&gt; 其中 
+git push origin :branchName 原型是 git push origin master:branchName 
+将本地的master分支推送到远程的branchName
 
 </code></pre>
 <h3 id="打tag">打tag</h3>
@@ -271,6 +293,16 @@ git tag -s &lt;tagname&gt; -m &quot;blablabla...&quot;可以用PGP签名标签�
 
 命令git push origin :refs/tags/&lt;tagname&gt;可以删除一个远程标签。
 
+git tag #查看已有tag
+git tag tagName #当前分支最新节点的tag
+# 指定节点打tag并添加release note信息  
+git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb
+git tag -d &lt;tagname&gt; #删除本地标签
+git show &lt;tagname&gt; #可以看到说明文字：
+git push origin v1.0 #推送指定本地标签
+git push origin --tags #一次性全部推
+git push origin :refs/tags/v0.9 #删除指定的远程标签
+git push origin :&lt;branch&gt;/&lt;tag&gt; #删除指定的远程标签 注意冒号 : 必不可少, 后面跟远程库的分支名/标签名
 
 </code></pre>
 <h3 id="记录一次实战操作步骤">记录一次实战操作步骤</h3>
