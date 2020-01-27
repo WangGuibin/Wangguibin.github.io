@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1580093481375">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1580094383755">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="http://wangguibin.github.io">
-        <img src="http://wangguibin.github.io/images/avatar.png?v=1580093481375" class="site-logo">
+        <img src="http://wangguibin.github.io/images/avatar.png?v=1580094383755" class="site-logo">
         <h1 class="site-title">CoderWGB&#39;s Blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -193,7 +193,7 @@ ec855f8 (HEAD -&gt; master) HEAD@{0}: commit: 提交readme.txt的最近更新
 
 </code></pre>
 <h5 id="5-工作区和暂存区跟踪修改">5. 工作区和暂存区,跟踪修改</h5>
-<p><img src="http://wangguibin.github.io/post-images/1560698439826.png" alt="">
+<p><img src="http://wangguibin.github.io/post-images/1560698439826.png" alt="" loading="lazy"><br>
 <strong>git是如何操作的? 如图,先把修改的文件add到暂存区,然后再执行 git commit,比如有几个文件做了修改,你这个时候可以修改一个就执行add和commit操作,也可以先全部add完再执行一次commit, 建议是开发一个小模块,创建或者修改完就add进去,快下班的时候或者休息的时候翻篇的时候,就执行一次commit操作,不然这个容易忘记,还有模块与模块之间,开发周期与开发周期时间和时机的不同, 尽可能开发一部分就提交一部分,免得积攒大量的任务.. 节点多意味着更加灵活,后续想滚到哪里就滚到哪里...</strong></p>
 <h5 id="6-撤销修改">6. 撤销修改</h5>
 <pre><code class="language-objc">场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
@@ -381,22 +381,22 @@ git reset --hard origin/master
 git pull //可以省略
 </code></pre>
 <h3 id="alias-grep-git-调用zsh的插件-git-缩写"><code>alias | grep git</code> 调用zsh的插件 git 缩写</h3>
-<p><code>ga</code> =<code>git add</code>
-<code>gaa</code>=<code>git add --all</code>
-<code>gb</code>= <code>git branch</code>
-<code>gcam</code>=<code>git commit -a -m</code>
-<code>gcb</code>= <code>git checkout -b</code>
-<code>gco</code>=<code>git checkout</code>
-<code>gm --no-ff</code>=<code>git merge --no-ff</code>
-<code>gcmsg</code>=<code>git commit -m</code>
+<p><code>ga</code> =<code>git add</code><br>
+<code>gaa</code>=<code>git add --all</code><br>
+<code>gb</code>= <code>git branch</code><br>
+<code>gcam</code>=<code>git commit -a -m</code><br>
+<code>gcb</code>= <code>git checkout -b</code><br>
+<code>gco</code>=<code>git checkout</code><br>
+<code>gm --no-ff</code>=<code>git merge --no-ff</code><br>
+<code>gcmsg</code>=<code>git commit -m</code><br>
 <code>gpoat</code>=<code>git push origin --all &amp;&amp; git push origin --tags</code></p>
-<p><code>gfa</code> = <code>git fetch --all --prune</code>
+<p><code>gfa</code> = <code>git fetch --all --prune</code><br>
 <code>grhh</code>= <code>git reset HEAD --hard</code></p>
-<p><a href="http://blog.jobbole.com/109466/">深入理解分支的重要性</a>
+<p><a href="http://blog.jobbole.com/109466/">深入理解分支的重要性</a><br>
 <a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html">git命令清单</a></p>
 <h1 id="debug-遇到的一些各种各样的问题">Debug 遇到的一些各种各样的问题</h1>
 <h5 id="1-clone代码的时候遇到如下报错">1.  clone代码的时候遇到如下报错</h5>
-<p><code>fatal: Authentication failed for 'https://gitee.com/iOSCoder-JJMY/JJYSClient.git/'</code>
+<p><code>fatal: Authentication failed for 'https://gitee.com/iOSCoder-JJMY/JJYSClient.git/'</code><br>
 <em>重新设置用户名和邮箱即可</em></p>
 <pre><code>git config --global user.name &quot;wangguibin&quot;
 git config --global user.email &quot;wangguibin@jjys168.com&quot;

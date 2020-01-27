@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1580093481375">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1580094383755">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="http://wangguibin.github.io">
-        <img src="http://wangguibin.github.io/images/avatar.png?v=1580093481375" class="site-logo">
+        <img src="http://wangguibin.github.io/images/avatar.png?v=1580094383755" class="site-logo">
         <h1 class="site-title">CoderWGB&#39;s Blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -107,7 +107,7 @@
             <div class="post-content">
               <p>google翻译的强大,就像我们公司的slogan : &quot;让语言无国界,让世人心相通&quot;</p>
 <!-- more -->
-<p><img src="http://wangguibin.github.io/post-images/1560697872361.png" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="http://wangguibin.github.io/post-images/1560697872361.png" alt="" loading="lazy"></figure>
 <h5 id="友情提示-google相关的服务都是需要翻墙的不然在大陆无法访问"><em>友情提示: google相关的服务都是需要翻墙的,不然在大陆无法访问</em></h5>
 <p>写这篇文章的目的就是为了整合一下这方面的资料, 大概是因为被墙,网上关于这方面的资料很少,有些是过于老旧,甚至是不适用的,所以就不得不做个笔记就当作是探探路。</p>
 <h1 id="google语音识别">google语音识别</h1>
@@ -214,15 +214,15 @@ textlen  //所有文字的计数,就是这个字符串的长度
 q     //合成的文字内容,中文的话需要转编码utf-8最为合适
 tl  //语言，跟识别的语言一致
 </code></pre>
-<p>主要参数介绍:
-<code>ie</code>: 输入参数编码 <code>input-encode</code> 一般为<code>utf-8</code>
-<code>oe</code>: 输入参数编码 <code>output-encode</code> 一般为<code>utf-8</code>
-<code>ttsspeed</code>: 合成的语速
-<code>tl</code>: 目标语言代码 <code>target language</code>
+<p>主要参数介绍:<br>
+<code>ie</code>: 输入参数编码 <code>input-encode</code> 一般为<code>utf-8</code><br>
+<code>oe</code>: 输入参数编码 <code>output-encode</code> 一般为<code>utf-8</code><br>
+<code>ttsspeed</code>: 合成的语速<br>
+<code>tl</code>: 目标语言代码 <code>target language</code><br>
 <code>hl</code>: 当地语言代码 <code>home language</code></p>
-<p>url编码前:
-<code>http://translate.google.com/translate_tts?ie=UTF-8&amp;client=tw-ob&amp;ttsspeed=1&amp;total=1&amp;idx=1&amp;textlen=6&amp;q=某某某是傻逼&amp;tl=zh-cn</code>
-url编码后:
+<p>url编码前:<br>
+<code>http://translate.google.com/translate_tts?ie=UTF-8&amp;client=tw-ob&amp;ttsspeed=1&amp;total=1&amp;idx=1&amp;textlen=6&amp;q=某某某是傻逼&amp;tl=zh-cn</code><br>
+url编码后:<br>
 <code>http://translate.google.com/translate_tts?ie=UTF-8&amp;client=tw-ob&amp;ttsspeed=1&amp;total=1&amp;idx=1&amp;textlen=6&amp;q=%E9%99%88%E8%89%AF%E8%89%AF%E6%98%AF%E5%82%BB%E9%80%BC&amp;tl=zh-cn</code></p>
 <h3 id="核心代码-2">核心代码</h3>
 <pre><code>///MARK:- 文本 转 语音在线合成

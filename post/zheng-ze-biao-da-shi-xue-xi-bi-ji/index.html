@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1580093481375">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1580094383755">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="http://wangguibin.github.io">
-        <img src="http://wangguibin.github.io/images/avatar.png?v=1580093481375" class="site-logo">
+        <img src="http://wangguibin.github.io/images/avatar.png?v=1580094383755" class="site-logo">
         <h1 class="site-title">CoderWGB&#39;s Blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -125,7 +125,7 @@
 <li><code>[ab5@]</code> 匹配<code>a</code> 或<code>b</code>或<code>5</code>或<code>@</code></li>
 <li><code>[^abc]</code> 匹配除了<code>a</code> <code>b</code> <code>c</code> 以外的任意一个字符</li>
 <li><code>[f-k]</code>匹配<code>f</code>到<code>k</code>之间的任意一个字母(包含<code>f</code> <code>k</code>)</li>
-<li><code>[^A-F0-3]</code> 匹配 <code>A</code>~<code>F</code>和<code>0</code>~<code>3</code>以外的任意一个字符</li>
+<li><code>[^A-F0-3]</code> 匹配 <code>A</code><sub>`F`和`0`</sub><code>3</code>以外的任意一个字符</li>
 <li><code>{n}</code> 表达式重复<code>n</code>次,比如 <code>\w{2}</code> ==<code>\w\w</code> 或者 <code>a{4}</code> == <code>aaaa</code></li>
 <li><code>{m,n}</code>表达式重复最少<code>m</code>次 最多重复<code>n</code>次,  比如 <code>ha{2,3}</code>=&gt;可匹配到 <code>haa</code> <code>haaa</code></li>
 <li><code>{m,}</code>贪婪模式,表达式至少重复m次,比如<code>\w\d{3,}</code>=&gt;可匹配 <code>g123</code> <code>b456789</code>… 数字可以重复3个以上</li>
