@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://wangguibin.github.io</id>
     <title>CoderWGB&apos;s Blog</title>
-    <updated>2020-01-27T05:46:38.234Z</updated>
+    <updated>2020-03-03T12:47:27.577Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://wangguibin.github.io"/>
     <link rel="self" href="http://wangguibin.github.io/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2020, CoderWGB&apos;s Blog</rights>
     <entry>
         <title type="html"><![CDATA[2019年CoderWGB游记]]></title>
-        <id>http://wangguibin.github.io/post/2019-nian-coderwgb-you-ji</id>
-        <link href="http://wangguibin.github.io/post/2019-nian-coderwgb-you-ji">
+        <id>http://wangguibin.github.io/post/2019-nian-coderwgb-you-ji/</id>
+        <link href="http://wangguibin.github.io/post/2019-nian-coderwgb-you-ji/">
         </link>
         <updated>2019-05-25T07:28:00.000Z</updated>
         <summary type="html"><![CDATA[<p><strong>人们常说:&quot;理想很丰满,现实很骨感&quot;。</strong></p>
@@ -23,8 +23,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[iOS字符串的一些处理总结]]></title>
-        <id>http://wangguibin.github.io/post/ios-zi-fu-chuan-de-yi-xie-chu-li-zong-jie</id>
-        <link href="http://wangguibin.github.io/post/ios-zi-fu-chuan-de-yi-xie-chu-li-zong-jie">
+        <id>http://wangguibin.github.io/post/ios-zi-fu-chuan-de-yi-xie-chu-li-zong-jie/</id>
+        <link href="http://wangguibin.github.io/post/ios-zi-fu-chuan-de-yi-xie-chu-li-zong-jie/">
         </link>
         <updated>2019-04-18T12:02:56.000Z</updated>
         <summary type="html"><![CDATA[<p><strong>最近比较忙,一直陷入业务的泥沼不可自拔,很少有时间独立思考作作总结,因为平时上班遇到问题就是打开浏览器各种搜寻轮子,百分之八九十的问题也能解决,但是对于个人成长还是感觉有所缓慢,最近开始总结项目的点点滴滴,需要开始写写博客了,那就从基础的笔记写起吧,熟能生巧,由浅入深,这是一个良性的开端。</strong></p>
@@ -34,8 +34,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[iOS pod私有库组件化初尝试]]></title>
-        <id>http://wangguibin.github.io/post/ios-pod-si-you-ku-zu-jian-hua-chu-chang-shi</id>
-        <link href="http://wangguibin.github.io/post/ios-pod-si-you-ku-zu-jian-hua-chu-chang-shi">
+        <id>http://wangguibin.github.io/post/ios-pod-si-you-ku-zu-jian-hua-chu-chang-shi/</id>
+        <link href="http://wangguibin.github.io/post/ios-pod-si-you-ku-zu-jian-hua-chu-chang-shi/">
         </link>
         <updated>2019-03-26T12:22:12.000Z</updated>
         <summary type="html"><![CDATA[<p>​	很早以前就听说过组件化,但那个时候只是浅显的以为只有web前端才有的东西,现如今早已是大前端时代,组件化自然也是在业界普及,没有真正自己去实操这个东西,就犹如附骨之疽,很难受~<br>
@@ -47,8 +47,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[2018年度个人总结]]></title>
-        <id>http://wangguibin.github.io/post/2018-nian-du-ge-ren-zong-jie</id>
-        <link href="http://wangguibin.github.io/post/2018-nian-du-ge-ren-zong-jie">
+        <id>http://wangguibin.github.io/post/2018-nian-du-ge-ren-zong-jie/</id>
+        <link href="http://wangguibin.github.io/post/2018-nian-du-ge-ren-zong-jie/">
         </link>
         <updated>2018-12-31T12:54:36.000Z</updated>
         <summary type="html"><![CDATA[<h3 id="个人博客-ahttpwangguibingithubio-a">个人博客 <a>http://wangguibin.github.io </a></h3>
@@ -66,15 +66,15 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[OC和C++混编需要注意的问题]]></title>
-        <id>http://wangguibin.github.io/post/oc-he-chun-bian-xu-yao-zhu-yi-de-wen-ti</id>
-        <link href="http://wangguibin.github.io/post/oc-he-chun-bian-xu-yao-zhu-yi-de-wen-ti">
+        <id>http://wangguibin.github.io/post/oc-he-chun-bian-xu-yao-zhu-yi-de-wen-ti/</id>
+        <link href="http://wangguibin.github.io/post/oc-he-chun-bian-xu-yao-zhu-yi-de-wen-ti/">
         </link>
         <updated>2018-12-17T13:01:55.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[重新入门python爬虫到放弃]]></title>
-        <id>http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi</id>
-        <link href="http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi">
+        <id>http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi/</id>
+        <link href="http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi/">
         </link>
         <updated>2018-09-12T14:32:29.000Z</updated>
         <summary type="html"><![CDATA[<blockquote>
@@ -87,14 +87,14 @@
 <li>
 <p>学习python到了现在是个分水岭,几乎各方面的知识都有所涉及,到底是往哪个方向发展呢?</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-91817"><label class="task-list-item-label" for="task-item-91817"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6429901"><label class="task-list-item-label" for="task-item-6429901"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5495538"><label class="task-list-item-label" for="task-item-5495538"> web前端 (Django ...)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4824945"><label class="task-list-item-label" for="task-item-4824945"> 后端 (数据库+服务器)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3200541"><label class="task-list-item-label" for="task-item-3200541"> 机器学习 (尚未涉及)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7804555"><label class="task-list-item-label" for="task-item-7804555"> 用来写工具/脚本 (用过别人写好的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9950596"><label class="task-list-item-label" for="task-item-9950596"> 做游戏 (听说吃鸡就是python在做的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1060097"><label class="task-list-item-label" for="task-item-1060097"> ...</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4061144"><label class="task-list-item-label" for="task-item-4061144"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1334721"><label class="task-list-item-label" for="task-item-1334721"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5295017"><label class="task-list-item-label" for="task-item-5295017"> web前端 (Django ...)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9240328"><label class="task-list-item-label" for="task-item-9240328"> 后端 (数据库+服务器)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4566528"><label class="task-list-item-label" for="task-item-4566528"> 机器学习 (尚未涉及)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1371720"><label class="task-list-item-label" for="task-item-1371720"> 用来写工具/脚本 (用过别人写好的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-388602"><label class="task-list-item-label" for="task-item-388602"> 做游戏 (听说吃鸡就是python在做的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9005924"><label class="task-list-item-label" for="task-item-9005924"> ...</label></li>
 </ul>
 </li>
 <li>
@@ -112,14 +112,14 @@
 <li>
 <p>学习python到了现在是个分水岭,几乎各方面的知识都有所涉及,到底是往哪个方向发展呢?</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-91817"><label class="task-list-item-label" for="task-item-91817"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6429901"><label class="task-list-item-label" for="task-item-6429901"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5495538"><label class="task-list-item-label" for="task-item-5495538"> web前端 (Django ...)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4824945"><label class="task-list-item-label" for="task-item-4824945"> 后端 (数据库+服务器)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3200541"><label class="task-list-item-label" for="task-item-3200541"> 机器学习 (尚未涉及)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7804555"><label class="task-list-item-label" for="task-item-7804555"> 用来写工具/脚本 (用过别人写好的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9950596"><label class="task-list-item-label" for="task-item-9950596"> 做游戏 (听说吃鸡就是python在做的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1060097"><label class="task-list-item-label" for="task-item-1060097"> ...</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4061144"><label class="task-list-item-label" for="task-item-4061144"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1334721"><label class="task-list-item-label" for="task-item-1334721"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5295017"><label class="task-list-item-label" for="task-item-5295017"> web前端 (Django ...)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9240328"><label class="task-list-item-label" for="task-item-9240328"> 后端 (数据库+服务器)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4566528"><label class="task-list-item-label" for="task-item-4566528"> 机器学习 (尚未涉及)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1371720"><label class="task-list-item-label" for="task-item-1371720"> 用来写工具/脚本 (用过别人写好的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-388602"><label class="task-list-item-label" for="task-item-388602"> 做游戏 (听说吃鸡就是python在做的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9005924"><label class="task-list-item-label" for="task-item-9005924"> ...</label></li>
 </ul>
 </li>
 <li>
@@ -130,8 +130,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[集成google翻译的小tips]]></title>
-        <id>http://wangguibin.github.io/post/ji-cheng-google-fan-yi-de-xiao-tips</id>
-        <link href="http://wangguibin.github.io/post/ji-cheng-google-fan-yi-de-xiao-tips">
+        <id>http://wangguibin.github.io/post/ji-cheng-google-fan-yi-de-xiao-tips/</id>
+        <link href="http://wangguibin.github.io/post/ji-cheng-google-fan-yi-de-xiao-tips/">
         </link>
         <updated>2018-08-04T04:43:20.000Z</updated>
         <summary type="html"><![CDATA[<p>google翻译的强大,就像我们公司的slogan : &quot;让语言无国界,让世人心相通&quot;</p>
@@ -141,8 +141,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Xcode辅助工具之热重载插件利器]]></title>
-        <id>http://wangguibin.github.io/post/xcode-fu-zhu-gong-ju-zhi-re-chong-zai-cha-jian-li-qi</id>
-        <link href="http://wangguibin.github.io/post/xcode-fu-zhu-gong-ju-zhi-re-chong-zai-cha-jian-li-qi">
+        <id>http://wangguibin.github.io/post/xcode-fu-zhu-gong-ju-zhi-re-chong-zai-cha-jian-li-qi/</id>
+        <link href="http://wangguibin.github.io/post/xcode-fu-zhu-gong-ju-zhi-re-chong-zai-cha-jian-li-qi/">
         </link>
         <updated>2018-06-13T05:43:44.000Z</updated>
         <summary type="html"><![CDATA[<p>文章最新修改于: 2019-03-31 13:47:20</p>
@@ -156,8 +156,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[正则表达式学习笔记]]></title>
-        <id>http://wangguibin.github.io/post/zheng-ze-biao-da-shi-xue-xi-bi-ji</id>
-        <link href="http://wangguibin.github.io/post/zheng-ze-biao-da-shi-xue-xi-bi-ji">
+        <id>http://wangguibin.github.io/post/zheng-ze-biao-da-shi-xue-xi-bi-ji/</id>
+        <link href="http://wangguibin.github.io/post/zheng-ze-biao-da-shi-xue-xi-bi-ji/">
         </link>
         <updated>2018-06-08T23:16:27.000Z</updated>
         <summary type="html"><![CDATA[<h3 id="正则字符匹配规则">正则字符匹配规则</h3>
@@ -189,8 +189,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[前端开发: webStorm手机真机调试]]></title>
-        <id>http://wangguibin.github.io/post/qian-duan-kai-fa-webstorm-shou-ji-zhen-ji-diao-shi</id>
-        <link href="http://wangguibin.github.io/post/qian-duan-kai-fa-webstorm-shou-ji-zhen-ji-diao-shi">
+        <id>http://wangguibin.github.io/post/qian-duan-kai-fa-webstorm-shou-ji-zhen-ji-diao-shi/</id>
+        <link href="http://wangguibin.github.io/post/qian-duan-kai-fa-webstorm-shou-ji-zhen-ji-diao-shi/">
         </link>
         <updated>2018-05-21T10:21:15.000Z</updated>
         <summary type="html"><![CDATA[<h2 id="1-做好准备工作">1. 做好准备工作</h2>
