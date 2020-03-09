@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>前端开发: webStorm手机真机调试 | CoderWGB&#39;s Blog</title>
+<title>iOS的AES 128加密解密的两种模式(CBC和ECB) | CoderWGB&#39;s Blog</title>
 <meta name="description" content="业精于勤荒于嬉">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -131,76 +131,109 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">前端开发: webStorm手机真机调试</h2>
-            <div class="post-date">2018-05-21</div>
+            <h2 class="post-title">iOS的AES 128加密解密的两种模式(CBC和ECB)</h2>
+            <div class="post-date">2020-03-09</div>
             
             <div class="post-content">
-              <h2 id="1-做好准备工作">1. 做好准备工作</h2>
-<ul>
-<li>安装webstorm以及新建一个项目写个demo</li>
-<li>确保是同一局域网,同一个路由器下的WiFi或者其他内部网络</li>
-<li>安装google二维码插件 (草料二维码)</li>
-</ul>
-<!-- more -->
-<h2 id="2-开始设置">2. 开始设置</h2>
-<ul>
-<li>用webstorm打开demo,打开偏好设置页面</li>
-<li>点击到Debugger这一栏,可以看到如图所示:</li>
-</ul>
-<figure data-type="image" tabindex="1"><img src="http://wangguibin.github.io/post-images/1560696125636.png" alt="" loading="lazy"></figure>
-<ul>
-<li>设置端口号</li>
-<li>☑️勾选相应设置</li>
-</ul>
-<h2 id="3-配置路径">3. 配置路径</h2>
-<ul>
-<li>点击到Deployment这一栏,如图</li>
-</ul>
-<figure data-type="image" tabindex="2"><img src="http://wangguibin.github.io/post-images/1560696177582.png" alt="" loading="lazy"></figure>
-<ul>
-<li>点击➕号,新建一个,填写自定义名字,设置对应的type</li>
-<li>设置项目的父级路径</li>
-<li>设置域名 + 端口号</li>
-</ul>
-<h2 id="4-匹配路径设置">4. 匹配路径设置</h2>
-<ul>
-<li>点击到mapper这一栏,如图</li>
-</ul>
-<figure data-type="image" tabindex="3"><img src="http://wangguibin.github.io/post-images/1560696186420.png" alt="" loading="lazy"></figure>
-<ul>
-<li>设置项目父级路径即可</li>
-</ul>
-<h2 id="5-设置完成即可体验">5. 设置完成,即可体验</h2>
-<ul>
-<li>以上全部设置完成后,点击apply,点击ok</li>
-<li>在项目里点击google浏览器打开即可</li>
-<li>能够正常打开,点击地址栏旁边草料二维码插件,手机扫码就可以轻轻松松调试了</li>
-</ul>
+              <p><strong>原理什么的不在本篇的范畴,网上很多大牛总结的很好了 请参考<a href="https://blog.csdn.net/qq_38289815/article/details/80900813">AES加密过程详解</a></strong></p>
+<p><strong>1. 苹果默认是<code>CBC</code>模式的,有文档为证:</strong></p>
+<pre><code class="language-objc">/*!
+    @enum       CCOptions
+    @abstract   Options flags, passed to CCCryptorCreate().
+
+    @constant   kCCOptionPKCS7Padding   Perform PKCS7 padding.
+    @constant   kCCOptionECBMode        Electronic Code Book Mode.
+                                        Default is CBC.
+*/
+enum {
+    /* options for block ciphers */
+    kCCOptionPKCS7Padding   = 0x0001,
+    kCCOptionECBMode        = 0x0002
+    /* stream ciphers currently have no options */
+};
+</code></pre>
+<p><strong>2. 一般来说,我们客户端单纯只是做做业务的话,接触的加密算法或者需要我们去深入底层的东西少之又少,通常是后端提供加密的<code>key</code>(秘钥)和<code>iv</code>(偏移量)给前端小伙伴们使用.</strong></p>
+<p><strong>3. <code>CBC</code>和<code>EBC</code>,在调用方看来,仅仅只是一个枚举值的区别</strong></p>
+<pre><code class="language-objc">//CBC模式
+kCCOptionPKCS7Padding
+//ECB模式
+kCCOptionPKCS7Padding | kCCOptionECBMode
+</code></pre>
+<p><strong>4. 下面👇贴一段<code>ECB</code>加密解密的代码</strong></p>
+<pre><code class="language-objc">@implementation NSData (AESEncryption)
+
+//AES128加密
+- (NSData *)AES128ParmEncryptWithKey:(NSString *)key iv:(NSString *)iv
+{
+    char keyPtr[kCCKeySizeAES128+1];
+    bzero(keyPtr, sizeof(keyPtr));
+    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
+    
+    char ivPtr[kCCBlockSizeAES128 + 1];
+    bzero(ivPtr, sizeof(ivPtr));
+    [iv getCString:ivPtr maxLength:sizeof(ivPtr) encoding:NSUTF8StringEncoding];
+
+    
+    NSUInteger dataLength = [self length];
+    size_t bufferSize = dataLength + kCCBlockSizeAES128;
+    void *buffer = malloc(bufferSize);
+    size_t numBytesEncrypted = 0;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt, kCCAlgorithmAES128,
+                                          kCCOptionPKCS7Padding | kCCOptionECBMode,
+                                          keyPtr, kCCBlockSizeAES128,
+                                          ivPtr,
+                                          [self bytes], dataLength,
+                                          buffer, bufferSize,
+                                          &amp;numBytesEncrypted);
+    if (cryptStatus == kCCSuccess) {
+        return [NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];
+    }
+    free(buffer);
+    return nil;
+}
+
+//解密
+- (NSData *)AES128ParmDecryptWithKey:(NSString *)key iv:(NSString *)iv
+{
+    char keyPtr[kCCKeySizeAES128 + 1];
+    bzero(keyPtr, sizeof(keyPtr));
+    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
+    
+    char ivPtr[kCCBlockSizeAES128 + 1];
+    bzero(ivPtr, sizeof(ivPtr));
+    [iv getCString:ivPtr maxLength:sizeof(ivPtr) encoding:NSUTF8StringEncoding];
+    
+    NSUInteger dataLength = [self length];
+    size_t bufferSize = dataLength + kCCBlockSizeAES128;
+    void *buffer = malloc(bufferSize);
+    size_t numBytesDecrypted = 0;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt, kCCAlgorithmAES128,
+                                          kCCOptionPKCS7Padding|kCCOptionECBMode,
+                                          keyPtr, kCCBlockSizeAES128,
+                                          ivPtr,
+                                          [self bytes], dataLength,
+                                          buffer, bufferSize,
+                                          &amp;numBytesDecrypted);
+    if (cryptStatus == kCCSuccess) {
+        return [NSData dataWithBytesNoCopy:buffer length:numBytesDecrypted];
+    }
+    free(buffer);
+    return nil;
+}
+
+@end
+
+</code></pre>
+<p><strong>5. 最后在<a href="https://github.com/WangGuibin/TestDemo/tree/master/TestAES128/TestAES128">Demo地址</a></strong></p>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="http://wangguibin.github.io/tag/A8y7QHlLW/" class="tag">
-                    前端
-                  </a>
-                
-                  <a href="http://wangguibin.github.io/tag/XXba-wIhP/" class="tag">
-                    效率
-                  </a>
-                
-                  <a href="http://wangguibin.github.io/tag/LdAlaA2ZS/" class="tag">
-                    工具
-                  </a>
-                
-              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="http://wangguibin.github.io/post/python-xue-xi-bi-ji/">
+                <a href="http://wangguibin.github.io/post/2019-nian-coderwgb-you-ji/">
                   <h3 class="post-title">
-                    python学习笔记
+                    2019年CoderWGB游记
                   </h3>
                 </a>
               </div>
