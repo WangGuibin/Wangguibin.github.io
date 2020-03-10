@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1583820940872">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1583821082248">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
@@ -45,7 +45,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="http://wangguibin.github.io">
-        <img src="http://wangguibin.github.io/images/avatar.png?v=1583820940872" class="site-logo">
+        <img src="http://wangguibin.github.io/images/avatar.png?v=1583821082248" class="site-logo">
         <h1 class="site-title">CoderWGB&#39;s Blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -138,7 +138,9 @@
               </div>
             
             <div class="post-content">
-              <p><strong>原理什么的不在本篇的范畴,网上很多大牛总结的很好了 请参考<a href="https://blog.csdn.net/qq_38289815/article/details/80900813">AES加密过程详解</a></strong></p>
+              <p>**关于AES加密解密原理什么的不在本篇的范畴,网上很多大牛总结的很好了</p>
+ <!-- more -->
+<p>请参考<a href="https://blog.csdn.net/qq_38289815/article/details/80900813">AES加密过程详解</a>**</p>
 <p><strong>1. 苹果默认是<code>CBC</code>模式的,有文档为证:</strong></p>
 <pre><code class="language-objc">/*!
     @enum       CCOptions
@@ -156,7 +158,6 @@ enum {
 };
 </code></pre>
 <p><strong>2. 一般来说,我们客户端单纯只是做做业务的话,接触的加密算法或者需要我们去深入底层的东西少之又少,通常是后端提供加密的<code>key</code>(秘钥)和<code>iv</code>(偏移量)给前端小伙伴们使用.</strong></p>
-<!-- more -->
 <p><strong>3. <code>CBC</code>和<code>EBC</code>,在调用方看来,仅仅只是一个枚举值的区别</strong></p>
 <pre><code class="language-objc">//CBC模式
 kCCOptionPKCS7Padding

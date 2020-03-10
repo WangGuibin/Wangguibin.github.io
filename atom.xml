@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://wangguibin.github.io</id>
     <title>CoderWGB&apos;s Blog</title>
-    <updated>2020-03-10T06:15:49.360Z</updated>
+    <updated>2020-03-10T06:18:36.192Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://wangguibin.github.io"/>
     <link rel="self" href="http://wangguibin.github.io/atom.xml"/>
@@ -16,43 +16,9 @@
         <link href="http://wangguibin.github.io/post/ios-de-aes-128-jia-mi-jie-mi-de-liang-chong-mo-shi-cbc-he-ecb/">
         </link>
         <updated>2020-03-09T06:30:35.000Z</updated>
-        <summary type="html"><![CDATA[<p><strong>原理什么的不在本篇的范畴,网上很多大牛总结的很好了 请参考<a href="https://blog.csdn.net/qq_38289815/article/details/80900813">AES加密过程详解</a></strong></p>
-<p><strong>1. 苹果默认是<code>CBC</code>模式的,有文档为证:</strong></p>
-<pre><code class="language-objc">/*!
-    @enum       CCOptions
-    @abstract   Options flags, passed to CCCryptorCreate().
-
-    @constant   kCCOptionPKCS7Padding   Perform PKCS7 padding.
-    @constant   kCCOptionECBMode        Electronic Code Book Mode.
-                                        Default is CBC.
-*/
-enum {
-    /* options for block ciphers */
-    kCCOptionPKCS7Padding   = 0x0001,
-    kCCOptionECBMode        = 0x0002
-    /* stream ciphers currently have no options */
-};
-</code></pre>
-<p><strong>2. 一般来说,我们客户端单纯只是做做业务的话,接触的加密算法或者需要我们去深入底层的东西少之又少,通常是后端提供加密的<code>key</code>(秘钥)和<code>iv</code>(偏移量)给前端小伙伴们使用.</strong></p>
+        <summary type="html"><![CDATA[<p>**关于AES加密解密原理什么的不在本篇的范畴,网上很多大牛总结的很好了</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p><strong>原理什么的不在本篇的范畴,网上很多大牛总结的很好了 请参考<a href="https://blog.csdn.net/qq_38289815/article/details/80900813">AES加密过程详解</a></strong></p>
-<p><strong>1. 苹果默认是<code>CBC</code>模式的,有文档为证:</strong></p>
-<pre><code class="language-objc">/*!
-    @enum       CCOptions
-    @abstract   Options flags, passed to CCCryptorCreate().
-
-    @constant   kCCOptionPKCS7Padding   Perform PKCS7 padding.
-    @constant   kCCOptionECBMode        Electronic Code Book Mode.
-                                        Default is CBC.
-*/
-enum {
-    /* options for block ciphers */
-    kCCOptionPKCS7Padding   = 0x0001,
-    kCCOptionECBMode        = 0x0002
-    /* stream ciphers currently have no options */
-};
-</code></pre>
-<p><strong>2. 一般来说,我们客户端单纯只是做做业务的话,接触的加密算法或者需要我们去深入底层的东西少之又少,通常是后端提供加密的<code>key</code>(秘钥)和<code>iv</code>(偏移量)给前端小伙伴们使用.</strong></p>
+        <content type="html"><![CDATA[<p>**关于AES加密解密原理什么的不在本篇的范畴,网上很多大牛总结的很好了</p>
 ]]></content>
     </entry>
     <entry>
@@ -132,14 +98,14 @@ enum {
 <li>
 <p>学习python到了现在是个分水岭,几乎各方面的知识都有所涉及,到底是往哪个方向发展呢?</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5448752"><label class="task-list-item-label" for="task-item-5448752"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-703190"><label class="task-list-item-label" for="task-item-703190"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5017211"><label class="task-list-item-label" for="task-item-5017211"> web前端 (Django ...)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4959148"><label class="task-list-item-label" for="task-item-4959148"> 后端 (数据库+服务器)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9142779"><label class="task-list-item-label" for="task-item-9142779"> 机器学习 (尚未涉及)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6984095"><label class="task-list-item-label" for="task-item-6984095"> 用来写工具/脚本 (用过别人写好的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-627820"><label class="task-list-item-label" for="task-item-627820"> 做游戏 (听说吃鸡就是python在做的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7863102"><label class="task-list-item-label" for="task-item-7863102"> ...</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2169380"><label class="task-list-item-label" for="task-item-2169380"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8760696"><label class="task-list-item-label" for="task-item-8760696"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7661228"><label class="task-list-item-label" for="task-item-7661228"> web前端 (Django ...)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2083270"><label class="task-list-item-label" for="task-item-2083270"> 后端 (数据库+服务器)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5085005"><label class="task-list-item-label" for="task-item-5085005"> 机器学习 (尚未涉及)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8850784"><label class="task-list-item-label" for="task-item-8850784"> 用来写工具/脚本 (用过别人写好的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3639970"><label class="task-list-item-label" for="task-item-3639970"> 做游戏 (听说吃鸡就是python在做的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6898440"><label class="task-list-item-label" for="task-item-6898440"> ...</label></li>
 </ul>
 </li>
 <li>
@@ -157,14 +123,14 @@ enum {
 <li>
 <p>学习python到了现在是个分水岭,几乎各方面的知识都有所涉及,到底是往哪个方向发展呢?</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5448752"><label class="task-list-item-label" for="task-item-5448752"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-703190"><label class="task-list-item-label" for="task-item-703190"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5017211"><label class="task-list-item-label" for="task-item-5017211"> web前端 (Django ...)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4959148"><label class="task-list-item-label" for="task-item-4959148"> 后端 (数据库+服务器)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9142779"><label class="task-list-item-label" for="task-item-9142779"> 机器学习 (尚未涉及)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6984095"><label class="task-list-item-label" for="task-item-6984095"> 用来写工具/脚本 (用过别人写好的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-627820"><label class="task-list-item-label" for="task-item-627820"> 做游戏 (听说吃鸡就是python在做的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7863102"><label class="task-list-item-label" for="task-item-7863102"> ...</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2169380"><label class="task-list-item-label" for="task-item-2169380"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8760696"><label class="task-list-item-label" for="task-item-8760696"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7661228"><label class="task-list-item-label" for="task-item-7661228"> web前端 (Django ...)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2083270"><label class="task-list-item-label" for="task-item-2083270"> 后端 (数据库+服务器)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5085005"><label class="task-list-item-label" for="task-item-5085005"> 机器学习 (尚未涉及)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8850784"><label class="task-list-item-label" for="task-item-8850784"> 用来写工具/脚本 (用过别人写好的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3639970"><label class="task-list-item-label" for="task-item-3639970"> 做游戏 (听说吃鸡就是python在做的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6898440"><label class="task-list-item-label" for="task-item-6898440"> ...</label></li>
 </ul>
 </li>
 <li>
