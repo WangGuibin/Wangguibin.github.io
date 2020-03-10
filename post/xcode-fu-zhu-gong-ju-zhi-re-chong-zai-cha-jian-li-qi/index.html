@@ -9,9 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wangguibin.github.io/favicon.ico?v=1583820004986">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1583820205833">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://wangguibin.github.io/styles/main.css">
+<link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
 
 
   
@@ -44,8 +44,8 @@
       <div class="sidebar" :class="{ 'full-height': menuVisible }">
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
-      <a class="site-title-container" href="https://wangguibin.github.io">
-        <img src="https://wangguibin.github.io/images/avatar.png?v=1583820004986" class="site-logo">
+      <a class="site-title-container" href="http://wangguibin.github.io">
+        <img src="http://wangguibin.github.io/images/avatar.png?v=1583820205833" class="site-logo">
         <h1 class="site-title">CoderWGB&#39;s Blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -122,7 +122,7 @@
       业精于勤荒于嬉
     </div>
     <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
     </div>
   </div>
 </div>
@@ -140,10 +140,10 @@
 底层原理啥的受限目前水平,咱先不研究,使用方法还是得总结一波的,于是开始琢磨了一下。</p>
  <!-- more -->
 <h4 id="第一步-去app-store-或者-github下载开源免费的应用-injectioniii没错就是这货长得跟注射器似的">第一步 , 去<code>App Store</code> 或者 <code>github</code>下载开源免费的应用 <code>InjectionIII</code>,没错就是这货,长得跟注射器💉似的</h4>
-<figure data-type="image" tabindex="1"><img src="https://wangguibin.github.io/post-images/1560695017231.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="http://wangguibin.github.io/post-images/1560695017231.png" alt="" loading="lazy"></figure>
 <h4 id="第二步-打开injectioniii应用open-project选择xcode项目的根目录路径-把file-watcher钩子打上即可">第二步,  打开<code>InjectionIII</code>应用,<code>open project</code>选择Xcode项目的根目录路径, 把<code>File Watcher</code>钩子打上即可</h4>
-<figure data-type="image" tabindex="2"><img src="https://wangguibin.github.io/post-images/1560695076760.png" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="3"><img src="https://wangguibin.github.io/post-images/1560695064682.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="http://wangguibin.github.io/post-images/1560695076760.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="http://wangguibin.github.io/post-images/1560695064682.png" alt="" loading="lazy"></figure>
 <h4 id="第三步-打开项目添加类似入口的代码或者是监听的代码-值得注意的是xcode10之后需要修改路径名iosinjectionbundle修改为iosinjection10bundle">第三步 , 打开项目添加类似入口的代码或者是监听的代码 (!!!: 值得注意的是Xcode10之后需要修改路径名<code>iOSInjection.bundle</code>修改为<code>iOSInjection10.bundle</code>)</h4>
 <pre><code class="language-objectivec">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
@@ -182,7 +182,7 @@
 </code></pre>
 <h4 id="第四步-运行代码修改局部ui布局或者属性commands保存一下看效果貌似不用保存也能看到效果-真的是有点强大ps-从此告别coding五分钟-编译两小时-提升效率杠杠的">第四步 , 运行代码,修改局部UI布局或者属性,command+s保存一下看效果,貌似不用保存也能看到效果... 真的是有点强大<code>(PS: 从此告别coding五分钟 编译两小时 提升效率杠杠的)</code></h4>
 <p>首次运行代码可以看到控制台打印,如图则是正确的打印:</p>
-<figure data-type="image" tabindex="4"><img src="https://wangguibin.github.io/post-images/1560695117490.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="http://wangguibin.github.io/post-images/1560695117490.png" alt="" loading="lazy"></figure>
 <pre><code class="language-objective-c">- (void)injected{
 	//写在这个方法里调用你的UI修改才会生效 command+s 检查监听到文件的修改 然后重新绘制UI 
 		//[self setup];
@@ -191,25 +191,25 @@
 
 </code></pre>
 <h4 id="最后-大功告成甩上一张gif查看效果">最后, 大功告成,甩上一张gif查看效果</h4>
-<figure data-type="image" tabindex="5"><img src="https://wangguibin.github.io/post-images/1560695104658.gif" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="http://wangguibin.github.io/post-images/1560695104658.gif" alt="" loading="lazy"></figure>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://wangguibin.github.io/tag/ltxrtETzQ/" class="tag">
+                  <a href="http://wangguibin.github.io/tag/ltxrtETzQ/" class="tag">
                     Xcode
                   </a>
                 
-                  <a href="https://wangguibin.github.io/tag/XXba-wIhP/" class="tag">
+                  <a href="http://wangguibin.github.io/tag/XXba-wIhP/" class="tag">
                     效率
                   </a>
                 
-                  <a href="https://wangguibin.github.io/tag/LdAlaA2ZS/" class="tag">
+                  <a href="http://wangguibin.github.io/tag/LdAlaA2ZS/" class="tag">
                     工具
                   </a>
                 
-                  <a href="https://wangguibin.github.io/tag/cQ3FDp_LV/" class="tag">
+                  <a href="http://wangguibin.github.io/tag/cQ3FDp_LV/" class="tag">
                     热重载
                   </a>
                 
@@ -218,7 +218,7 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://wangguibin.github.io/post/zheng-ze-biao-da-shi-xue-xi-bi-ji/">
+                <a href="http://wangguibin.github.io/post/zheng-ze-biao-da-shi-xue-xi-bi-ji/">
                   <h3 class="post-title">
                     正则表达式学习笔记
                   </h3>
