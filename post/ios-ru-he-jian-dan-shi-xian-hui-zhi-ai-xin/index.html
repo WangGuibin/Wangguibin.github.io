@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>OC和C++混编需要注意的问题 | CoderWGB&#39;s Blog</title>
+<title>iOS如何简单实现绘制爱心? | CoderWGB&#39;s Blog</title>
 <meta name="description" content="业精于勤荒于嬉">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -131,39 +131,164 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">OC和C++混编需要注意的问题</h2>
-            <div class="post-date">2018-12-17</div>
+            <h2 class="post-title">iOS如何简单实现绘制爱心?</h2>
+            <div class="post-date">2020-03-22</div>
             
-              <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/oc-he-chun-bian-xu-yao-zhu-yi-de-wen-ti.png')">
+              <div class="feature-container" style="background-image: url('https://images.cnblogs.com/cnblogs_com/wgb1234/1662566/o_200322020921heart1.png')">
               </div>
             
             <div class="post-content">
-              <h1 id="方案一">方案一</h1>
-<h4 id="1-c文件的identify-and-type右边栏修改为objective-c-source">1. <code>.c</code>文件的<code>identify and type</code>右边栏修改为<code>Objective-C source</code></h4>
-<h4 id="2-built-setting-apple-clang-language-compile-source-as设置为according-to-file-type即根据文件源类型来编译">2. <code>Built setting -&gt; Apple Clang Language -&gt; Compile Source AS</code>设置为<code>According to File type</code>,即根据文件源类型来编译</h4>
-<h1 id="方案二">方案二</h1>
-<h4 id="1-项目中使用到c或者c的代码部分的m文件改为mm">1. 项目中使用到C或者C++的代码部分的<code>.m</code>文件,改为<code>.mm</code></h4>
-<h4 id="2built-setting-apple-clang-language-compile-source-as设置为objective-c即指定为c的编译机制">2.<code>Built setting -&gt; Apple Clang Language -&gt; Compile Source AS</code>设置为<code>Objective-C++</code>,即指定为C++的编译机制</h4>
-<h1 id="注意">注意</h1>
-<p><code>如果项目中有些头文件导入方式是用modules的@import xxxx 类似的, 那么就不能用第二种方案,因为.mm和这个会冲突,导致整个项目编译不过, 一般报错像这样 &quot;Use of '@import' when C++ modules are disabled, consider using -fmodules and -fcxx-modules&quot;</code></p>
-<h4 id="最近几个月处于尴尬的处境又是资本寒冬一年之内换了三次工作两次住处果然应了戴总那句2018注定是不平凡的一年">最近几个月处于尴尬的处境,又是资本寒冬,一年之内换了三次工作两次住处,果然应了戴总那句2018注定是不平凡的一年</h4>
-<h4 id="我想做个2019年的大计划打算定一下目标来做几件像样的事情-12月了没几天了先酝酿着">我想做个2019年的大计划,打算定一下目标,来做几件像样的事情... 12月了没几天了,先酝酿着。</h4>
-<pre><code>											 `于2018年12月17日 深圳宝安`</code></pre>
+              <blockquote>
+<p>灵感来源于前端CSS画红心的原理  <a href="https://www.cnblogs.com/yingzi1028/p/6248937.html">参考</a></p>
+</blockquote>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://images.cnblogs.com/cnblogs_com/wgb1234/1662566/o_200322020921heart1.png" alt="示例" loading="lazy"></figure>
+<h1 id="上代码">上代码</h1>
+<pre><code class="language-objectivec">
+#import &lt;UIKit/UIKit.h&gt;
+/**
+    灵感来自于前端CSS画红心的原理: 一个正方形 + 两个圆 + 整体旋转一定的角度
+*/
+
+NS_ASSUME_NONNULL_BEGIN
+IB_DESIGNABLE
+@interface WGBHeartView : UIView
+//❤心有多大?
+@property (nonatomic,assign) IBInspectable CGFloat heartSize;
+//❤心的颜色?
+@property (nonatomic,strong) IBInspectable UIColor *heartColor;
+@end
+NS_ASSUME_NONNULL_END
+
+
+#import &quot;WGBHeartView.h&quot;
+
+@interface WGBHeartView()
+
+@property (nonatomic,strong) UIView *bottomView;
+@property (nonatomic,strong) UIView *leftView;
+@property (nonatomic,strong) UIView *rightView;
+
+@end
+
+@implementation WGBHeartView
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initConfig];
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self initConfig];
+    }
+    return self;
+}
+
+- (void)initConfig{
+        //默认值
+    self.heartSize = 150.0;
+    self.heartColor = [UIColor redColor];
+    [self addSubview: self.bottomView];
+    [self addSubview: self.leftView];
+    [self addSubview: self.rightView];
+    //提前旋转45度
+    self.transform = CGAffineTransformMakeRotation(M_PI_4);
+}
+
+//去除设置背景色 
+- (void)setBackgroundColor:(UIColor *)backgroundColor{
+    backgroundColor = [UIColor clearColor];
+    [super setBackgroundColor:backgroundColor];
+}
+
+- (void)setHeartSize:(CGFloat)heartSize{
+    _heartSize = heartSize;
+    CGFloat partSize = heartSize/3.0;
+    self.bottomView.frame = CGRectMake(partSize, partSize, partSize*2 , partSize*2);
+    self.leftView.frame = CGRectMake(0, partSize, partSize*2 , partSize*2);
+    self.rightView.frame = CGRectMake(partSize, 0, partSize*2 , partSize*2);
+    
+    self.leftView.layer.cornerRadius = partSize;
+    self.rightView.layer.cornerRadius = partSize;
+}
+
+- (void)setHeartColor:(UIColor *)heartColor{
+    _heartColor = heartColor;
+    self.bottomView.backgroundColor = heartColor;
+    self.leftView.backgroundColor = heartColor;
+    self.rightView.backgroundColor = heartColor;
+}
+
+    ///MARK:- lazy load
+- (UIView *)bottomView{
+    if (!_bottomView) {
+        _bottomView = [[UIView alloc] initWithFrame:CGRectZero];
+        [self addSubview:_bottomView];
+    }
+    return _bottomView;
+}
+- (UIView *)leftView{
+    if (!_leftView) {
+        _leftView = [[UIView alloc] initWithFrame:CGRectZero];
+        [self addSubview:_leftView];
+    }
+    return _leftView;
+}
+
+- (UIView *)rightView{
+    if (!_rightView) {
+        _rightView = [[UIView alloc] initWithFrame:CGRectZero];
+        [self addSubview:_rightView];
+    }
+    return _rightView;
+}
+
+@end
+
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://images.cnblogs.com/cnblogs_com/wgb1234/1662566/o_200322020929heart2.png" alt="IB设置的过程" loading="lazy"></figure>
+<h1 id="简单调用如下">简单调用如下:</h1>
+<pre><code class="language-objectivec">    WGBHeartView *heartView = [[WGBHeartView alloc] initWithFrame:CGRectMake(100, 100, 100 , 100)];
+    heartView.heartColor = [UIColor blackColor];//默认颜色是红色
+    heartView.heartSize = 100; //这个尺寸最好是设置与视图宽高一致 生成的爱心❤️比较规则
+    [self.view addSubview: heartView];
+    
+    for (NSInteger i = 0; i &lt; 6; i += 1) {
+        CGFloat heartWH = 50.0f;
+        CGFloat margin = 15.0f;
+        WGBHeartView *heartItemView = [[WGBHeartView alloc] initWithFrame:CGRectMake(20 + (heartWH+margin)*i,   250, heartWH , heartWH)];
+        heartItemView.heartColor = [UIColor colorWithRed:arc4random()%256/255.0f green:arc4random()%256/255.0f  blue:arc4random()%256/255.0f alpha:1.0f];
+        heartItemView.heartSize = heartWH;
+        [self.view addSubview: heartItemView];
+    }
+
+</code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="http://wangguibin.github.io/tag/ltxrtETzQ/" class="tag">
-                    Xcode
+                  <a href="http://wangguibin.github.io/tag/yPFGB6MRH/" class="tag">
+                    大前端
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/k_kIMp_af/" class="tag">
+                    CSS
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/A8y7QHlLW/" class="tag">
+                    前端
                   </a>
                 
                   <a href="http://wangguibin.github.io/tag/uojQ_lMmq/" class="tag">
                     Objective-C
-                  </a>
-                
-                  <a href="http://wangguibin.github.io/tag/5E2uUQVL2/" class="tag">
-                    学习总结
                   </a>
                 
                   <a href="http://wangguibin.github.io/tag/k2TvoAzJc/" class="tag">
@@ -175,9 +300,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi/">
+                <a href="http://wangguibin.github.io/post/ios-de-aes-128-jia-mi-jie-mi-de-liang-chong-mo-shi-cbc-he-ecb/">
                   <h3 class="post-title">
-                    重新入门python爬虫到放弃
+                    iOS的AES 128加密解密的两种模式(CBC和ECB)
                   </h3>
                 </a>
               </div>
