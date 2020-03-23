@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>感悟 | CoderWGB&#39;s Blog</title>
+<title>面试 | CoderWGB&#39;s Blog</title>
 <meta name="description" content="业精于勤荒于嬉">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -124,49 +124,33 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 感悟</h2>
+          <h2 class="current-tag">标签: 面试</h2>
           
             <article class="post-item">
               <div class="left">
-                <a href="http://wangguibin.github.io/post/2019-nian-coderwgb-you-ji/">
-                  <h2 class="post-title">2019年CoderWGB游记</h2>
+                <a href="http://wangguibin.github.io/post/ios-ji-chu-zhi-shi-zong-jie/">
+                  <h2 class="post-title">iOS基础知识总结</h2>
                 </a>
                 <div class="post-date">
-                  2019-05-25
+                  2020-03-23
                 </div>
                 <div class="post-abstract">
-                  <p><strong>人们常说:&quot;理想很丰满,现实很骨感&quot;。</strong></p>
+                  <h2 id="oc">OC</h2>
+<h3 id="内存管理">内存管理</h3>
+<h5 id="内存管理的原理和原则">内存管理的原理和原则</h5>
+<ul>
+<li>基本数据类型(<code>int</code>,<code>float</code>,<code>double</code>,<code>enum</code>,<code>struct</code>,<code>union</code>等)和C语言的类型存储在栈区,由系统分配释放</li>
+<li>继承自<code>NSObject</code>的类属于<code>OC</code>类型,都遵循内存管理原则</li>
+<li>谁创建,谁释放(<code>MRC</code>程序员管理,<code>ARC</code>系统封装了编译时插入<code>retain</code>和<code>release</code> 自动释放池等自动管理内存)</li>
+<li><code>OC</code>方法调用的本质其实是给对象发送消息,需要引用时发送<code>retain</code>引用计数加<code>1</code>,释放时发送<code>release</code>引用计数减<code>1</code>,每个<code>OC</code>对象都有一个<code>retainCount</code>计数器占有<code>4</code>个字节</li>
+<li><code>MRC</code> 设置<code>setter</code>需要判断,存在旧值,则需要先把旧值释放<code>release</code>,然后新值<code>retain</code>之后赋值</li>
+</ul>
 
                 </div>
               </div>
               
-                <a class="right" href="http://wangguibin.github.io/post/2019-nian-coderwgb-you-ji/">
-                  <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/2019-nian-coderwgb-you-ji.JPG')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="http://wangguibin.github.io/post/2018-nian-du-ge-ren-zong-jie/">
-                  <h2 class="post-title">2018年度个人总结</h2>
-                </a>
-                <div class="post-date">
-                  2018-12-31
-                </div>
-                <div class="post-abstract">
-                  <h3 id="个人博客-ahttpwangguibingithubio-a">个人博客 <a>http://wangguibin.github.io </a></h3>
-<h2 id="前言">前言</h2>
-<p>​	去年这个时候就有作一些类似的计划,明年全年应该如何如何,立了不少flag,很多事情都啪啪打脸,对于计划赶不上变化的事情,也就看淡很多。比如打算一个月看一本书,写一篇博客,去户外野一次...类似这种小目标看似简单容易实现,往往被现实琐碎的事情所打乱。今年依旧如此,为明年的这个时候埋下伏笔,但愿能打得轻些。一般来说,年初作出的计划,许下的承诺,写的越具体,生动,形象,年底清算复盘的时候越是最痛!</p>
-<p><img src="http://wangguibin.github.io/post-images/1560697383306.png" alt="" loading="lazy"><br>
-值得庆幸的是,今年博客几乎每个月都有更新。</p>
-
-                </div>
-              </div>
-              
-                <a class="right" href="http://wangguibin.github.io/post/2018-nian-du-ge-ren-zong-jie/">
-                  <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/2018-nian-du-ge-ren-zong-jie.jpg')">
+                <a class="right" href="http://wangguibin.github.io/post/ios-ji-chu-zhi-shi-zong-jie/">
+                  <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/ios-ji-chu-zhi-shi-zong-jie.jpg')">
                   </div>
                 </a>
               

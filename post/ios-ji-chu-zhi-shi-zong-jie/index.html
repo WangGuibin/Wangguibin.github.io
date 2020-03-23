@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>iOS基础知识总结 | CoderWGB&#39;s Blog</title>
+<meta name="description" content="业精于勤荒于嬉">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1584941237207">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120519308-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120519308-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="http://wangguibin.github.io">
+        <img src="http://wangguibin.github.io/images/avatar.png?v=1584941237207" class="site-logo">
+        <h1 class="site-title">CoderWGB&#39;s Blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="http://wangguibin.github.io" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://soar-coding-life.github.io/Coding-docs" class="site-nav">
+            学习笔记&amp;&amp;文档
+          </a>
+        
+      
+        
+          <a href="http://wangguibin.github.io/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="http://wangguibin.github.io/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://wangguibin.github.io/PersonalProfile/" class="site-nav">
+            个人简历
+          </a>
+        
+      
+        
+          <a href="http://wangguibin.github.io/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/WangGuibin" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/WGBChangeworld" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/wang-zhi-zhi-61-72" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      业精于勤荒于嬉
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">iOS基础知识总结</h2>
+            <div class="post-date">2020-03-23</div>
+            
+              <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/ios-ji-chu-zhi-shi-zong-jie.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <h2 id="oc">OC</h2>
+<h3 id="内存管理">内存管理</h3>
+<h5 id="内存管理的原理和原则">内存管理的原理和原则</h5>
+<ul>
+<li>基本数据类型(<code>int</code>,<code>float</code>,<code>double</code>,<code>enum</code>,<code>struct</code>,<code>union</code>等)和C语言的类型存储在栈区,由系统分配释放</li>
+<li>继承自<code>NSObject</code>的类属于<code>OC</code>类型,都遵循内存管理原则</li>
+<li>谁创建,谁释放(<code>MRC</code>程序员管理,<code>ARC</code>系统封装了编译时插入<code>retain</code>和<code>release</code> 自动释放池等自动管理内存)</li>
+<li><code>OC</code>方法调用的本质其实是给对象发送消息,需要引用时发送<code>retain</code>引用计数加<code>1</code>,释放时发送<code>release</code>引用计数减<code>1</code>,每个<code>OC</code>对象都有一个<code>retainCount</code>计数器占有<code>4</code>个字节</li>
+<li><code>MRC</code> 设置<code>setter</code>需要判断,存在旧值,则需要先把旧值释放<code>release</code>,然后新值<code>retain</code>之后赋值</li>
+</ul>
+<!-- more -->
+<h5 id="内存管理中容易出现的问题和概念">内存管理中容易出现的问题和概念</h5>
+<ul>
+<li>
+<p>内存泄漏: 开辟了内存空间创建了对象却没有得到真正的使用,也没有得到释放并常驻在内存中,造成对内存的浪费(不用的记得释放,养成合理使用内存的习惯,才能有效避免类似问题)</p>
+</li>
+<li>
+<p>悬垂指针(也叫迷途指针): 就是指针指向的那块内存已经销毁(对象已经释放了),但是引用它的指针还在,然后指针自己也不知道指向的是什么鬼👻了,对象释放时需要顺带也要把引用它的指针也置为 <code>nil</code> (<code>OC</code>中任何对象给<code>nil</code>发消息都不会有反应的)</p>
+</li>
+<li>
+<p>野指针: 还没有初始化的指针</p>
+</li>
+<li>
+<p>僵尸对象: 一个已经被释放的对象</p>
+</li>
+<li>
+<p>空指针: nil,NULL</p>
+</li>
+<li>
+<p>一个NSObject占用多少内存？<a href="https://blog.csdn.net/a_horse/article/details/82532304">查看OC对象占用至少多少字节</a></p>
+<blockquote>
+<p>1、系统分配了16个字节给NSObject对象（可以通过malloc_size函数得到）<br>
+2、但NSObject对象内部只使用了8个字节空间（在64bit环境下，可以通过class_getInstanceSize函数获得）</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="oc中的几个小常识">OC中的几个小常识</h3>
+<h5 id="import-includeclass的区别在哪里"><code>#import</code> , <code>#include</code>,<code>@class</code>的区别在哪里?</h5>
+<ul>
+<li><code>#include</code>是<code>C</code>语言中的导入头文件的方式,会出现重复导入的情况</li>
+<li><code>#import</code>是``#include`的改进版,针对同一个头文件只会导入一次,避免递归导入问题</li>
+<li><code>@class</code> 类的声明,可以避免循环导入互相引用头文件报错的问题,还有就是提高编译效率,如果头文件链式引用的话容易出现重复编译的问题(可优化编译耗时)</li>
+</ul>
+<h5 id="staticexternconst的使用"><code>static</code>,<code>extern</code>,<code>const</code>的使用</h5>
+<p><code>static</code>可以修饰</p>
+<ul>
+<li>静态局部变量:  <em>保证局部变量永远只初始化一次，在程序的运行过程中永远有且只有一份内存， 生命周期类似全局变量了，但是作用域不变。</em></li>
+</ul>
+<pre><code class="language-objc"> //push到这个页面,页面添加按钮点击进行累加操作 点两下pop页面,再次进入继续点击按钮累加 观察控制台打印
+    static int count = 0;
+    count += 1;
+    NSLog(@&quot;计数: %d&quot;,count);
+// 控制台打印结果如下: 
+//第一次进入该页面点击打印
+计数: 1
+计数: 2
+//第二次进入该页面点击打印
+计数: 3
+计数: 4
+
+</code></pre>
+<ul>
+<li>
+<p>修饰静态全局变量:  <em>使全局变量的作用域仅限于当前文件内部，即当前文件内部才能访问该全局变量</em></p>
+<p>例如单例:</p>
+</li>
+</ul>
+<pre><code class="language-objc">static ShareManager *_manager = nil;
++ (ShareManager *)shareInstance{
+    if (!_manager) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&amp;onceToken, ^{
+            _manager = [[ShareManager alloc] init];
+        });
+    }
+    return _manager;
+}
+</code></pre>
+<ul>
+<li>修饰静态函数: <em><code>static</code>修饰的函数叫静态函数,外部文件无法访问这个函数,函数当前文件可以访问</em></li>
+</ul>
+<pre><code class="language-objc">static inline void hello(){
+    NSLog(@&quot;你好!&quot;);
+}
+</code></pre>
+<p><code>extern</code> 外部引用的意思,其实是用于修饰外部全局变量的关键字,在<code>iOS</code>中被定义了多种别名,其实本质还是<code>extern</code>,当然自己开发的时候也可以自定义别名,可以增加代码可读性.</p>
+<pre><code class="language-objective-c">    FOUNDATION_EXPORT
+    FOUNDATION_EXTERN
+    UIKIT_EXTERN
+</code></pre>
+<h5 id="oc中property的几个关键字用法-ios面试之property">OC中<code>@property</code>的几个关键字用法 <a href="https://juejin.im/post/5c105c7ce51d4562d138086f?utm_source=gold_browser_extension">iOS面试之@property</a></h5>
+<details>
+<summary>查看代码示例 show the code</summary>
+<pre><code class="java">
+// @property = iVar + setter + getter
+// 默认是atomic原子的 读写线程安全但耗性能  一般设置nonatomic是非原子的 节省开销
+//基本数据类型
+@property (nonatomic,assign) int age;
+@property (nonatomic,assign) float distance;
+@property (nonatomic,assign) double aValue;
+@property (nonatomic,assign) NSInteger count1;
+@property (nonatomic,assign) NSUInteger count2;
+@property (nonatomic,assign) CGFloat number1;
+//枚举类型
+@property (nonatomic,assign) NSTextAlignment align;
+//结构体
+@property (nonatomic,assign) CGSize size;
+@property (nonatomic,assign) CGRect frame;
+//代理委托
+@property (nonatomic,assign) id<HelloDelegate> assignDelegate;
+@property (nonatomic,weak) id<HelloDelegate> weakDelegate;
+//弱引用属性
+@property (nonatomic,weak) ShareManager *weakManager;
+//IB拉线视图
+@property (nonatomic,weak) IBOutlet UIView *testView;
+//字符串
+@property (nonatomic,copy) NSString *name;
+//block/闭包
+@property (nonatomic,copy) dispatch_block_t block;
+//强引用对象
+@property (nonatomic,strong) NSArray *arr;
+@property (nonatomic,strong) NSMutableArray *arrM;
+@property (nonatomic,strong) NSDictionary *dic;
+@property (nonatomic,strong) NSMutableArray *dicM;
+@property (nonatomic,strong) ShareManager  *strongManager;
+//默认是readwrite 对于外部引用是可读可写 设置readonly是只读
+@property (nonatomic,strong,readonly) ShareManager  *strongManager2;
+</code></pre>
+</details>
+----------------------------
+<h5 id="nsobject中类方法load和initialize-load和initialize"><code>NSObject</code>中类方法<code>load</code>和<code>initialize</code> <a href="http://blog.y500.me/initialize-vs-load/">load和initialize</a></h5>
+<blockquote>
+<p>这两个类方法会在类被使用时主动调用，但是调用时机和调用顺序却截然不同。</p>
+</blockquote>
+<ul>
+<li><code>initialize</code>方法是在该类接收到第一个消息之前调用.</li>
+<li>父类的 <code>initialize</code> 方法先于子类的 <code>initialize</code> 方法调用.</li>
+<li>如果子类中没有实现 <code>initialize</code> 方法，或者子类显示调用父类实现<code>[super initialize]</code>, 那么则会调用其父类的实现。也就是说，父类的 <code>initialize</code> 可能会被调用多次。</li>
+<li>在应用程序生命周期里，<code>runtime</code> 只会向每个类发送一次 <code>initialize</code> 消息. 所以如果category中实现了<code>initialize</code>方法，那么原来类中的则不会被调用.</li>
+<li><code>load</code>在类或者<code>category</code>被添加到<code>runtime</code>的时候调用，该调用发生在main函数之前</li>
+<li>父类<code>load</code>方法先于子类调用，类本身<code>load</code>方法先于<code>category</code>中调用。</li>
+<li>不需要在<code>load</code>和<code>initialize</code>方法中显式的去调用父类的方法。</li>
+</ul>
+<h2 id="ui">UI</h2>
+<h3 id="一些常见的知识点">一些常见的知识点</h3>
+<h5 id="uiview和calayer的区别">UIView和CALayer的区别?</h5>
+<p>view: 负责用户交互,事件响应</p>
+<p>layer: 负责绘制展示内容,隐式动画</p>
+<h5 id="如何高效绘制圆角">如何高效绘制圆角?</h5>
+<pre><code class="language-objectivec">//采用贝塞尔曲线绘制 上下左右四个角 可大可小/可有可无/易于控制 
+    //可选枚举
+    typedef NS_OPTIONS(NSUInteger, UIRectCorner) {
+        UIRectCornerTopLeft     = 1 &lt;&lt; 0,
+        UIRectCornerTopRight    = 1 &lt;&lt; 1,
+        UIRectCornerBottomLeft  = 1 &lt;&lt; 2,
+        UIRectCornerBottomRight = 1 &lt;&lt; 3,
+        UIRectCornerAllCorners  = ~0UL
+    };
+
+   UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:(UIRectCornerAllCorners) cornerRadii:CGSizeMake(10, 10)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
+
+
+</code></pre>
+<h3 id="布局">布局</h3>
+<h5 id="更新布局">更新布局</h5>
+<ul>
+<li><code>layoutIfNeeded</code>强制更新布局</li>
+<li><code>setNeedsDisplay</code>重绘,适用于需要重写<code>drawRect:</code>绘制的视图</li>
+<li><code>updateConstraintsIfNeeded</code>标记需要更新约束,然后调用<code>layoutIfNeeded</code>才会生效</li>
+</ul>
+<h5 id="纯代码">纯代码</h5>
+<ul>
+<li>系统AutoLayout
+<ul>
+<li><a href="https://www.jianshu.com/p/c476f797fedc">iOS 自动布局总结篇</a></li>
+</ul>
+</li>
+<li>frame布局
+<ul>
+<li><a href="https://www.jianshu.com/p/98c8e18d7fea">参考</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>PS：bounds与frame有一定区别。<br>
+bounds只用来描述视图的尺寸，就像一页A4纸，不论把它放在桌子上还是地板上，它的bounds都不发生变化。<br>
+frame除了能够描述视图的尺寸外还能描述视图的位置。再如A4纸，从桌子上挪到地板上，它的frame就发生变化了</p>
+</blockquote>
+<ul>
+<li>
+<p>Masonry约束布局</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/587efafdd2b3">参考一</a></li>
+<li><a href="http://tutuge.me/2017/03/12/autolayout-example-with-masonry5/">参考二</a></li>
+</ul>
+</li>
+<li>
+<p>StackView布局</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/19fbf3ee2840">参考</a></li>
+</ul>
+</li>
+<li>
+<p>基于YogaKit的Flexbox布局</p>
+<ul>
+<li><a href="https://www.cnblogs.com/baitongtong/p/11778738.html">iOS - FlexBox 布局之 YogaKit</a></li>
+</ul>
+</li>
+<li>
+<p>其他第三方布局库</p>
+<ul>
+<li><a href="https://github.com/gsdios/SDAutoLayout">SDAutoLayout</a></li>
+<li><a href="https://github.com/youngsoft/MyLinearLayout">MyLayout</a></li>
+</ul>
+</li>
+</ul>
+<h5 id="ib拉线">IB拉线</h5>
+<p>XIB结合代码</p>
+<p>StoryBoard结合代码</p>
+<blockquote>
+<p>利用<code>IB_DESIGNABLE</code>和<code>IBInspectable</code>修饰,然后再重写setter,在IB面板上即可出现添加可勾选☑️的属性列表,此方法适用自定义类,不建议在category中设置,category的话是比较耗性能,时不时爆个红~</p>
+</blockquote>
+<pre><code class="language-objectivec">IB_DESIGNABLE
+@interface WGBCustomButton : UIButton
+
+@property (nonatomic,assign) IBInspectable CGFloat space;
+@property (nonatomic,assign) IBInspectable CGFloat   borderWidth;
+@property (nonatomic,strong) IBInspectable  UIColor * borderColor;
+@property (nonatomic,assign) IBInspectable CGFloat  radius;
+@property (nonatomic,strong) IBInspectable  UIColor *bgColor;
+@property (nonatomic,assign) IBInspectable  BOOL  buttonHighlighted;
+@property (nonatomic,strong) IBInspectable  UIColor *selectedBgColor;
+@property (nonatomic,strong) IBInspectable  UIColor *normalBgColor;
+
+@end
+
+</code></pre>
+<h3 id="生命周期">生命周期</h3>
+<p><code>UIViewController</code>生命周期</p>
+<pre><code class="language-objectivec">// 初始化构造方法
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    NSLog(@&quot;%s&quot;, __FUNCTION__);
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+    
+    }
+    return self;
+}
+
+// IB编译后解码
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+     NSLog(@&quot;%s&quot;, __FUNCTION__);
+    if (self = [super initWithCoder:aDecoder]) {
+        
+    }
+    return self;
+}
+
+// IB加载完成
+- (void)awakeFromNib {
+    [super awakeFromNib];
+     NSLog(@&quot;%s&quot;, __FUNCTION__);
+}
+
+// 加载视图 
+- (void)loadView {
+    NSLog(@&quot;%s&quot;, __FUNCTION__);
+    self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.view.backgroundColor = [UIColor redColor];
+}
+
+//视图加载完成
+- (void)viewDidLoad {
+    NSLog(@&quot;%s&quot;, __FUNCTION__);
+    [super viewDidLoad];
+}
+
+
+//视图将要出现
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@&quot;%s&quot;, __FUNCTION__);
+    [super viewWillAppear:animated];
+}
+
+//将要布局子视图
+- (void)viewWillLayoutSubviews {
+    NSLog(@&quot;%s&quot;, __FUNCTION__);
+    [super viewWillLayoutSubviews];
+}
+
+//子视图布局(可能会被多次调用)
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    	//此处能够获取准确frame
+}
+
+
+// 子视图已经布局完毕
+- (void)viewDidLayoutSubviews {
+    NSLog(@&quot;%s&quot;, __FUNCTION__);
+    [super viewDidLayoutSubviews];
+    	//此处能够获取准确frame
+}
+
+//视图已经出现
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@&quot;%s&quot;, __FUNCTION__);
+    [super viewDidAppear:animated];
+}
+
+//视图将要消失
+- (void)viewWillDisappear:(BOOL)animated {
+    NSLog(@&quot;%s&quot;, __FUNCTION__);
+    [super viewWillDisappear:animated];
+}
+
+//视图已经消失
+- (void)viewDidDisappear:(BOOL)animated {
+    NSLog(@&quot;%s&quot;, __FUNCTION__);
+    [super viewDidDisappear:animated];
+}
+
+//出现内存警告  //模拟内存警告:点击模拟器-&gt;hardware-&gt; Simulate Memory Warning
+- (void)didReceiveMemoryWarning {
+    NSLog(@&quot;%s&quot;, __FUNCTION__);
+    [super didReceiveMemoryWarning];
+}
+
+// 视图被销毁
+- (void)dealloc {
+    NSLog(@&quot;%s&quot;, __FUNCTION__);
+}
+
+//控制台打印如下:
+18:03:41.577 ViewControllerLifeCircle[32254:401790] -[ViewController initWithCoder:]
+18:03:41.579 ViewControllerLifeCircle[32254:401790] -[ViewController awakeFromNib]
+18:03:41.581 ViewControllerLifeCircle[32254:401790] -[ViewController loadView]
+18:03:46.485 ViewControllerLifeCircle[32254:401790] -[ViewController viewDidLoad]
+18:03:46.486 ViewControllerLifeCircle[32254:401790] -[ViewController viewWillAppear:]
+18:03:46.487 ViewControllerLifeCircle[32254:401790] -[ViewController viewWillLayoutSubviews]
+18:03:46.488 ViewControllerLifeCircle[32254:401790] -[ViewController viewDidLayoutSubviews]
+18:03:46.488 ViewControllerLifeCircle[32254:401790] -[ViewController viewWillLayoutSubviews]
+18:03:46.488 ViewControllerLifeCircle[32254:401790] -[ViewController viewDidLayoutSubviews]
+18:03:46.490 ViewControllerLifeCircle[32254:401790] -[ViewController viewDidAppear:]
+19:03:13.308 ViewControllerLifeCircle[32611:427962] -[ViewController viewWillDisappear:]
+19:03:14.683 ViewControllerLifeCircle[32611:427962] -[ViewController viewDidDisappear:]
+19:03:14.683 ViewControllerLifeCircle[32611:427962] -[ViewController dealloc]
+19:12:05.927 ViewControllerLifeCircle[32611:427962] -[ViewController didReceiveMemoryWarning]
+</code></pre>
+<h3 id="动画">动画</h3>
+<h5 id="uiview动画-uiview动画uiview-animation总结">UIView动画  <a href="http://www.cocoachina.com/articles/19794">UIView动画UIView Animation总结</a></h5>
+<ul>
+<li>常用的块动画</li>
+</ul>
+<pre><code class="language-objectivec">/// 参数一 : 时长  
+/// 参数二 : 执行动画块
+/// 参数三 : 动画结束时回调
+[UIView animateWithDuration:0.25 animations:^{
+  //做动画: 修改视图大小位置,透明度,颜色,transform等属性
+} completion:^(BOOL finished) {
+  //动画结束回调
+}];       
+/// 参数一 : 时长
+/// 参数二 : 延时几秒执行
+/// 参数三 : 动画函数枚举
+/// 参数四 : 执行动画块
+/// 参数五 : 动画结束时回调
+[UIView animateWithDuration:0.25 delay:1.0 options:(UIViewAnimationOptionAllowUserInteraction) animations:^{
+  //执行动画
+} completion:^(BOOL finished) {
+  //动画结束回调
+}]; 
+</code></pre>
+<ul>
+<li><code>Spring</code>弹性动画</li>
+</ul>
+<pre><code class="language-objectivec">/// 参数一: 执行时长
+    /// 参数二: 延时几秒执行
+    /// 参数三: 阻尼值 0~1之间取值 值越小弹性越大
+    /// 参数四: 初始速度 默认为0 值越大 动画执行的越快
+    /// 参数五: 动画执行曲线函数
+    /// 参数六: 执行动画块
+    /// 参数七: 动画结束时回调
+    [UIView animateWithDuration:0.25 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:10 options:(UIViewAnimationOptionCurveEaseInOut) animations:^{
+        //执行动画
+    } completion:^(BOOL finished) {
+        //动画结束
+    }];
+</code></pre>
+<ul>
+<li>视图转场动画</li>
+</ul>
+<pre><code class="language-objectivec">    UIView *aView = nil;//替换项目中实际的view
+    UIView *bView = nil;//替换项目中实际的view
+    //从一个视图过渡到另一个视图
+    [UIView transitionFromView:aView toView:bView duration:0.25 options:(UIViewAnimationOptionCurveLinear) completion:^(BOOL finished) {
+        //转场结束
+    }];
+    
+    //单个视图向右翻转转场
+    [UIView transitionWithView:aView duration:0.25 options:(UIViewAnimationOptionTransitionFlipFromRight) animations:^{
+        //转场过程中 做一些改变
+    } completion:^(BOOL finished) {
+        //转场结束
+    }];
+
+</code></pre>
+<h5 id="核心动画">核心动画</h5>
+<h2 id="网络">网络</h2>
+<h3 id="http">http</h3>
+<blockquote>
+<p>超文本传输协议,是一种建立在TCP上的无状态连接，整个基本的工作流程是客户端发送一个HTTP请求，说明客户端想要访问的资源和请求的动作，服务端收到请求之后，服务端开始处理请求，并根据请求做出相应的动作访问服务器资源，最后通过发送HTTP响应把结果返回给客户端</p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/an-wen/p/11180076.html">HTTP协议超级详解</a></p>
+<h5 id="head">HEAD</h5>
+<p>工作中只用过一次,用于检测CDN回源,主要是获取Header中的字段值进行判断是否上报</p>
+<h5 id="get">GET</h5>
+<p>参数拼接到URL上是暴露的,相对于POST来说不安全(POST将参数放到body里),传输数据量小,受限于URL最大长度<a href="https://www.baidu.com/link?url=6QrTUOfAvDPuZo5IiUykxyECWlRjatZHflDTimgeKB3MMnAPlomQOXj1IKlsAwHrxAlGKixhByKSNZFXsYf4Q3eKbrqJ8d9wh5Zq1YJMdGu&amp;wd=&amp;eqid=ae2e0e330015c461000000055e7575ff"><em>URL最大长度</em>问题 </a>   表单默认请求方式数据集必须为ASCII,执行效率比POST高</p>
+<h5 id="post">POST</h5>
+<p>安全,参数不可见(放到body中),数据类型没有限制, 可传输的数据容量大(<a href="https://www.cnblogs.com/zxj159/articles/2428376.html">GET和POST可传递的值到底有多大？</a>)</p>
+<h3 id="tcpudp">TCP/UDP</h3>
+<p>tcp是长连接,能够保证传输数据的完整性</p>
+<p>udp是发出去就不管的,容易丢包</p>
+<p><a href="https://www.cnblogs.com/williamjie/p/9390164.html">TCP和UDP的最完整的区别</a></p>
+<h3 id="socketwebsocket">Socket/WebSocket</h3>
+<p>socket: <code>应用层与TCP/IP协议族通信的中间软件抽象层，它是一组接口，提供一套调用TCP/IP协议的API</code></p>
+<p>websocket: <code>一种双向通信协议。在建立连接后，WebSocket服务器端和客户端都能主动向对方发送或接收数据，就像Socket一样；(而http服务端不能主动联系客户端，只能有客户端发起,太被动啦) ,只要建立一次HTTP请求，就可以连续不断的得到服务器推送的消息，节省带宽和服务器端的压力~</code></p>
+<h3 id="webserver模拟本地接口请求数据">WebServer模拟本地接口请求数据</h3>
+<p><a href="https://www.cnblogs.com/wgb1234/p/12514220.html#/cnblog/works/article/12466122">盘点Mac上搭建本地WebServer的几种方式 </a></p>
+<h3 id="三次握手四次挥手">三次握手🤝/四次挥手👋</h3>
+<p><strong>三次握手(通道的建立):</strong></p>
+<blockquote>
+<p>（1）在建立通道时，客户端首先要向服务端发送一个SYN同步信号。</p>
+<p>（2）服务端在接收到这个信号之后会向客户端发出SYN同步信号和ACK确认信号。</p>
+<p>（3）当服务端的ACK和SYN到达客户端后，客户端与服务端之间的这个“通道”就会被建立起来。</p>
+</blockquote>
+<p>PS. 以上整个过程有点像叫人开门的感觉, 大声呼喊听得见吗? 听得见的话就把门打开, 然后对方清晰听到后把门开开,即成功建立连接,要是没听见(没连接上)或者没有听清楚(ack丢失了),那就得加大分贝多喊几次(反复发送ack直到确认) ...</p>
+<p><strong>四次挥手(通道的关闭):</strong></p>
+<blockquote>
+<p>（1）在数据传输完毕之后，客户端会向服务端发出一个FIN终止信号。</p>
+<p>（2）服务端在收到这个信号之后会向客户端发出一个ACK确认信号。</p>
+<p>（3）如果服务端此后也没有数据发给客户端时服务端会向客户端发送一个FIN终止信号。</p>
+<p>（4）客户端在收到这个信号之后会回复一个Ack确认信号，在服务端接收到这个信号之后，服务端与客户端的通道也就关闭了。</p>
+</blockquote>
+<p>PS. 以上过程有点像黑帮交易验货~  到达交易约定地点之后,由甲方提出要验货,乙方听到后点了点头,然后让小弟把大箱子搬了出来,甲方打开之后验货没有问题,然后叫小弟把装钱的箱子提了上来交给乙方, 乙方清点之后也没有问题,银货两讫,各自退散~</p>
+<h2 id="多线程">多线程</h2>
+<h5 id="基本概念">基本概念</h5>
+<ol>
+<li>手机里每一个App就一个独立的进程,负责运行的程序内存分配,每个进程有独立的虚拟的内存空间, 线程是CPU执行任务的基本单元,是进程执行任务的路径</li>
+<li>队列: 串行和并行, 串行是一个任务接着一个任务执行,并行是指在不同队列即多个CPU同时执行不同的任务 (多核才有可能实现真正的并行)</li>
+<li>并发: 单核情况下,单位时间内多个任务快速切换执行,造成同时执行的假象(异步执行任务才有并发一说)</li>
+<li>同步和异步: 分配了一堆任务,同步是指阻塞式的一个任务执行完再执行下一个任务, 异步是指分不同优先级调度任务顺序来执行任务</li>
+<li>主线程和子线程: 每个进程必有一条线程即主线程,异步才会开子线程</li>
+</ol>
+<h5 id="gcd">GCD</h5>
+<ol>
+<li>创建队列</li>
+</ol>
+<pre><code class="language-objectivec">// 队列类型
+dispatch_queue_t
+
+// 第一个参数：队列名称
+// 第二个参数：队列类型
+dispatch_queue_create(const char *label, dispatch_queue_attr_t attr);
+
+/** 队列类型
+  // 串行队列标识：本质就是NULL，但建议不要写成NULL，可读性不好
+  DISPATCH_QUEUE_SERIAL
+  // 并行队列标识
+  DISPATCH_QUEUE_CONCURRENT
+*/
+
+//创建一条自定义并行队列
+dispatch_queue_t queue = dispatch_queue_create(&quot;myQueue&quot;, DISPATCH_QUEUE_CONCURRENT);
+
+
+//创建全局并发队列
+// 第一个参数：队列优先级 默认填0
+// 第二个参数：保留参数，暂时无用，填0即可
+dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+// 全局并发队列的优先级
+#define DISPATCH_QUEUE_PRIORITY_HIGH 2               // 高
+#define DISPATCH_QUEUE_PRIORITY_DEFAULT 0            // 默认(中)
+#define DISPATCH_QUEUE_PRIORITY_LOW (-2)             // 低
+#define DISPATCH_QUEUE_PRIORITY_BACKGROUND INT16_MIN // 后台
+
+//创建串行队列（队列类型传递DISPATCH_QUEUE_SERIAL或者NULL）
+dispatch_queue_t queue = dispatch_queue_create(&quot;serialQueue&quot;, DISPATCH_QUEUE_SERIAL);
+// 主队列(特殊的串行队列)中的任务，都会放到主线程中执行
+dispatch_queue_t queue = dispatch_get_main_queue();
+</code></pre>
+<p>常用的几种:</p>
+<ul>
+<li><code>dispatch_once_t</code> 一次性代码块</li>
+<li><code>dispatch_after和dispatch_time_t</code> 设置延时或者倒计时</li>
+<li><code>dispatch_barrier_async</code> 栅栏函数,拦截之前任务执行完才让执行下一个</li>
+<li><code>dispatch_group</code> 分组处理多任务统一回调问题</li>
+<li><code>dispatch_semaphore_t</code> 信号量,线程同步,防止资源抢占</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/77c5051aede2">OC高级-GCD使用总结</a></p>
+<p><a href="https://juejin.im/post/5a90de68f265da4e9b592b40">iOS多线程：『GCD』详尽总结</a></p>
+<h5 id="nsoperation">NSOperation</h5>
+<p><a href="https://www.jianshu.com/p/8ccf51bdbb2f">OC高级-NSOperation 和 NSOperationQueue</a></p>
+<p><a href="https://www.cnblogs.com/zhanglinfeng/p/4980087.html">iOS 多线程之NSOperation篇举例详解</a></p>
+<h2 id="设计模式-参考">设计模式  <a href="https://github.com/Binlogo/Design-Patterns-In-Swift-CN">参考</a></h2>
+<h2 id="性能优化-参考">性能优化 <a href="https://www.jianshu.com/p/b8346c1a4145">参考</a></h2>
+<h2 id="本地持久化方案">本地持久化方案</h2>
+<h5 id="本地数据库sqlite30fmdb">本地数据库sqlite3.0+FMDB</h5>
+<ul>
+<li><a href="https://www.cnblogs.com/guohai-stronger/p/9251131.html">SQLite与FMDB的使用</a></li>
+</ul>
+<h5 id="归档">归档</h5>
+<details>
+<summary> 查看归档相关代码 show the code </summary>
+<pre> <code class="objectivec">
+#import &ltFoundation/Foundation.h&gt
+#import "YYModel.h"<br>
+@interface Person : NSObject&ltNSCoding, NSCopying&gt
+@property (nonatomic,copy) NSString *name;
+@property (nonatomic,copy) NSString *age;
+@end<br><br>#import "Person.h"
+@implementation Person
+//重写以下几个方法 
+- (void)encodeWithCoder:(NSCoder*)aCoder {
+    [self yy_modelEncodeWithCoder:aCoder];
+}
+- (id)initWithCoder:(NSCoder*)aDecoder
+{
+    self = [super init];
+    return [self yy_modelInitWithCoder:aDecoder];
+}
+- (id)copyWithZone:(NSZone*)zone {
+    return [self yy_modelCopy];
+}
+- (NSUInteger)hash {
+    return [self yy_modelHash];
+}
+- (BOOL)isEqual:(id)object {
+    return [self yy_modelIsEqual:object];
+}
+@end<br><br>#import &ltUIKit/UIKit.h&gt<br>
+@interface ViewController : UIViewController
+@end<br><br>#import "ViewController.h"
+#import "Person.h"
+<br>#define KDocumentPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) lastObject]<br><br>#define kPersonInfoPath [KDocumentPath stringByAppendingPathComponent:@"personInfo.archiver"]
+<br>@interface ViewController ()<br>
+@end
+<br>
+@implementation ViewController
+- (void)viewDidLoad {
+    [super viewDidLoad];
+<br>
+//先存档  然后屏蔽这段代码  看看是否归档到了本地
+//    NSMutableArray *dataArray =[NSMutableArray array];
+//
+//    for (NSInteger i = 10; i &lt 20 ; i++) {
+//        Person * p =[Person new];
+//        p.name = [NSString stringWithFormat:@"name==-%ld",i];
+//        p.age = [NSString stringWithFormat:@"+++%ld岁",i];
+//        [dataArray addObject:p];
+//    }
+//
+//    BOOL ret =  [NSKeyedArchiver archiveRootObject:dataArray toFile:kPersonInfoPath];
+//
+//    if (ret) {
+//        NSLog(@"归档成功");
+//    }else{
+//        NSLog(@"归档失败");
+//    }
+    NSArray *arr =[NSKeyedUnarchiver unarchiveObjectWithFile:kPersonInfoPath];
+    for (Person *p in arr) {
+        NSLog(@"名字%@,年龄%@", p.name,p.age);
+    }
+}
+@end
+</code>
+</pre>
+</details>
+-------
+<h5 id="keychain">keychain</h5>
+<p>这个需要绑定唯一标识,不会因为应用卸载而消除,可以重置系统或者手动删除</p>
+<h5 id="写文件到沙盒">写文件到沙盒</h5>
+<ul>
+<li>Document目录,一般持久化的数据都存储在这个目录,iCloud会自动备份Document中的所有文件,一般重要的文件存储在这里</li>
+</ul>
+<pre><code class="language-objectivec">NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES).firstObject;
+</code></pre>
+<ul>
+<li>tmp临时目录,临时文件夹里面的文件，由系统回收， 如磁盘内存不足，重启手机，应用进程杀掉，都会清除临时文件,系统自动管理该目录的文件</li>
+</ul>
+<pre><code class="language-objectivec">NSString *tmpDir = NSTemporaryDirectory();
+</code></pre>
+<ul>
+<li>
+<p>Library 存储默认设置或者一些状态信息</p>
+<ul>
+<li>Library/Caches 缓存目录,iCloud不会备份,系统不会自动清除,需要写代码去清除</li>
+</ul>
+<pre><code class="language-objectivec">NSString *cacheDir =[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastobject];
+</code></pre>
+<ul>
+<li>Library/Preferences 存储偏好设置 NSUserDefaults</li>
+</ul>
+</li>
+</ul>
+<h2 id="runtime">Runtime</h2>
+<ul>
+<li>黑魔法方法交换实现</li>
+</ul>
+<pre><code class="language-objectivec">//实例方法交换
++ (void)wgb_swizzleInstanceMethodWithClass:(Class)originClass
+                          OriginMethod:(SEL)originMethod
+                         swappedMethod:(SEL)swappedMethod {
+    
+    SEL originalSelector = originMethod;
+    SEL swappedSelector = swappedMethod;
+    
+    Method originalMethod = class_getInstanceMethod(originClass, originalSelector);
+    Method newMethod = class_getInstanceMethod(originClass, swappedSelector);
+    
+    BOOL didAddMethod = class_addMethod(originClass, originalSelector, method_getImplementation(newMethod), method_getTypeEncoding(newMethod));
+    if (didAddMethod) {
+        class_replaceMethod(originClass, swappedSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+    } else {
+        method_exchangeImplementations(originalMethod, newMethod);
+    }
+}
+//类方法交换
++ (void)wgb_swizzleClassMethodWithClass:(Class)originClass
+                       OriginMethod:(SEL)originMethod
+                      swappedMethod:(SEL)swappedMethod {
+    SEL originalSelector = originMethod;
+    SEL swappedSelector = swappedMethod;
+    
+    Method originalMethod = class_getClassMethod(originClass, originalSelector);
+    Method newMethod = class_getClassMethod(originClass, swappedSelector);
+    
+    BOOL didAddMethod = class_addMethod(originClass, originalSelector, method_getImplementation(newMethod), method_getTypeEncoding(newMethod));
+    if (didAddMethod) {
+        class_replaceMethod(originClass, swappedSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+    } else {
+        method_exchangeImplementations(originalMethod, newMethod);
+    }
+}
+
+</code></pre>
+<ul>
+<li>category中生成关联对象</li>
+</ul>
+<pre><code class="language-objectivec">@property (nonatomic,assign) NSInteger totalScore; 
+
+-(void)setTotalScore:(NSInteger)totalScore{
+    objc_setAssociatedObject(self, @selector(totalScore), @(totalScore), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (NSInteger)totalScore{
+    id value = objc_getAssociatedObject(self, _cmd);
+    return [value integerValue];
+}
+
+</code></pre>
+<ul>
+<li>字典转模型</li>
+</ul>
+<pre><code class="language-objectivec">- (instancetype)initWithDict:(NSDictionary *)dict {
+
+    if (self = [self init]) {
+        //(1)获取类的属性及属性对应的类型
+        NSMutableArray * keys = [NSMutableArray array];
+        NSMutableArray * attributes = [NSMutableArray array];
+        /*
+         * 例子
+         * name = value3 attribute = T@&quot;NSString&quot;,C,N,V_value3
+         * name = value4 attribute = T^i,N,V_value4
+         */
+        unsigned int outCount;
+        objc_property_t * properties = class_copyPropertyList([self class], &amp;outCount);
+        for (int i = 0; i &lt; outCount; i ++) {
+            objc_property_t property = properties[i];
+            //通过property_getName函数获得属性的名字
+            NSString * propertyName = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+            [keys addObject:propertyName];
+            //通过property_getAttributes函数可以获得属性的名字和@encode编码
+            NSString * propertyAttribute = [NSString stringWithCString:property_getAttributes(property) encoding:NSUTF8StringEncoding];
+            [attributes addObject:propertyAttribute];
+        }
+        //立即释放properties指向的内存
+        free(properties);
+
+        //(2)根据类型给属性赋值
+        for (NSString * key in keys) {
+            if ([dict valueForKey:key] == nil) continue;
+            [self setValue:[dict valueForKey:key] forKey:key];
+        }
+    }
+    return self;
+
+}
+</code></pre>
+<ul>
+<li>消息动态转发</li>
+</ul>
+<pre><code class="language-objectivec">- (id)safePerformAction:(SEL)action target:(NSObject *)target params:(NSDictionary *)params
+{
+    NSMethodSignature* methodSig = [target methodSignatureForSelector:action];
+    if(methodSig == nil) {
+        return nil;
+    }
+    const char* retType = [methodSig methodReturnType];
+    
+    if (strcmp(retType, @encode(void)) == 0) {
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
+        [invocation setArgument:&amp;params atIndex:2];
+        [invocation setSelector:action];
+        [invocation setTarget:target];
+        [invocation invoke];
+        return nil;
+    }
+    
+    if (strcmp(retType, @encode(NSInteger)) == 0) {
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
+        [invocation setArgument:&amp;params atIndex:2];
+        [invocation setSelector:action];
+        [invocation setTarget:target];
+        [invocation invoke];
+        NSInteger result = 0;
+        [invocation getReturnValue:&amp;result];
+        return @(result);
+    }
+    
+    if (strcmp(retType, @encode(BOOL)) == 0) {
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
+        [invocation setArgument:&amp;params atIndex:2];
+        [invocation setSelector:action];
+        [invocation setTarget:target];
+        [invocation invoke];
+        BOOL result = 0;
+        [invocation getReturnValue:&amp;result];
+        return @(result);
+    }
+    
+    if (strcmp(retType, @encode(CGFloat)) == 0) {
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
+        [invocation setArgument:&amp;params atIndex:2];
+        [invocation setSelector:action];
+        [invocation setTarget:target];
+        [invocation invoke];
+        CGFloat result = 0;
+        [invocation getReturnValue:&amp;result];
+        return @(result);
+    }
+    
+    if (strcmp(retType, @encode(NSUInteger)) == 0) {
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
+        [invocation setArgument:&amp;params atIndex:2];
+        [invocation setSelector:action];
+        [invocation setTarget:target];
+        [invocation invoke];
+        NSUInteger result = 0;
+        [invocation getReturnValue:&amp;result];
+        return @(result);
+    }
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored &quot;-Warc-performSelector-leaks&quot;
+    return [target performSelector:action withObject:params];
+#pragma clang diagnostic pop
+}
+
+</code></pre>
+<ul>
+<li>实现<code>NSCoding</code>自动归档和解档</li>
+</ul>
+<pre><code class="language-objectivec">- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super init]) {
+        unsigned int outCount;
+        Ivar * ivars = class_copyIvarList([self class], &amp;outCount);
+        for (int i = 0; i &lt; outCount; i ++) {
+            Ivar ivar = ivars[i];
+            NSString * key = [NSString stringWithUTF8String:ivar_getName(ivar)];
+            [self setValue:[aDecoder decodeObjectForKey:key] forKey:key];
+        }
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    unsigned int outCount;
+    Ivar * ivars = class_copyIvarList([self class], &amp;outCount);
+    for (int i = 0; i &lt; outCount; i ++) {
+        Ivar ivar = ivars[i];
+        NSString * key = [NSString stringWithUTF8String:ivar_getName(ivar)];
+        [aCoder encodeObject:[self valueForKey:key] forKey:key];
+    }
+}
+</code></pre>
+<h2 id="runloop">Runloop</h2>
+<p><a href="https://github.com/qiaoyoung/RunLoop">参考一</a></p>
+<p><a href="https://github.com/diwu/RunLoopWorkDistribution">参考二</a></p>
+<p><a href="https://www.jianshu.com/p/413811babe1e">iOS RunLoop</a></p>
+<h2 id="音视频处理">音视频处理</h2>
+<h3 id="音频">音频</h3>
+<h5 id=""></h5>
+<ul>
+<li>
+<p><a href="https://www.jianshu.com/p/3e0a399380df">iOS音频掌柜-- AVAudioSession</a></p>
+</li>
+<li>
+<p><a href="https://www.jianshu.com/p/c1195f90f081">AVAudioSession管理需要注意的问题</a></p>
+</li>
+</ul>
+<h5 id="录制">录制</h5>
+<pre><code class="language-objectivec">-(void)setupRecorder{
+    //设置音频会话
+    NSError *sessionError;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryRecord error:&amp;sessionError];
+    if (sessionError){
+        NSLog(@&quot;Error creating session: %@&quot;,[sessionError description]);
+    }else{
+        [[AVAudioSession sharedInstance] setActive:YES error:&amp;sessionError];
+    }
+    //录音设置
+    //创建录音文件保存路径
+    NSURL *url = [self getSavePath];
+    //创建录音机
+    NSError *error = nil;
+    _audioRecorder = [[AVAudioRecorder alloc] initWithURL:url settings:self.setting error:&amp;error];
+    if (error) {
+        NSLog(@&quot;创建录音机对象时发生错误，错误信息：%@&quot;,error.localizedDescription);
+    }
+    _audioRecorder.delegate = self;
+    _audioRecorder.meteringEnabled = YES;//如果要监控声波则必须设置为YES
+    [_audioRecorder prepareToRecord];
+    if (![_audioRecorder isRecording]) {
+        [_audioRecorder record];//首次使用应用时如果调用record方法会询问用户是否允许使用麦克风
+    }
+}
+
+// !!!: 录音设置
+-(NSDictionary *)setting{
+    if (_setting==nil) {
+        NSMutableDictionary *setting = [NSMutableDictionary dictionary];
+        //录音格式
+        [setting setObject:@(kAudioFormatLinearPCM) forKey:AVFormatIDKey];
+        //采样率，8000/11025/22050/44100/96000（影响音频的质量）,8000是电话采样率
+        [setting setObject:@(22050) forKey:AVSampleRateKey];
+        //通道 , 1/2
+        [setting setObject:@(2) forKey:AVNumberOfChannelsKey];
+        //采样点位数，分为8、16、24、32, 默认16
+        [setting setObject:@(16) forKey:AVLinearPCMBitDepthKey];
+        //是否使用浮点数采样
+        [setting setObject:@(YES) forKey:AVLinearPCMIsFloatKey];
+        // 录音质量
+        [setting setObject:@(AVAudioQualityHigh) forKey:AVEncoderAudioQualityKey];
+        //....其他设置等
+    }
+    return _setting;
+}
+
+//默认录制是PCM格式的 也可直接设置录制aac格式
+let recordSettings:[String : AnyObject] = [
+            AVFormatIDKey:             NSNumber(value: kAudioFormatMPEG4AAC),
+            AVEncoderAudioQualityKey : NSNumber(value:AVAudioQuality.max.rawValue),
+            AVNumberOfChannelsKey:     NSNumber(value:2),
+            AVSampleRateKey :          NSNumber(value:11025.0),
+            //AVEncoderBitRateKey:       NSNumber(value:64000),
+            AVLinearPCMBitDepthKey:    NSNumber(value:16)
+            ]
+
+</code></pre>
+<h5 id="播放">播放</h5>
+<ul>
+<li>AudioServicesCreateSystemSoundID(url,soundId)  用于播放音效</li>
+<li>AVPlayer  本地/远程的音视频均可播放</li>
+<li>AVAudioPlayer 只支持播放本地音频文件</li>
+<li>AudioToolbox中的Audio Queue Services</li>
+</ul>
+<h5 id="转格式">转格式</h5>
+<ul>
+<li>wav <a href="https://www.jianshu.com/p/5a91edee4871">参考WAV文件格式</a></li>
+<li>aac 体积小,音质尚可,手机语音音频传输用得多 可直接录制 <a href="https://www.jianshu.com/p/5b12022cdc88">iOS下解码AAC并播放</a></li>
+<li>mp3 早期音乐音频格式 <a href="https://www.jianshu.com/p/45a520d6b05e">wav转mp3</a></li>
+<li>amr 安卓的比aac体积还小的音频格式 <a href="https://github.com/WangGuibin/AmrToWav">amr和wav互转</a></li>
+</ul>
+<p><a href="https://github.com/qq631192328/PFAudioLib">iOS的音频文件的格式转换</a></p>
+<p><a href="https://www.jianshu.com/p/a3de5e777692">Mac终端音频格式转换</a></p>
+<h3 id="视频">视频</h3>
+<h5 id="录制-2">录制</h5>
+<ul>
+<li>通过系统相机的录制</li>
+<li>基于<code>AVFoundation</code>自定义相机</li>
+<li>第三方GPUImage自定义相机</li>
+</ul>
+<h5 id="播放-2">播放</h5>
+<ul>
+<li>AVPlayer 需要自定义UI</li>
+<li>AVPlayerViewController 封装好的拿来即用</li>
+</ul>
+<h5 id="转格式-2">转格式</h5>
+<p>录制格式为mov需要转成mp4</p>
+<pre><code class="language-objectivec">+ (void)convertAvcompositionToAvasset:(AVURLAsset *)composition presentName:(NSString *)presentName completion:(void (^)(AVAsset * _Nonnull, NSURL * _Nonnull))completion {
+    // 导出视频
+    AVAssetExportSession *exporter = [AVAssetExportSession exportSessionWithAsset:composition presetName:presentName];
+    // 生成一个文件路径
+    NSInteger randNumber = arc4random();
+    NSString *exportPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingString:[NSString stringWithFormat:@&quot;/%ldvideo.mp4&quot;, (long)randNumber]];
+    NSURL *exportURL = [NSURL fileURLWithPath:exportPath];
+    // 导出
+    if (exporter) {
+        exporter.outputURL = exportURL;  // 设置路径
+        exporter.outputFileType = AVFileTypeMPEG4;
+        exporter.shouldOptimizeForNetworkUse = YES;
+        [exporter exportAsynchronouslyWithCompletionHandler:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (AVAssetExportSessionStatusCompleted == exporter.status) {   // 导出完成
+                    NSURL *URL = exporter.outputURL;
+                    AVAsset *avAsset = [AVAsset assetWithURL:URL];                    
+                    if (completion) {
+                        completion(avAsset, URL);
+                    }
+                } else {
+                    if (completion) {
+                        completion(nil, nil);
+                    }
+                }
+            });
+        }];
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completion) {
+                completion(nil, nil);
+            }
+        });
+    }
+}
+
+</code></pre>
+<h5 id="存储到相册">存储到相册</h5>
+<p><code>和保存图片到相册类似的C接口</code></p>
+<pre><code class="language-objectivec">
+// Adds a video to the saved photos album. The optional completionSelector should have the form:
+//  - (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
+UIKIT_EXTERN void UISaveVideoAtPathToSavedPhotosAlbum(NSString *videoPath, __nullable id completionTarget, __nullable SEL completionSelector, void * __nullable contextInfo) API_AVAILABLE(ios(3.1)) API_UNAVAILABLE(tvos);
+
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="http://wangguibin.github.io/tag/cMdUwlx_1/" class="tag">
+                    面试
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/uojQ_lMmq/" class="tag">
+                    Objective-C
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/5E2uUQVL2/" class="tag">
+                    学习总结
+                  </a>
+                
+                  <a href="http://wangguibin.github.io/tag/k2TvoAzJc/" class="tag">
+                    iOS
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="http://wangguibin.github.io/post/ios-ru-he-jian-dan-shi-xian-hui-zhi-ai-xin/">
+                  <h3 class="post-title">
+                    iOS如何简单实现绘制爱心?
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a8ee2e4211f0c00c07c5',
+        clientSecret: '99fd04bd90aa55b1b44067c721b41b0f0d899e3f',
+        repo: 'Wangguibin.github.io',
+        owner: 'WangGuibin',
+        admin: ['WangGuibin'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
