@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Flutter与iOS之间平台通信(platform channel)基本流程 | CoderWGB&#39;s Blog</title>
+<meta name="description" content="业精于勤荒于嬉">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="http://wangguibin.github.io/favicon.ico?v=1585831716902">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="http://wangguibin.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120519308-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120519308-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="http://wangguibin.github.io">
+        <img src="http://wangguibin.github.io/images/avatar.png?v=1585831716902" class="site-logo">
+        <h1 class="site-title">CoderWGB&#39;s Blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="http://wangguibin.github.io" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://soar-coding-life.github.io/Coding-docs" class="site-nav">
+            学习笔记&amp;&amp;文档
+          </a>
+        
+      
+        
+          <a href="http://wangguibin.github.io/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="http://wangguibin.github.io/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://wangguibin.github.io/PersonalProfile/" class="site-nav">
+            个人简历
+          </a>
+        
+      
+        
+          <a href="https://www.cnblogs.com/wgb1234/" class="site-nav">
+            博客园
+          </a>
+        
+      
+        
+          <a href="http://wangguibin.github.io/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/WangGuibin" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/WGBChangeworld" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/wang-zhi-zhi-61-72" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      业精于勤荒于嬉
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://wangguibin.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Flutter与iOS之间平台通信(platform channel)基本流程</h2>
+            <div class="post-date">2020-04-02</div>
+            
+              <div class="feature-container" style="background-image: url('https://api.lyiqk.cn/purelady?cdd6a546')">
+              </div>
+            
+            <div class="post-content">
+              <h2 id="创建插件项目">创建插件项目</h2>
+<pre><code class="language-shell"># 命令解读 
+# -i 指的是iOS平台选择什么语言 后接语言类型 objc/swift
+# -a 指的是Android平台 后接语言类型 java/kotlin
+flutter create --template=plugin -i objc -a java MyPlugin
+cd  MyPlugin/example
+flutter run #试试项目能否跑🏃起来
+</code></pre>
+<p><em>等待命令执行完即可</em></p>
+<p>目录结构大致如下:</p>
+<pre><code class="language-shell">.
+├── CHANGELOG.md
+├── LICENSE
+├── MyPlugin.iml
+├── README.md
+├── android   #安卓平台代码
+├── example #demo例子🌰
+├── ios   #iOS平台代码
+├── lib   #插件通信代码 
+├── pubspec.lock 
+├── pubspec.yaml
+└── test
+</code></pre>
+<h2 id="开始编写插件代码">开始编写插件代码</h2>
+<p><strong>首先打开项目找到<code>MyPlugin.dart</code>文件</strong></p>
+<pre><code class="language-dart">import 'dart:async';
+
+import 'package:flutter/services.dart';
+
+class MyPlugin {
+  static const MethodChannel _channel = const MethodChannel('MyPlugin');
+
+  static Future&lt;String&gt; get platformVersion async {
+    final String version = await _channel.invokeMethod('getPlatformVersion');
+    return version;
+  }
+
+//新增一个方法 用于发送字典即Map参数给iOS平台 返回值是泛型类型用于接收iOS发送过来的消息内容
+  static Future&lt;dynamic&gt; dartSendMessageToIOS(Map&lt;String, dynamic&gt; args) {
+    return _channel.invokeMethod(&quot;dartSendMessageToIOS&quot;, args);
+  }
+}
+
+</code></pre>
+<p><strong>其次找到<code>example/main.dart</code>用于开发调试插件代码</strong></p>
+<pre><code class="language-dart">import 'package:flutter/material.dart';
+import 'dart:async';
+
+import 'package:flutter/services.dart';
+import 'package:MyPlugin/MyPlugin.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() =&gt; _MyAppState();
+}
+
+class _MyAppState extends State&lt;MyApp&gt; {
+  String _platformVersion = 'Unknown';
+
+  @override
+  void initState() {
+    super.initState();
+    initPlatformState();
+    initDartSendMessage();
+  }
+
+  Future&lt;void&gt; initDartSendMessage() async {
+    String platformVersion;
+    dynamic args; //定义接收对应平台的返回值 (这里指iOS平台,Android端暂未实现)
+    try {
+      platformVersion = &quot;&quot;;
+      args = await MyPlugin.dartSendMessageToIOS({
+        &quot;floatNumber&quot;: 0.02,
+        &quot;number&quot;: 666,
+        &quot;str&quot;: &quot;字符串&quot;,
+        &quot;arr&quot;: [&quot;item1&quot;, &quot;item2&quot;, &quot;item3&quot;],
+        &quot;dict&quot;: {&quot;key&quot;: &quot;value&quot;}
+      });
+      print(&quot;iOS获取过来的数据如下:\n $args&quot;);
+    } on PlatformException {
+      platformVersion = &quot;获取到版本号失败!!!&quot;;
+    }
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _platformVersion = platformVersion;
+    });
+  }
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future&lt;void&gt; initPlatformState() async {
+    String platformVersion;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      platformVersion = await MyPlugin.platformVersion;
+    } on PlatformException {
+      platformVersion = 'Failed to get platform version.';
+    }
+
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+
+    setState(() {
+      _platformVersion = platformVersion;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Plugin example app'),
+        ),
+        body: Center(
+          child: Text('Running on: $_platformVersion\n'),
+        ),
+      ),
+    );
+  }
+}
+
+</code></pre>
+<p>关于通道(channel)的数据类型交互可参考<a href="https://flutterchina.club/platform-channels/#codec">flutter中文网的介绍</a></p>
+<p><strong>最后就是使用Xcode打开<code>example/ios/Runner.xcodeproj</code>编辑本地库里的插件文件<code>MyPlugin.m</code></strong></p>
+<pre><code class="language-objectivec">#import &quot;MyPlugin.h&quot;
+
+@implementation MyPlugin
++ (void)registerWithRegistrar:(NSObject&lt;FlutterPluginRegistrar&gt;*)registrar {
+  FlutterMethodChannel* channel = [FlutterMethodChannel
+      methodChannelWithName:@&quot;MyPlugin&quot;
+            binaryMessenger:[registrar messenger]];
+  MyPlugin* instance = [[MyPlugin alloc] init];
+  [registrar addMethodCallDelegate:instance channel:channel];
+}
+
+- (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
+  if ([@&quot;getPlatformVersion&quot; isEqualToString:call.method]) {
+    result([@&quot;iOS &quot; stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
+  }else if ([@&quot;dartSendMessageToIOS&quot; isEqualToString:call.method]){
+      //dart 发送一些参数给iOS,收到消息之后做一些事情
+      
+      //dart传的参数字典也就是Map
+      NSDictionary *args = call.arguments;
+      NSLog(@&quot;dart发送过来的数据:&quot;);
+      NSLog(@&quot;floatNumber: %@&quot;,args[@&quot;floatNumber&quot;]);
+      NSLog(@&quot;str: %@&quot;,args[@&quot;str&quot;]);
+      NSLog(@&quot;arr: %@&quot;,args[@&quot;arr&quot;]);
+      NSLog(@&quot;dict: %@&quot;,args[@&quot;dict&quot;]);
+      NSLog(@&quot;dict[key]: %@&quot;,args[@&quot;dict&quot;][@&quot;key&quot;]);
+
+      //给flutter channel发送一些参数过去 dart收到会打印显示的
+      result(@{
+          @&quot;float&quot; : @(0.0666),
+          @&quot;int&quot; : @(1111),
+          @&quot;strings&quot; : @&quot;哈哈哈哈,我是字符串了&quot;,
+          @&quot;array&quot; : @[@&quot;iOS&quot;,@&quot;Swift&quot;,@&quot;Flutter&quot;],
+          @&quot;dict&quot; : @{@&quot;iOS&quot;:@&quot;666&quot;}
+      });
+      
+  }else {
+    result(FlutterMethodNotImplemented);
+  }
+}
+
+@end
+
+</code></pre>
+<h2 id="最后运行代码查看效果">最后,运行代码查看效果</h2>
+<pre><code class="language-shell">cd example
+flutter run
+</code></pre>
+<p><strong>附上一张控制台打印的效果图</strong></p>
+<figure data-type="image" tabindex="1"><img src="https://images.cnblogs.com/cnblogs_com/wgb1234/1662566/o_2004021205531.png" alt="" loading="lazy"></figure>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="http://wangguibin.github.io/post/ios-ji-chu-zhi-shi-zong-jie/">
+                  <h3 class="post-title">
+                    iOS基础知识总结
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a8ee2e4211f0c00c07c5',
+        clientSecret: '99fd04bd90aa55b1b44067c721b41b0f0d899e3f',
+        repo: 'Wangguibin.github.io',
+        owner: 'WangGuibin',
+        admin: ['WangGuibin'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

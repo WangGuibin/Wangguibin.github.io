@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://wangguibin.github.io</id>
     <title>CoderWGB&apos;s Blog</title>
-    <updated>2020-04-01T08:16:28.083Z</updated>
+    <updated>2020-04-02T12:48:44.687Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://wangguibin.github.io"/>
     <link rel="self" href="http://wangguibin.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>http://wangguibin.github.io/images/avatar.png</logo>
     <icon>http://wangguibin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, CoderWGB&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Flutter与iOS之间平台通信(platform channel)基本流程]]></title>
+        <id>http://wangguibin.github.io/post/flutter-yu-ios-zhi-jian-ping-tai-tong-xin-platform-channelji-ben-liu-cheng/</id>
+        <link href="http://wangguibin.github.io/post/flutter-yu-ios-zhi-jian-ping-tai-tong-xin-platform-channelji-ben-liu-cheng/">
+        </link>
+        <updated>2020-04-02T12:46:47.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[iOS基础知识总结]]></title>
         <id>http://wangguibin.github.io/post/ios-ji-chu-zhi-shi-zong-jie/</id>
@@ -142,14 +149,14 @@
 <li>
 <p>学习python到了现在是个分水岭,几乎各方面的知识都有所涉及,到底是往哪个方向发展呢?</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3817531"><label class="task-list-item-label" for="task-item-3817531"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-578878"><label class="task-list-item-label" for="task-item-578878"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4988374"><label class="task-list-item-label" for="task-item-4988374"> web前端 (Django ...)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9626569"><label class="task-list-item-label" for="task-item-9626569"> 后端 (数据库+服务器)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1563229"><label class="task-list-item-label" for="task-item-1563229"> 机器学习 (尚未涉及)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2883954"><label class="task-list-item-label" for="task-item-2883954"> 用来写工具/脚本 (用过别人写好的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7695407"><label class="task-list-item-label" for="task-item-7695407"> 做游戏 (听说吃鸡就是python在做的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8115015"><label class="task-list-item-label" for="task-item-8115015"> ...</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5655478"><label class="task-list-item-label" for="task-item-5655478"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1167602"><label class="task-list-item-label" for="task-item-1167602"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5536302"><label class="task-list-item-label" for="task-item-5536302"> web前端 (Django ...)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6661315"><label class="task-list-item-label" for="task-item-6661315"> 后端 (数据库+服务器)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3910543"><label class="task-list-item-label" for="task-item-3910543"> 机器学习 (尚未涉及)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6987783"><label class="task-list-item-label" for="task-item-6987783"> 用来写工具/脚本 (用过别人写好的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3305816"><label class="task-list-item-label" for="task-item-3305816"> 做游戏 (听说吃鸡就是python在做的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2533633"><label class="task-list-item-label" for="task-item-2533633"> ...</label></li>
 </ul>
 </li>
 <li>
@@ -167,31 +174,20 @@
 <li>
 <p>学习python到了现在是个分水岭,几乎各方面的知识都有所涉及,到底是往哪个方向发展呢?</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3817531"><label class="task-list-item-label" for="task-item-3817531"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-578878"><label class="task-list-item-label" for="task-item-578878"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4988374"><label class="task-list-item-label" for="task-item-4988374"> web前端 (Django ...)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9626569"><label class="task-list-item-label" for="task-item-9626569"> 后端 (数据库+服务器)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1563229"><label class="task-list-item-label" for="task-item-1563229"> 机器学习 (尚未涉及)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2883954"><label class="task-list-item-label" for="task-item-2883954"> 用来写工具/脚本 (用过别人写好的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7695407"><label class="task-list-item-label" for="task-item-7695407"> 做游戏 (听说吃鸡就是python在做的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8115015"><label class="task-list-item-label" for="task-item-8115015"> ...</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5655478"><label class="task-list-item-label" for="task-item-5655478"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1167602"><label class="task-list-item-label" for="task-item-1167602"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5536302"><label class="task-list-item-label" for="task-item-5536302"> web前端 (Django ...)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6661315"><label class="task-list-item-label" for="task-item-6661315"> 后端 (数据库+服务器)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3910543"><label class="task-list-item-label" for="task-item-3910543"> 机器学习 (尚未涉及)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6987783"><label class="task-list-item-label" for="task-item-6987783"> 用来写工具/脚本 (用过别人写好的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3305816"><label class="task-list-item-label" for="task-item-3305816"> 做游戏 (听说吃鸡就是python在做的)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2533633"><label class="task-list-item-label" for="task-item-2533633"> ...</label></li>
 </ul>
 </li>
 <li>
 <p>此时此刻,真的有些迷茫 , 但是人总是想着改变,只能说目前没有别的想法 ,学到一个是一个吧 ,但愿能派上用场吧</p>
 </li>
 </ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[集成google翻译的小tips]]></title>
-        <id>http://wangguibin.github.io/post/ji-cheng-google-fan-yi-de-xiao-tips/</id>
-        <link href="http://wangguibin.github.io/post/ji-cheng-google-fan-yi-de-xiao-tips/">
-        </link>
-        <updated>2018-08-04T04:43:20.000Z</updated>
-        <summary type="html"><![CDATA[<p>google翻译的强大,就像我们公司的slogan : &quot;让语言无国界,让世人心相通&quot;</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>google翻译的强大,就像我们公司的slogan : &quot;让语言无国界,让世人心相通&quot;</p>
 ]]></content>
     </entry>
 </feed>
