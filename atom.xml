@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://wangguibin.github.io</id>
     <title>CoderWGB&apos;s Blog</title>
-    <updated>2020-04-02T12:50:28.939Z</updated>
+    <updated>2020-04-12T02:40:52.021Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://wangguibin.github.io"/>
     <link rel="self" href="http://wangguibin.github.io/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>http://wangguibin.github.io/images/avatar.png</logo>
     <icon>http://wangguibin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, CoderWGB&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[项目中添加静态库工程]]></title>
+        <id>http://wangguibin.github.io/post/xiang-mu-zhong-tian-jia-jing-tai-ku-gong-cheng/</id>
+        <link href="http://wangguibin.github.io/post/xiang-mu-zhong-tian-jia-jing-tai-ku-gong-cheng/">
+        </link>
+        <updated>2020-04-12T02:38:58.000Z</updated>
+        <summary type="html"><![CDATA[<p>在项目中添加静态库工程🏭 (方便随时修改)</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>在项目中添加静态库工程🏭 (方便随时修改)</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Flutter与iOS之间平台通信(platform channel)基本流程]]></title>
         <id>http://wangguibin.github.io/post/flutter-yu-ios-zhi-jian-ping-tai-tong-xin-platform-channelji-ben-liu-cheng/</id>
@@ -132,62 +143,5 @@
         <link href="http://wangguibin.github.io/post/oc-he-chun-bian-xu-yao-zhu-yi-de-wen-ti/">
         </link>
         <updated>2018-12-17T13:01:55.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[重新入门python爬虫到放弃]]></title>
-        <id>http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi/</id>
-        <link href="http://wangguibin.github.io/post/chong-xin-ru-men-python-pa-chong-dao-fang-qi/">
-        </link>
-        <updated>2018-09-12T14:32:29.000Z</updated>
-        <summary type="html"><![CDATA[<blockquote>
-<p>最近项目不忙,乘此机会重新学习了一下python爬虫, 引发了一些思考,以下几点:</p>
-</blockquote>
-<ol>
-<li>
-<p>学习python真的是从众现象一时热吗? 学了有什么用,能改变现状吗? 如果不学又当如何,干点什么事情好呢</p>
-</li>
-<li>
-<p>学习python到了现在是个分水岭,几乎各方面的知识都有所涉及,到底是往哪个方向发展呢?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8466909"><label class="task-list-item-label" for="task-item-8466909"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2439000"><label class="task-list-item-label" for="task-item-2439000"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6649251"><label class="task-list-item-label" for="task-item-6649251"> web前端 (Django ...)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7539391"><label class="task-list-item-label" for="task-item-7539391"> 后端 (数据库+服务器)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4196751"><label class="task-list-item-label" for="task-item-4196751"> 机器学习 (尚未涉及)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9812151"><label class="task-list-item-label" for="task-item-9812151"> 用来写工具/脚本 (用过别人写好的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4405146"><label class="task-list-item-label" for="task-item-4405146"> 做游戏 (听说吃鸡就是python在做的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4819935"><label class="task-list-item-label" for="task-item-4819935"> ...</label></li>
-</ul>
-</li>
-<li>
-<p>此时此刻,真的有些迷茫 , 但是人总是想着改变,只能说目前没有别的想法 ,学到一个是一个吧 ,但愿能派上用场吧</p>
-</li>
-</ol>
-]]></summary>
-        <content type="html"><![CDATA[<blockquote>
-<p>最近项目不忙,乘此机会重新学习了一下python爬虫, 引发了一些思考,以下几点:</p>
-</blockquote>
-<ol>
-<li>
-<p>学习python真的是从众现象一时热吗? 学了有什么用,能改变现状吗? 如果不学又当如何,干点什么事情好呢</p>
-</li>
-<li>
-<p>学习python到了现在是个分水岭,几乎各方面的知识都有所涉及,到底是往哪个方向发展呢?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8466909"><label class="task-list-item-label" for="task-item-8466909"> 数据爬虫 (网络请求,页面解析,设置headers,代理ip,cookies,处理异常,ajax&&JS等动态页面数据的获取,伪装浏览器的访问等... requests,BeautifulSoup,xpath,正则,selenium,phantomJS,scrapy)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2439000"><label class="task-list-item-label" for="task-item-2439000"> 数据分析可视化(pyecharts,Echarts,csv,json等)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6649251"><label class="task-list-item-label" for="task-item-6649251"> web前端 (Django ...)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7539391"><label class="task-list-item-label" for="task-item-7539391"> 后端 (数据库+服务器)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4196751"><label class="task-list-item-label" for="task-item-4196751"> 机器学习 (尚未涉及)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9812151"><label class="task-list-item-label" for="task-item-9812151"> 用来写工具/脚本 (用过别人写好的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4405146"><label class="task-list-item-label" for="task-item-4405146"> 做游戏 (听说吃鸡就是python在做的)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4819935"><label class="task-list-item-label" for="task-item-4819935"> ...</label></li>
-</ul>
-</li>
-<li>
-<p>此时此刻,真的有些迷茫 , 但是人总是想着改变,只能说目前没有别的想法 ,学到一个是一个吧 ,但愿能派上用场吧</p>
-</li>
-</ol>
-]]></content>
     </entry>
 </feed>

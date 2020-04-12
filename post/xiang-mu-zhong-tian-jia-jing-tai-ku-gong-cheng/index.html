@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于我 | CoderWGB&#39;s Blog</title>
+<title>项目中添加静态库工程 | CoderWGB&#39;s Blog</title>
 <meta name="description" content="业精于勤荒于嬉">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -137,37 +137,47 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于我</h2>
-            <div class="post-date">2019-06-16</div>
+            <h2 class="post-title">项目中添加静态库工程</h2>
+            <div class="post-date">2020-04-12</div>
             
-              <div class="feature-container" style="background-image: url('http://wangguibin.github.io/post-images/about.jpeg')">
+              <div class="feature-container" style="background-image: url('https://api.lyiqk.cn/purelady?cdd6a546')">
               </div>
             
             <div class="post-content">
-              <p>CoderWGB , 一枚苦逼的iOS开发者。</p>
-<figure data-type="image" tabindex="1"><img src="http://wangguibin.github.io/post-images/1580100127864.jpeg" alt="" loading="lazy"></figure>
-<table border="1px" width="400px" > 
-	<!-- <tr style="background-color:rgb(255,255,255)">
-      <td colSpan="4"  style='text-align:center'>以下是我的联系方式</td>
-  </tr> -->
-	<tr style="background-color:rgb(255,255,255)">
-    		<td>  
-					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1024732985&site=qq&menu=yes"><img border="0"  style="width=100px; height=100px;" src="https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1284224157,185249441&fm=26&gp=0.jpg"  alt="点击这里给我发消息" title="CoderWGB的QQ"/></a>
-    		</td>
-        <td>
-    				<a href="https://www.jianshu.com/u/61a1521e6f8f" title="CoderWGB的简书"> <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2416290654,291619160&fm=27&gp=0.jpg" width="auto" height="50px">  </a>
-    		</td>
-    <td> 
-				<a href="https://juejin.im/user/5a5ca675f265da3e5b32c968" title="CoderWGB的掘金"> <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4161570588,3588676623&fm=27&gp=0.jpg" width="auto" height="50px"> </a>
-		</td>
-    <td>
-    			<a href="https://github.com/WangGuibin" title="CoderWGB的github"> <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4141795614,1697102355&fm=27&gp=0.jpg" width="auto" height="50px"> </a>
-    </td>
-  </tr>
-  </table>
+              <p>在项目中添加静态库工程🏭 (方便随时修改)</p>
+<!--more-->
+<h2 id="具体操作步骤如下">具体操作步骤如下:</h2>
+<h3 id="1-创建静态库工程">1. 创建静态库工程</h3>
+<p>在<code>Xcode</code>里<code>common + shift + N</code>再选择如下图指示,然后创建一个<code>MyLibs</code>的工程</p>
+<figure data-type="image" tabindex="1"><img src="https://images.cnblogs.com/cnblogs_com/wgb1234/1695793/o_2004120224421.png" alt="" loading="lazy"></figure>
+<p>如图:</p>
+<figure data-type="image" tabindex="2"><img src="https://images.cnblogs.com/cnblogs_com/wgb1234/1695793/o_2004120224482.png" alt="" loading="lazy"></figure>
+<h3 id="2-把静态库放到根路径下然后再header-search-path指定路径">2. 把静态库放到根路径下,然后再<code>Header search path</code>指定路径</h3>
+<figure data-type="image" tabindex="3"><img src="https://images.cnblogs.com/cnblogs_com/wgb1234/1695793/o_2004120224543.png" alt="" loading="lazy"></figure>
+<h3 id="3-添加静态库a文件">3. 添加静态库<code>.a</code>文件</h3>
+<figure data-type="image" tabindex="4"><img src="https://images.cnblogs.com/cnblogs_com/wgb1234/1695793/o_2004120224594.png" alt="" loading="lazy"></figure>
+<h3 id="4-导入头文件调用代码查看调试效果">4. 导入头文件,调用代码,查看调试效果</h3>
+<figure data-type="image" tabindex="5"><img src="https://images.cnblogs.com/cnblogs_com/wgb1234/1695793/o_2004120225035.png" alt="" loading="lazy"></figure>
+<h3 id="5-修改mylibsm里的方法实现然后再编译观察改变的效果">5.  修改<code>MyLibs.m</code>里的方法实现,然后再编译观察改变的效果</h3>
+<figure data-type="image" tabindex="6"><img src="https://images.cnblogs.com/cnblogs_com/wgb1234/1695793/o_2004120225096.png" alt="" loading="lazy"></figure>
+<h2 id="总结">总结:</h2>
+<p>这样做的好处有</p>
+<ol>
+<li>静态库可以提升编译效率</li>
+<li>以工程方式打入可以一改静态库不能修改调试的痛点</li>
+</ol>
 
             </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="http://wangguibin.github.io/post/flutter-yu-ios-zhi-jian-ping-tai-tong-xin-platform-channelji-ben-liu-cheng/">
+                  <h3 class="post-title">
+                    Flutter与iOS之间平台通信(platform channel)基本流程
+                  </h3>
+                </a>
+              </div>
             
 
             
